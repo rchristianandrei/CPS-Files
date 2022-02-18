@@ -82,9 +82,7 @@ span.about {
   color: #4a74df;
 }
 
-.site_map,
-.more_about,
-.follow_us {
+.section {
   width: 33%;
 }
 
@@ -101,6 +99,7 @@ footer div span section ul li {
   display: flex;
   justify-content: space-between;
   font-size: smaller;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 
