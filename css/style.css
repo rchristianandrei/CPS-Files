@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat, monospace;
+  font-weight: 900;
+}
+
+header {
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10%;
+}
+
+img.logo {
+  width: 65px;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 50%;
+}
+
+header li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+header li a {
+  text-decoration: none;
+  color: #000;
+  transition: all 2s ease 0s;
+}
+
+header li a:hover {
+  color: #3c64b1;
+}
+
+button {
+  background-color: rgba(60, 100, 177, 1);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  border-style: none;
+  transition: all 2s ease 0s;
+}
+
+button:hover {
+  background-color: rgba(60, 100, 177, 0.5);
+}
+
+body {
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  background-color: #1e2833;
+  margin: auto;
+  padding: 10px 10%;
+  color: #ffffff;
+}
+
+span.news {
+  width: 20%;
+  height: 200px;
+  margin: 30px 0 0 0;
+}
+
+span.about {
+  display: flex;
+  text-align: center;
+  width: 80%;
+  margin: 30px 0 0 0;
+  color: #4a74df;
+}
+
+.site_map,
+.more_about,
+.follow_us {
+  width: 33%;
+}
+
+footer div span section ul li {
+  color: #ffffff;
+  list-style: none;
+  padding: 10px 0;
+  font-weight: 400;
+}
+
+.bottom {
+  color: #c3cbcd;
+  opacity: 0.6;
+  display: flex;
+  justify-content: space-between;
+  font-size: smaller;
+  padding-bottom: 50px;
+}
+
+.rights {
+  font-size: smaller;
+}
+
+.terms {
+  font-size: smaller;
+}

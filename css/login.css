@@ -1,0 +1,44 @@
+.formlayout {
+  display: flex;
+  align-items: center;
+  border: solid #000;
+  border-width: 2px;
+  border-color: #e5e5e5;
+  border-radius: 20px;
+  margin: 120px 20%;
+  padding: 2px;
+}
+
+.leftside {
+  width: 45%;
+}
+
+.login_photo {
+  width: 400px;
+  height: 500px;
+  max-width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.form {
+  width: 55%;
+  height: 100%;
+  padding: 20px 0;
+}
+main div span form div {
+  padding: 20px 10%;
+}
+
+/* #student_id,
+#password {
+} */
+
+.loginbutton {
+  background-color: rgba(60, 100, 177, 1);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 90px;
+  border-style: none;
+  border-radius: 10px;
+}
