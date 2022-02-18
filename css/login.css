@@ -26,7 +26,8 @@
   height: 100%;
   padding: 20px 0;
 }
-main div span form div {
+main div span form div,
+main div span div div {
   padding: 20px 10%;
 }
 
