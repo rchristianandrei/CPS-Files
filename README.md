@@ -2,11 +2,10 @@
 
 Files for CPS website
 
-##
+## Group Members:
 
-Group Members:
-Arcillas, Jeah
-Daquioag, Paolo
-Galang, Justin
-Ignacio, Iñigo
-Reyes, Christian
+    Arcillas, Jeah
+    Daquioag, Paolo
+    Galang, Justin
+    Ignacio, Inigo
+    Reyes, Christian
