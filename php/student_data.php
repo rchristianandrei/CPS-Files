@@ -1,3 +1,21 @@
+<?php
+    //  Connect to databse
+    $connect = mysqli_connect('localhost', 'root', '', 'cps');
+
+    //  Check Connection
+
+    if(!$connect){
+        echo 'Connection Eror: ' . mysqli_connect_error();
+    }
+
+    $sql = "select * from student_data limit 10";
+
+    $result = mysqli_query($connect, $sql);
+
+    //  Get multiple results for showing in table
+    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,7 +60,21 @@
                     <th id="firstName">First Name</th>
                     <th>Update</th>
                 </tr>
-                <tr>
+                <?php
+                    foreach($data as $entry){
+                        echo(
+                            "
+                            <tr>
+                                <td>".$entry['student_id']."</td>
+                                <td>".$entry['last_name']."</td>
+                                <td>".$entry['first_name']."</td>
+                                <td><u>edit</u></td>
+                            </tr>
+                            "
+                        );  
+                    }
+                ?>
+                <!-- <tr>
                     <td>2020-10735</td>
                     <td>Reyes</td>
                     <td>Christian Andrei</td>
@@ -71,7 +103,7 @@
                     <td>Ignacio</td>
                     <td>Iñigo</td>
                     <td><u>edit</u></td>
-                </tr>
+                </tr> -->
             </table>
         </main>
         <footer>

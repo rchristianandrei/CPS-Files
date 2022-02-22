@@ -21,7 +21,7 @@
     if(mysqli_num_rows($result) == 1)
     {
         echo "Login Successful!";
-        //  header('Location: student_data.html');
+        header('Location: ../html/student_data.html');
     }
     else{
         echo "Login Failed..";
