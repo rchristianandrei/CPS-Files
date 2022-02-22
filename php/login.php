@@ -12,12 +12,21 @@
     $student_id = $_POST['student_id'];
     $password = $_POST['password'];
 
-    $sql = 'select * from student_login where student_id = ' . $student_id;
+    $sql = "SELECT * FROM student_login WHERE student_id = '" . $student_id . "' AND password = '" . $password . "'";
+    //  Query for student data
+    //  $studentData = 'select * from student limit 10';
 
     $result = mysqli_query($connect, $sql);
 
-    // Get multiple results for showing in table
-    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    if(mysqli_num_rows($result) == 1)
+    {
+        echo "Login Successful!";
+        //  header('Location: student_data.html');
+    }
+    else{
+        echo "Login Failed..";
+    }
 
-    // header('Location: student_data.html');
+    //  Get multiple results for showing in table
+    //  $data = mysqli_fetch_all($result, MYSQLI_ASSOC); 
 ?>
