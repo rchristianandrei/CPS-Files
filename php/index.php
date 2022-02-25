@@ -1,3 +1,20 @@
+<?php
+    if(iseet($_GET['submit'])){
+        include 'templates/connection.php';
+
+        //  Query
+        $student_id = $_POST['student_id'];
+        $password = $_POST['password'];
+
+        $sql = "SELECT * FROM student_login WHERE student_id = '$student_id' AND password = '$password'";
+
+        $result = mysqli_query($connect, $sql);
+
+        if(mysqli_num_rows($result) == 1)
+        {
+            header('Location: student_data.php');
+        }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,8 +57,14 @@
                                 <a href="#">Forgot Password?</a>
                             </span>
                         </div>
+                        <?php 
+                                if(mysqli_num_rows($result) == 0){
+                                    echo '<div>Invalid Account</div>'
+                                }
+                            }      
+                        ?>
                         <center>
-                            <div><input type="submit" class="loginbutton" value="Login"></div>
+                            <div><input type="submit" name="submit" class="loginbutton" value="Login"></div>
                         </center>
                     </form>
                 </span>

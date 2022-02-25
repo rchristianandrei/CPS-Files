@@ -11,13 +11,6 @@
 
     if(mysqli_num_rows($result) == 1)
     {
-        echo "Login Successful!";
         header('Location: student_data.php');
-    }
-    else{
-        echo "Login Failed..";
-    }
-
-    //  Get multiple results for showing in table
-    //  $data = mysqli_fetch_all($result, MYSQLI_ASSOC); 
+    } 
 ?>
