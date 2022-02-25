@@ -1,5 +1,5 @@
 <?php
-    include 'include/connection.php';
+    include 'templates/connection.php';
 
     //  Query
     $student_id = $_POST['student_id'];
@@ -12,7 +12,7 @@
     if(mysqli_num_rows($result) == 1)
     {
         echo "Login Successful!";
-        header('Location: ../html/student_data.html');
+        header('Location: student_data.php');
     }
     else{
         echo "Login Failed..";
