@@ -1,20 +1,11 @@
 <?php
-    //  Connect to databse
-    $connect = mysqli_connect('localhost', 'root', '', 'cps');
-
-    //  Check Connection
-
-    if(!$connect){
-        echo 'Connection Eror: ' . mysqli_connect_error();
-    }
+    include 'include/connection.php';
 
     //  Query
     $student_id = $_POST['student_id'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM student_login WHERE student_id = '" . $student_id . "' AND password = '" . $password . "'";
-    //  Query for student data
-    //  $studentData = 'select * from student limit 10';
+    $sql = "SELECT * FROM student_login WHERE student_id = '$student_id' AND password = '$password'";
 
     $result = mysqli_query($connect, $sql);
 
