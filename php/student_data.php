@@ -64,50 +64,14 @@
                     <th id="firstName">First Name</th>
                     <th>Update</th>
                 </tr>
-                <?php
-                    foreach($data as $entry){
-                        echo(
-                            "
-                            <tr>
-                                <td>".$entry['student_id']."</td>
-                                <td>".$entry['last_name']."</td>
-                                <td>".$entry['first_name']."</td>
-                                <td><u>edit</u></td>
-                            </tr>
-                            "
-                        );  
-                    }
-                ?>
-                <!-- <tr>
-                    <td>2020-10735</td>
-                    <td>Reyes</td>
-                    <td>Christian Andrei</td>
-                    <td><u>edit</u></td>
-                </tr>
-                <tr>
-                    <td>2020-107xx</td>
-                    <td>Daquioag</td>
-                    <td>Paolo</td>
-                    <td><u>edit</u></td>
-                </tr>
-                <tr>
-                    <td>2020-107xx</td>
-                    <td>Galang</td>
-                    <td>Justin Ron</td>
-                    <td><u>edit</u></td>
-                </tr>
-                <tr>
-                    <td>2020-107xx</td>
-                    <td>Arcillas</td>
-                    <td>Jeah Raizza</td>
-                    <td><u>edit</u></td>
-                </tr>
-                <tr>
-                    <td>2020-107xx</td>
-                    <td>Ignacio</td>
-                    <td>Iñigo</td>
-                    <td><u>edit</u></td>
-                </tr> -->
+                <?php foreach($data as $entry){ ?>
+                    <tr>
+                        <td><?php echo $entry['student_id']; ?></td>
+                        <td><?php echo $entry['first_name']; ?></td>
+                        <td><?php echo $entry['last_name']; ?></td>
+                        <td><a href="#">edit</a></td>
+                    </tr> 
+                <?php } ?>
             </table>
         </main>
         <footer>
