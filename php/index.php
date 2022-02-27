@@ -1,5 +1,5 @@
 <?php
-    if(iseet($_GET['submit'])){
+    if(isset($_POST['submit'])){
         include 'templates/connection.php';
 
         //  Query
@@ -14,6 +14,7 @@
         {
             header('Location: student_data.php');
         }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,12 +44,12 @@
             <div class="formlayout">
                 <img src="../images/login-photo.JPG" alt="login photo" class="login_photo leftside">
                 <span class="form">
-                    <form action="../php/login.php" method="post">
+                    <form action="../php/index.php" method="post">
                         <div><h2>Login</h2></div>
                         <div><label for="student_id">Student ID</label></div>
-                        <div><input type="text" name="student_id" id="student_id"></div>
+                        <div><input type="text" name="student_id" id="student_id" required></div>
                         <div><label for="password">Password</label></div>
-                        <div><input type="password" name="password" id="password"></div>
+                        <div><input type="password" name="password" id="password" required></div>
                         <div style="display: flex; justify-content: space-between;">
                             <span>
                                 <input type="checkbox" name="remember_me" id="remember_me"><label for="remember_me"> Remember Me</label>
@@ -57,12 +58,6 @@
                                 <a href="#">Forgot Password?</a>
                             </span>
                         </div>
-                        <?php 
-                                if(mysqli_num_rows($result) == 0){
-                                    echo '<div>Invalid Account</div>'
-                                }
-                            }      
-                        ?>
                         <center>
                             <div><input type="submit" name="submit" class="loginbutton" value="Login"></div>
                         </center>
