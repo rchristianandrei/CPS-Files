@@ -46,9 +46,9 @@
                 </tr>
                 <?php foreach($data as $entry){ ?>
                     <tr>
-                        <td><?php echo $entry['student_id']; ?></td>
-                        <td><?php echo $entry['first_name']; ?></td>
-                        <td><?php echo $entry['last_name']; ?></td>
+                        <td><?php echo htmlspecialchars($entry['student_id']); ?></td>
+                        <td><?php echo htmlspecialchars($entry['first_name']); ?></td>
+                        <td><?php echo htmlspecialchars($entry['last_name']); ?></td>
                         <td><a href="#">edit</a></td>
                     </tr> 
                 <?php } ?>
