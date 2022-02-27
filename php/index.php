@@ -1,4 +1,7 @@
 <?php
+
+    $student_id = $error = '';
+
     if(isset($_POST['submit'])){
         include 'templates/connection.php';
 
@@ -13,6 +16,8 @@
         if(mysqli_num_rows($result) == 1)
         {
             header('Location: student_data.php');
+        }else{
+            $error = "Invalid ID or password";
         }
     }
 ?>
@@ -47,7 +52,7 @@
                     <form action="../php/index.php" method="post">
                         <div><h2>Login</h2></div>
                         <div><label for="student_id">Student ID</label></div>
-                        <div><input type="text" name="student_id" id="student_id" required></div>
+                        <div><input type="text" name="student_id" id="student_id" value="<?php echo $student_id; ?>" required></div>
                         <div><label for="password">Password</label></div>
                         <div><input type="password" name="password" id="password" required></div>
                         <div style="display: flex; justify-content: space-between;">
@@ -58,6 +63,7 @@
                                 <a href="#">Forgot Password?</a>
                             </span>
                         </div>
+                        <div style="color: red;"><?php echo $error; ?></div>
                         <center>
                             <div><input type="submit" name="submit" class="loginbutton" value="Login"></div>
                         </center>
