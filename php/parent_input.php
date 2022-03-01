@@ -1,24 +1,24 @@
 <?php 
 
-    $error = $id = $mail = $relate = $firstName = $midName = $lastName = $suffix = $street = $city = $province = $postal = $country = $contact = $parent = $guardian = '';
+    $message = $id = $mail = $relate = $firstName = $midName = $lastName = $suffix = $street = $city = $province = $postal = $country = $contact = $parent = $guardian = '';
 
     if(isset($_POST['submit'])){
         include '../templates/connection.php';
 
         // Get info from form
-        $id = $_POST['student_id'];
-        $mail = $_POST['email'];
-        $relate = $_POST['relationship'];
-        $firstName = $_POST['first_name'];
-        $midName = $_POST['middle_name'];
-        $lastName = $_POST['last_name'];
-        $suffix = $_POST['suffix'];
-        $street = $_POST['street'];
-        $city = $_POST['city'];
-        $province = $_POST['province'];
-        $postal = $_POST['postal_code'];
-        $country = $_POST['country'];
-        $contact = $_POST['contact'];
+        $id = mysqli_real_escape_string($connect, $_POST['student_id']);
+        $mail = mysqli_real_escape_string($connect, $_POST['email']);
+        $relate = mysqli_real_escape_string($connect, $_POST['relationship']);
+        $firstName = mysqli_real_escape_string($connect, $_POST['first_name']);
+        $midName = mysqli_real_escape_string($connect, $_POST['middle_name']);
+        $lastName = mysqli_real_escape_string($connect, $_POST['last_name']);
+        $suffix = mysqli_real_escape_string($connect, $_POST['suffix']);
+        $street = mysqli_real_escape_string($connect, $_POST['street']);
+        $city = mysqli_real_escape_string($connect, $_POST['city']);
+        $province = mysqli_real_escape_string($connect, $_POST['province']);
+        $postal = mysqli_real_escape_string($connect, $_POST['postal_code']);
+        $country = mysqli_real_escape_string($connect, $_POST['country']);
+        $contact = mysqli_real_escape_string($connect, $_POST['contact']);
 
         //  Check radio input
         if($relate === "Parent"){
@@ -27,28 +27,32 @@
             $guardian = 'checked="checked"';
         }
 
-        $sql = "SELECT student_id FROM student_data WHERE student_id = '$id'";
-
-        // Get result
+        // Check if student exist
+        $sql = "SELECT id FROM students WHERE id = '$id'";
         $result = mysqli_query($connect, $sql);
+
+        // Set message for user
         if(mysqli_num_rows($result) == 1){
             
-            echo $id . '<br>';
-            echo $mail . '<br>';
-            echo $relate . '<br>';
-            echo $firstName . '<br>';
-            echo $midName . '<br>';
-            echo $lastName . '<br>';
-            echo $suffix . '<br>';
-            echo $street . '<br>';
-            echo $city . '<br>';
-            echo $province . '<br>';
-            echo $postal . '<br>';
-            echo $country . '<br>';
-            echo $contact . '<br>';
+            $sql = "INSERT INTO parents VALUES (null, '$id', '$mail', '$relate', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province', '$postal', '$country', '$contact', null)";
+
+            if(mysqli_query($connect, $sql)){
+                
+                $message = "Success!";
+                
+            }else{
+                $message = "error" . mysqli_error($connect);
+            }
+            
         }else{
-            $error = "Student does not exist";
+            $message = "Student does not exist";
         }
+
+        //  Free up space
+        mysqli_free_result($result);
+
+        // Close Connection
+        mysqli_close($connect);
     }
 ?>
 <!DOCTYPE html>
@@ -99,7 +103,7 @@
                     </div>
                     <div>
                         <label for="first_name">First name: </label>
-                        <input type="text" id="first_name" name="first_name" maxlength="20" size="30" placeholder="Sonny" value="<?php echo htmlspecialchars($firstName); ?>" required>
+                        <input type="text" id="first_name" name="first_name" maxlength="30" size="30" placeholder="Sonny" value="<?php echo htmlspecialchars($firstName); ?>" required>
                     </div>
                     <div>
                         <label for="middle_name">Middle name: </label>
@@ -131,7 +135,7 @@
                     </div>
                     <div>
                         <label for="postal_code">Postal Code: </label>
-                        <input type="number" id="postal_code" name="postal_code" size="30" placeholder="4027" value="<?php echo htmlspecialchars($postal); ?>" required>
+                        <input type="number" id="postal_code" name="postal_code" size="30" max="9999" placeholder="4027" value="<?php echo htmlspecialchars($postal); ?>" required>
                     </div>
                     <div>
                         <label for="country">Country: </label>
@@ -144,7 +148,7 @@
                 </span>
             </div>
             <center>
-                <div style="color: red;"><?php echo htmlspecialchars($error); ?></div><br>
+                <div style="color: <?php if ($message === "Success!"){ echo 'green'; } else{ echo 'red'; } ?>; margin-bottom: 20px;"><?php echo htmlspecialchars($message); ?></div><br>
                 <input type="submit" name="submit" class="loginbutton" value="Submit">
             </center>
         </form>
