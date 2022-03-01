@@ -28,19 +28,15 @@
             <span class="form">
                 <form action="" method="post">
                     <div><label for="contact_name">Name</label></div>
-                    <div><input type="text" name="contact_name" id="contact_email" placeholder="Enter your name"></div>
+                    <div><input type="text" class="textbox" name="contact_name" id="contact_email" placeholder="Enter your name"></div>
                     <div><label for="contact_email">Email</label></div>
-                    <div><input type="text" name= "contact_email" id="contact_email" placeholder="email@address.com"></div>
+                    <div><input type="text" class="textbox" name= "contact_email" id="contact_email" placeholder="email@address.com"></div>
                     <div><label for="subject">Subject</label></div>
-                    <div><input type="text" name= "subject" id="subject" placeholder="Provide context"></div>
+                    <div><input type="text" class="textbox" name= "subject" id="subject" placeholder="Provide context"></div>
                     <div><label for="message">Message</label></div>
-                    <div><input type="text" name= "message" id="message" placeholder="Write your question here"></div>
-                    <div style="display: flex; justify-content: space-between;">
-
-                    </div>
-                    <center>
-                        <div><input type="submit" class="messagebutton" value="Send a message"></div>
-                    </center>
+                    <div><textarea id="message" name="message" class="messagebox" rows="4" cols="50" placeholder="Write your question here"></textarea></div>
+                    <div style="display: flex; justify-content: space-between;"></div>
+                    <div><input type="submit" class="messagebutton" value="Send a message"></div>
                 </form>
             </span>
         </div>
