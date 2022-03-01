@@ -1,30 +1,58 @@
+<?php 
+
+    if(isset($_POST['submit'])){
+        include '../templates/connection.php';
+
+        // Get info from form
+        $id = $_POST['student_id'];
+        $mail = $_POST['email'];
+        $sex = $_POST['sex'];
+        $firstName = $_POST['first_name'];
+        $midName = $_POST['middle_name'];
+        $lastName = $_POST['last_name'];
+        $suffix = $_POST['suffix'];
+        $dob = $_POST['date_of_birth'];
+        $street = $_POST['street'];
+        $city = $_POST['city'];
+        $province = $_POST['province'];
+        $postal = $_POST['postal_code'];
+        $country = $_POST['country'];
+        $contact = $_POST['contact'];
+        $course = $_POST['course'];
+
+        echo $id . '<br>';
+        echo $mail . '<br>';
+        echo $sex . '<br>';
+        echo $firstName . '<br>';
+        echo $midName . '<br>';
+        echo $lastName . '<br>';
+        echo $suffix . '<br>';
+        echo $dob . '<br>';
+        echo $street . '<br>';
+        echo $city . '<br>';
+        echo $province . '<br>';
+        echo $postal . '<br>';
+        echo $country . '<br>';
+        echo $contact . '<br>';
+        echo $course . '<br>';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This is a website used ny CPS to update, manage, and delete data about students.">
-    <title>CPS-Laguna</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <?php include '../templates/head.php' ?>
 
-    <link rel="stylesheet" type="text/css" href="../css/student_table.css">
+    <link rel="stylesheet" type="text/css" href="../css/student_table_input.css">
+    <link rel="stylesheet" type="text/css" href="../css/subheader.css">
 </head>
 <body>
     <header>
-        <img src="../images/cps-logo.png" alt="cps logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </nav>
-        <button><a href="../../CPS-Files/php/index.html">Login</a></button>
+        <?php include '../templates/header.php' ?>
     </header>
     <main>
-        <form action="" method="post">
+        <?php include '../templates/subheader.php' ?>
+
+        <form action="input.php" method="post">
             <div class="format">
                 <span class="leftside">
                     <h3>Primary Information</h3>
@@ -36,6 +64,16 @@
                         <label for="email">E-mail: </label>
                         <input type="email" id="email" name="email" size="30" maxlength="30" placeholder="sonny@mail.com" required>
                     </div>
+                    <div>
+                        <label>Sex: </label> 
+                        <span class="radio">
+                            <label for="m">M</label>
+                            <input style="float: none;" type="radio" id="m" name="sex" value="M" required>
+                            <label for="f">F</label>
+                            <input style="float: none;" type="radio" id="f" name="sex" value="F" required>
+                        </span>
+                    </div>
+                    
                     <div>
                         <label for="first_name">First name: </label>
                         <input type="text" id="first_name" name="first_name" maxlength="20" size="30" placeholder="Sonny" required>
@@ -84,6 +122,14 @@
                         <label for="contact">Contact: </label>
                         <input type="tel" id="contact" name="contact" maxlength="11" size="30" placeholder="09*********" required>
                     </div>
+                    <div>
+                        <label for="cs"><i>Computer Science: </i></label>
+                        <input type="radio" name="course" id="cs" value="CS" required>
+                    </div>
+                    <div>
+                        <label for="it"><i>Information Technology: </i></label>
+                        <input type="radio" name="course" id="it" value="IT" required>
+                    </div>
                 </span>
             </div>
             <center>
@@ -92,55 +138,7 @@
         </form>
     </main>
     <footer>
-        <img src="../images/footer-logo.jpg" alt="cps logo" class="logo"> 
-        <hr>
-        <div style="display: flex;">
-            <span class="news">
-                <span>Subscribe to our newsletter</span>
-            </span>
-            <span class="about">
-                <section class="section">
-                    <ul>
-                        <caption>Site Map</caption>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </section>
-                <section class="section">
-                    <ul>
-                        <caption>About</caption>
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Benefits</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Carrers</a></li>
-                    </ul>
-                </section>
-                <section class="section">
-                    <ul>
-                        <caption>Follow Us</caption>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter</a></li>
-                    </ul>
-                </section>
-            </span>
-        </div>
-        
-        <div class="bottom">
-            <span class="rights">
-                © Computer Programming Society. All Rights Reserved.
-            </span>
-            <span class="terms">
-                <span style="margin-right: 40px;">
-                    Terms & Condition
-                </span>
-                <span>
-                    Privacy Policy
-                </span>
-            </span>
-        </div>
+        <?php include '../templates/footer.php' ?>
     </footer>
 </body>
 </html>
