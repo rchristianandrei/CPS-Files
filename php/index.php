@@ -34,7 +34,7 @@
         </header>
         <main>
             <div class="formlayout">
-                <img src="../images/login-photo.JPG" alt="login photo" class="login_photo leftside">
+                <img src="../images/homepage.png" alt="login photo" class="login_photo leftside">
                 <span class="form">
                     <form action="../php/index.php" method="post">
                         <div><h2>Login</h2></div>
