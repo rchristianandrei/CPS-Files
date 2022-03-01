@@ -3,7 +3,8 @@
 $message = $id = $mail = $sex = $firstName = $midName = $lastName = $suffix = $dob = $street = $city = $province = $postal = $country = $contact = $course = $male = $female = $cs = $it = '';
 
     if(isset($_POST['submit'])){
-        include '../templates/connection.php';
+        
+        include '../config/connection.php';
 
         // Get info from form
         $id = mysqli_real_escape_string($connect, $_POST['student_id']);
@@ -73,8 +74,10 @@ $message = $id = $mail = $sex = $firstName = $midName = $lastName = $suffix = $d
 <body>
     <header>
         <?php include '../templates/header.php' ?>
+        
     </header>
     <main>
+
         <?php include '../templates/subheader.php' ?>
 
         <form action="input.php" method="post">
@@ -86,7 +89,7 @@ $message = $id = $mail = $sex = $firstName = $midName = $lastName = $suffix = $d
                     <h3>Primary Information</h3>
                     <div>
                         <label for="student_id">Student ID: </label>
-                        <input type="text" id="student_id" name="student_id" size="30" maxlength="10" placeholder="1234-1234" pattern="[1-9]{1}[0-9]{3}-[0-9]{5}" value="<?php echo htmlspecialchars($id); ?>" required>
+                        <input type="text" id="student_id" name="student_id" size="30" maxlength="10" placeholder="1234-12345" pattern="[1-9]{1}[0-9]{3}-[0-9]{5}" value="<?php echo htmlspecialchars($id); ?>" required>
                     </div>
                     <div>
                         <label for="email">E-mail: </label>
@@ -165,8 +168,8 @@ $message = $id = $mail = $sex = $firstName = $midName = $lastName = $suffix = $d
                 </span>
             </div>
             <center>
-            <div style="color: <?php if ($message === "Success!"){ echo 'green'; } else{ echo 'red'; } ?>; margin-bottom: 20px;"><?php echo htmlspecialchars($message); ?></div><br>
-                <input type="submit" name="submit" class="loginbutton" value="Submit">
+                <div style="color: <?php if ($message === "Success!"){ echo 'green'; } else{ echo 'red'; } ?>; margin: 10px 0;"><?php echo htmlspecialchars($message); ?></div><br>
+                <input type="submit" name="submit" class="button" value="Submit">
             </center>
         </form>
     </main>

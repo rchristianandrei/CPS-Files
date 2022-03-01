@@ -8,30 +8,15 @@ form {
   margin: 120px 20%;
 }
 
-.format {
-  display: flex;
-}
-
 h2 {
   margin: 20px 0;
 }
 
-.leftside,
-.rightside {
-  width: 50%;
-  height: 100%;
-  padding: 20px 2%;
-  margin: 0px 2%;
+main form div ul li {
+  list-style: none;
+  display: block;
 }
-main form span div {
-  margin: 20px 0px;
-}
-
-main form span div input {
-  float: right;
-}
-
-.button {
+input.button {
   background-color: rgba(60, 100, 177, 1);
   color: #ffffff;
   cursor: pointer;
@@ -39,4 +24,22 @@ main form span div input {
   border-style: none;
   border-radius: 10px;
   margin-bottom: 20px;
+}
+
+div.id {
+  text-align: center;
+  margin: 0px 35%;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.skills {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 35%;
+}
+
+span.big {
+  font-size: large;
 }

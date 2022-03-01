@@ -4,7 +4,7 @@
 
     if(isset($_POST['submit'])){
         // session_start();
-        include '../templates/connection.php';
+        include '../config/connection.php';
 
         //  Query
         $student_id = $_POST['student_id'];

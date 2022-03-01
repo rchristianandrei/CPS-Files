@@ -1,5 +1,5 @@
 <?php
-    include '../templates/connection.php';
+    include '../config/connection.php';
 
     //  Retrieve Query
     $sql = "select * from student_data limit 10";
