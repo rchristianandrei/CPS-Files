@@ -1,12 +1,20 @@
 <?php
     include '../templates/connection.php';
 
+    //  Retrieve Query
     $sql = "select * from student_data limit 10";
 
+    //  Get Results
     $result = mysqli_query($connect, $sql);
 
     //  Get multiple results for showing in table
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    //  Free result space
+    mysqli_free_result($result);
+
+    // Close Connection
+    mysqli_close($connect);
 ?>
 
 <!DOCTYPE html>

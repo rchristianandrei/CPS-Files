@@ -3,6 +3,7 @@
     $student_id = $error = '';
 
     if(isset($_POST['submit'])){
+        // session_start();
         include '../templates/connection.php';
 
         //  Query
@@ -41,13 +42,8 @@
                         <div><input type="text" name="student_id" id="student_id" value="<?php echo htmlspecialchars($student_id); ?>" required></div>
                         <div><label for="password">Password</label></div>
                         <div><input type="password" name="password" id="password" required></div>
-                        <div style="display: flex; justify-content: space-between;">
-                            <span>
-                                <input type="checkbox" name="remember_me" id="remember_me"><label for="remember_me"> Remember Me</label>
-                            </span>
-                            <span>
-                                <a href="#">Forgot Password?</a>
-                            </span>
+                        <div>
+                            <a href="#">Forgot Password?</a>
                         </div>
                         <div style="color: red;"><?php echo $error; ?></div>
                         <center>
