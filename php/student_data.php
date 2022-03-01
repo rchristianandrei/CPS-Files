@@ -1,5 +1,5 @@
 <?php
-    include 'templates/connection.php';
+    include '../templates/connection.php';
 
     $sql = "select * from student_data limit 10";
 
@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php include 'templates/head.php' ?>
+        <?php include '../templates/head.php' ?>
         
         <style> /* CSS for table */
             table {
@@ -33,7 +33,7 @@
     </head>
     <body>
         <header>
-            <?php include 'templates/header.php' ?>
+            <?php include '../templates/header.php' ?>
         </header>
         <main>
             <table>
@@ -55,7 +55,7 @@
             </table>
         </main>
         <footer>
-            <?php include 'templates/footer.php' ?>
+            <?php include '../templates/footer.php' ?>
         </footer>
     </body>
 </html>
