@@ -82,7 +82,7 @@
     </header>   
     <main>
 
-        <?php include '../templates/subheader.php' ?>
+        <?php include '../templates/subheader_input.php' ?>
 
         <form action="skills_input.php" method="post" id="form">
             <center>

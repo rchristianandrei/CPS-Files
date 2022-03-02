@@ -78,9 +78,9 @@ $message = $id = $mail = $sex = $firstName = $midName = $lastName = $suffix = $d
     </header>
     <main>
 
-        <?php include '../templates/subheader.php' ?>
+        <?php include '../templates/subheader_input.php' ?>
 
-        <form action="student_input.php" method="post">
+        <form action="input.php" method="post">
             <center>
                 <h2>Student</h2>
             </center>

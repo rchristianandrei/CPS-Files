@@ -72,7 +72,7 @@
     </header>
     <main>
 
-        <?php include '../templates/subheader.php' ?>
+        <?php include '../templates/subheader_input.php' ?>
 
         <form action="parent_input.php" method="post">
             <center>
