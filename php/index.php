@@ -27,6 +27,11 @@
     <head>
         <?php include '../templates/head.php' ?>
         <link rel="stylesheet" type="text/css" href="../css/login.css">
+        <style>
+            #login{
+                opacity: 50%;
+            }
+        </style>
     </head>
     <body>
         <header>

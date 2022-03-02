@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../css/subheader.css">
     <link rel="stylesheet" type="text/css" href="../css/students_output.css">
     <style>
-        #add, #address{
+        #retrieve, #address{
             opacity: 50%;
         }
     </style>

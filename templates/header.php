@@ -8,4 +8,4 @@
         <li><a href="#">Contact Us</a></li>
     </ul>
 </nav>
-<button><a href="../php/index.php">Login</a></button>
+<button id = "login"><a href="../php/index.php">Login</a></button>
