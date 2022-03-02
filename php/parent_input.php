@@ -1,6 +1,6 @@
 <?php 
 
-    $message = $id = $mail = $relate = $firstName = $midName = $lastName = $suffix = $street = $city = $province = $postal = $country = $contact = $parent = $guardian = '';
+    $message = $id = $mail = $relate = $firstName = $midName = $lastName = $suffix = $street = $city = $province = $postal = $country = $contact = $parent = $guardian = $sex = $female = $male = '';
 
     if(isset($_POST['submit'])){
         
@@ -10,6 +10,7 @@
         $id = mysqli_real_escape_string($connect, $_POST['student_id']);
         $mail = mysqli_real_escape_string($connect, $_POST['email']);
         $relate = mysqli_real_escape_string($connect, $_POST['relationship']);
+        $sex = mysqli_real_escape_string($connect, $_POST['sex']);
         $firstName = mysqli_real_escape_string($connect, $_POST['first_name']);
         $midName = mysqli_real_escape_string($connect, $_POST['middle_name']);
         $lastName = mysqli_real_escape_string($connect, $_POST['last_name']);
@@ -27,6 +28,11 @@
         }elseif($relate === "Guardian"){
             $guardian = 'checked="checked"';
         }
+        if($sex === "M"){
+            $male = 'checked="checked"';
+        }elseif($sex === "F"){
+            $female = 'checked="checked"';
+        }
 
         // Check if student exist
         $sql = "SELECT id FROM students WHERE id = '$id'";
@@ -35,7 +41,7 @@
         // Set message for user
         if(mysqli_num_rows($result) == 1){
             
-            $sql = "INSERT INTO parents VALUES (null, '$id', '$mail', '$relate', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province', '$postal', '$country', '$contact', null)";
+            $sql = "INSERT INTO parents VALUES (null, '$id', '$mail', '$relate', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province', '$postal', '$country', '$contact', null)";
 
             if(mysqli_query($connect, $sql)){
                 
@@ -95,13 +101,24 @@
                         <input type="email" id="email" name="email" size="30" maxlength="30" placeholder="sonny@mail.com" value="<?php echo htmlspecialchars($mail); ?>" required>
                     </div>
                     <div>
-                        <label for="relationship">Relationship: </label> 
+                        <label>Relationship: </label> 
                         <span>
                             <center>
                                 <label for="parent">Parent</label>
                                 <input style="float: none;" type="radio" id="parent" name="relationship" value="Parent" <?php echo $parent;?> required>
                                 <label for="guardian">Guardian</label>
                                 <input style="float: none;" type="radio" id="guardian" name="relationship" value="Guardian" <?php echo $guardian; ?> required>
+                            </center>
+                        </span>
+                    </div>
+                    <div>
+                        <label>Sex: </label> 
+                        <span>
+                            <center>
+                                <label for="male">Male</label>
+                                <input style="float: none;" type="radio" id="male" name="sex" value="M" <?php echo $male;?> required>
+                                <label for="female">Female</label>
+                                <input style="float: none;" type="radio" id="female" name="sex" value="F" <?php echo $female; ?> required>
                             </center>
                         </span>
                     </div>
