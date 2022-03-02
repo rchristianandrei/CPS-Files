@@ -80,7 +80,7 @@ $message = $id = $mail = $sex = $firstName = $midName = $lastName = $suffix = $d
 
         <?php include '../templates/subheader_input.php' ?>
 
-        <form action="input.php" method="post">
+        <form action="student_input.php" method="post">
             <center>
                 <h2>Student</h2>
             </center>

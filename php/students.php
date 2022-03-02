@@ -38,7 +38,7 @@
             <?php include '../templates/header.php'; ?>
         </header>
         <main>
-            <?php include'../templates/subheader_output.php'; ?>
+            <?php include '../templates/subheader_output.php'; ?>
             <table>
                 <caption>
                     <h3>Student Primary Information Table</h3><br>
