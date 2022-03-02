@@ -30,9 +30,9 @@ th {
 
 form {
   margin: 0px 32%;
-  justify-content: space-between;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .button {
