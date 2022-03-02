@@ -63,6 +63,9 @@
                 } 
             }
         }
+
+        mysqli_free_result($result);
+        mysqli_close($connect);
     }
 ?>
 <!DOCTYPE html>
