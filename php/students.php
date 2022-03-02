@@ -31,6 +31,11 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/subheader.css">
     <link rel="stylesheet" type="text/css" href="../css/students_output.css">
+    <style>
+        #add, #student{
+            opacity: 50%;
+        }
+    </style>
         
     </head>
     <body>

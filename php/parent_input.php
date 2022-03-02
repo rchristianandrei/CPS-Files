@@ -65,6 +65,11 @@
 
     <link rel="stylesheet" type="text/css" href="../css/student_table_input.css">
     <link rel="stylesheet" type="text/css" href="../css/subheader.css">
+    <style>
+        #add, #parent{
+            opacity: 50%;
+        }
+    </style>
 </head>
 <body>
     <header>

@@ -70,6 +70,11 @@ $message = $id = $mail = $sex = $firstName = $midName = $lastName = $suffix = $d
 
     <link rel="stylesheet" type="text/css" href="../css/student_table_input.css">
     <link rel="stylesheet" type="text/css" href="../css/subheader.css">
+    <style>
+        #add, #student{
+            opacity: 50%;
+        }
+    </style>
 </head>
 <body>
     <header>

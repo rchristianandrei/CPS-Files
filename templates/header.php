@@ -1,9 +1,9 @@
 <img src="../images/cps-logo.png" alt="cps logo" class="logo">
 <nav>
     <ul>
-        <li><a href="../php/homepage.php">Home</a></li>
-        <li><a href="../php/students.php">Retrieve</a></li>
-        <li><a href="../php/student_input.php">Add Info</a></li>
+        <li><a href="../php/homepage.php" id = "home">Home</a></li>
+        <li><a href="../php/students.php" id = "retrieve">Retrieve</a></li>
+        <li><a href="../php/student_input.php" id = "add">Add Info</a></li>
         <li><a href="#">Events</a></li>
         <li><a href="#">Contact Us</a></li>
     </ul>

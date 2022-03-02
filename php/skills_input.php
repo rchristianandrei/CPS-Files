@@ -75,6 +75,11 @@
 
     <link rel="stylesheet" type="text/css" href="../css/skills.css">
     <link rel="stylesheet" type="text/css" href="../css/subheader.css">
+    <style>
+        #add, #skills{
+            opacity: 50%;
+        }
+    </style>
 </head>
 <body>
     <header>
