@@ -1,0 +1,10 @@
+"UPDATE users_tbl SET  
+    name = '$aname',
+    sex = '$asex',
+    province = '$aprovince',
+    city = '$acity',
+    birth = '$abirth',
+    email = '$amail',
+    username = '$auname',
+    password = '$apassword'
+    WHERE id = '$aid' ";

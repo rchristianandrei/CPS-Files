@@ -1,9 +1,13 @@
 <?php
-
+    session_start();
     $student_id = $error = '';
 
+    if(isset($_SESSION['login'])){
+        header('Location: homepage.php');
+    }
+
     if(isset($_POST['submit'])){
-        // session_start();
+
         include '../config/connection.php';
 
         //  Query
@@ -16,10 +20,14 @@
 
         if(mysqli_num_rows($result) == 1)
         {
+            $_SESSION['login'] = mysqli_fetch_assoc($result);
             header('Location: students.php');
         }else{
             $error = "Invalid ID or password";
         }
+
+        mysqli_free_result($result);
+        mysqli_close($connect);
     }
 ?>
 <!DOCTYPE html>
@@ -39,7 +47,7 @@
         </header>
         <main>
             <div class="formlayout">
-                <img src="../images/homepage.png" alt="login photo" class="login_photo leftside">
+                <img src="../images/homepage.png" alt="login photo" class="login_photo">
                 <span class="form">
                     <form action="../php/index.php" method="post">
                         <div><h2>Login</h2></div>

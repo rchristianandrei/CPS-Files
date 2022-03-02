@@ -1,22 +1,28 @@
 <?php
+
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        session_abort();
+        header('Location: index.php');
+    }
+
     include '../config/connection.php';
 
     $search = '';
-
-    //  Retrieve Query
-    $sql = "SELECT * FROM skills LIMIT 10";
-
-    //  Get Results
-    $result = mysqli_query($connect, $sql);
-
-    //  Get multiple results for showing in table
-    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
 
         $sql = "SELECT * FROM skills WHERE student_id LIKE '%$search%' OR student_skills LIKE '%$search%'";
 
+        $result = mysqli_query($connect, $sql);
+        $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }else{
+        //  Retrieve Query
+        $sql = "SELECT * FROM skills LIMIT 10";
+
+        //  Get Results
         $result = mysqli_query($connect, $sql);
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
@@ -57,9 +63,9 @@
                 </caption>
                 <tr>
                     <th>Student ID</th>
+                    <th>Full Name</th>
                     <th>Skills</th>
                     <th>Date Created</th>
-                    <th>Update</th>
                 </tr>
                 <?php 
                     $index = 1;
@@ -67,9 +73,10 @@
                 ?>
                     <tr style="background-color: <?php if($index%2 != 0){ echo 'white'; }else{ echo 'inherit'; } ?>;">
                         <td><?php echo htmlspecialchars($entry['student_id']); ?></td>
+                        <td></td>
                         <td><?php echo htmlspecialchars($entry['student_skills']); ?></td>
                         <td><?php echo htmlspecialchars($entry['created_at']); ?></td>
-                        <td><a href="#">edit</a></td>
+                        <td><a href="#">...</a></td>
                     </tr>
                 <?php 
                     $index++;

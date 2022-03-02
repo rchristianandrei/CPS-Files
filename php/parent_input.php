@@ -1,5 +1,12 @@
 <?php 
 
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        session_abort();
+        header('Location: index.php');
+    }
+
     $message = $id = $mail = $relate = $firstName = $midName = $lastName = $suffix = $street = $city = $province = $postal = $country = $contact = $parent = $guardian = $sex = $female = $male = '';
 
     if(isset($_POST['submit'])){

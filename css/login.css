@@ -8,12 +8,8 @@
   padding: 0px;
 }
 
-.leftside {
-  width: 45%;
-}
-
 .login_photo {
-  width: 400px;
+  width: 45%;
   height: 500px;
   max-width: 100%;
   border-radius: 20px;
@@ -23,7 +19,7 @@
 .form {
   width: 55%;
   height: 100%;
-  padding: 20px 0;
+  padding: auto 0;
 }
 main div span form div,
 main div span div div {

@@ -1,23 +1,40 @@
 <?php
+
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        session_abort();
+        header('Location: index.php');
+    }
+
     include '../config/connection.php';
 
     $search = '';
 
-    //  Retrieve Query
-    $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, created_at FROM students LIMIT 10";
-
-    //  Get Results
-    $result = mysqli_query($connect, $sql);
-
-    //  Get multiple results for showing in table
-    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
 
-        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, created_at FROM students WHERE id LIKE '%$search%' OR email LIKE '%$search%' OR sex LIKE '%$search%' OR first_name LIKE '%$search%' OR middle_name LIKE '%$search%' OR last_name LIKE '%$search%' OR suffix LIKE '%$search%' OR course LIKE '%$search%'";
+        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, created_at FROM students 
+            WHERE 
+                id LIKE '%$search%' OR 
+                email LIKE '%$search%' OR 
+                sex LIKE '%$search%' OR 
+                first_name LIKE '%$search%' OR 
+                middle_name LIKE '%$search%' OR 
+                last_name LIKE '%$search%' OR 
+                suffix LIKE '%$search%' OR 
+                course LIKE '%$search%'";
 
         $result = mysqli_query($connect, $sql);
+        $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }else{
+        //  Retrieve Query
+        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, created_at FROM students LIMIT 10";
+
+        //  Get Results
+        $result = mysqli_query($connect, $sql);
+
+        //  Get multiple results for showing in table
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
@@ -55,29 +72,23 @@
                     <th>Student ID</th>
                     <th>E-mail</th>
                     <th>Sex</th>                    
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Suffix</th>
+                    <th>Full Name</th>
                     <th>Course</th>
                     <th>Date Created</th>
-                    <th>Update</th>
                 </tr>
                 <?php 
                     $index = 1;
                     foreach($data as $entry):
+                        $fullName = $entry['first_name']." <i>".$entry['middle_name'] ."</i> ".$entry['last_name']." ".$entry['suffix'];
                 ?>
                     <tr style="background-color: <?php if($index%2 != 0){ echo 'white'; }else{ echo 'inherit'; } ?>;">
                         <td><?php echo htmlspecialchars($entry['id']); ?></td>
                         <td><?php echo htmlspecialchars($entry['email']); ?></td>
                         <td><?php echo htmlspecialchars($entry['sex']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['first_name']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['middle_name']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['last_name']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['suffix']); ?></td>
+                        <td><?php echo $fullName; ?></td>
                         <td><?php echo htmlspecialchars($entry['course']); ?></td>
                         <td><?php echo htmlspecialchars($entry['created_at']); ?></td>
-                        <td><a href="#">edit</a></td>
+                        <td><a href="#">...</a></td>
                     </tr>
                 <?php 
                     $index++;

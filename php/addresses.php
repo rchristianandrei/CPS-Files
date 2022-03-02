@@ -1,22 +1,35 @@
 <?php
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        session_abort();
+        header('Location: index.php');
+    }
+
     include '../config/connection.php';
 
     $search = '';
 
-    //  Retrieve Query
-    $sql = "SELECT id, street, city, province, postal, country, contact, course, created_at FROM students LIMIT 10";
-
-    //  Get Results
-    $result = mysqli_query($connect, $sql);
-
-    //  Get multiple results for showing in table
-    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
 
-        $sql = "SELECT id, street, city, province, postal, country, contact, course, created_at FROM students WHERE id LIKE '%$search%' OR street LIKE '%$search%' OR city LIKE '%$search%' OR province LIKE '%$search%' OR postal LIKE '%$search%' OR country LIKE '%$search%' OR contact LIKE '%$search%'";
+        $sql = "SELECT id, street, city, province, postal, country, contact, course, created_at FROM students 
+            WHERE 
+                id LIKE '%$search%' OR 
+                street LIKE '%$search%' OR 
+                city LIKE '%$search%' OR 
+                province LIKE '%$search%' OR 
+                postal LIKE '%$search%' OR 
+                country LIKE '%$search%' OR 
+                contact LIKE '%$search%'";
 
+        $result = mysqli_query($connect, $sql);
+        $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }else{
+        //  Retrieve Query
+        $sql = "SELECT id, street, city, province, postal, country, contact, course, created_at FROM students LIMIT 10";
+
+        //  Get Results
         $result = mysqli_query($connect, $sql);
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
@@ -52,29 +65,23 @@
                 </caption>
                 <tr>
                     <th>Student ID</th>
-                    <th>Street</th>
-                    <th>City</th>                    
-                    <th>Province</th>
-                    <th>Postal</th>
+                    <th>Address</th>
                     <th>Country</th>
                     <th>Contact</th>
                     <th>Date Created</th>
-                    <th>Update</th>
                 </tr>
                 <?php 
                     $index = 1;
                     foreach($data as $entry):
+                        $address = $entry['street'].", ".$entry['city'].", ".$entry['province'].", ".$entry['province']." ".$entry['postal'];
                 ?>
                     <tr style="background-color: <?php if($index%2 != 0){ echo 'white'; }else{ echo 'inherit'; } ?>;">
                         <td><?php echo htmlspecialchars($entry['id']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['street']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['city']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['province']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['postal']); ?></td>
+                        <td><?php echo htmlspecialchars($address); ?></td>
                         <td><?php echo htmlspecialchars($entry['country']); ?></td>
                         <td><?php echo htmlspecialchars($entry['contact']); ?></td>
                         <td><?php echo htmlspecialchars($entry['created_at']); ?></td>
-                        <td><a href="#">edit</a></td>
+                        <td><a href="#">...</a></td>
                     </tr>
                 <?php 
                     $index++;

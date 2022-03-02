@@ -1,5 +1,12 @@
 <?php 
 
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        session_abort();
+        header('Location: index.php');
+    }
+
     $student_id = $skills = $cpp = $cs = $c = $java = $py = $js = $cisco = $statement = $message = '';
 
     if(isset($_POST['submit'])){
