@@ -1,4 +1,12 @@
 <?php
+
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        session_abort();
+        header('Location: index.php');
+    }
+
     include '../config/connection.php';
 
     $search = '';

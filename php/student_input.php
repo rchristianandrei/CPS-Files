@@ -1,6 +1,13 @@
 <?php 
+    
+    session_start();
 
-$message = $id = $mail = $sex = $firstName = $midName = $lastName = $suffix = $dob = $street = $city = $province = $postal = $country = $contact = $course = $male = $female = $cs = $it = '';
+    if(!isset($_SESSION['login'])){
+        session_abort();
+        header('Location: index.php');
+    }
+
+    $message = $id = $mail = $sex = $firstName = $midName = $lastName = $suffix = $dob = $street = $city = $province = $postal = $country = $contact = $course = $male = $female = $cs = $it = '';
 
     if(isset($_POST['submit'])){
         

@@ -1,3 +1,12 @@
+<?php
+
+    session_start();
+
+    if(!isset($_SESSION['login'])){
+        session_abort();
+        header('Location: index.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
