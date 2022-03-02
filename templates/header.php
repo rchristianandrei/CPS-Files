@@ -3,7 +3,7 @@
     <ul>
         <li><a href="../php/homepage.php">Home</a></li>
         <li><a href="../php/students.php">Retrieve</a></li>
-        <li><a href="../php/input.php">Add Info</a></li>
+        <li><a href="../php/student_input.php">Add Info</a></li>
         <li><a href="#">Events</a></li>
         <li><a href="#">Contact Us</a></li>
     </ul>
