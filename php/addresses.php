@@ -4,7 +4,7 @@
     $search = '';
 
     //  Retrieve Query
-    $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, created_at FROM students LIMIT 10";
+    $sql = "SELECT id, street, city, province, postal, country, contact, course, created_at FROM students LIMIT 10";
 
     //  Get Results
     $result = mysqli_query($connect, $sql);
@@ -15,7 +15,7 @@
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
 
-        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, created_at FROM students WHERE id LIKE '%$search%' OR email LIKE '%$search%' OR sex LIKE '%$search%' OR first_name LIKE '%$search%' OR middle_name LIKE '%$search%' OR last_name LIKE '%$search%' OR suffix LIKE '%$search%' OR course LIKE '%$search%'";
+        $sql = "SELECT id, street, city, province, postal, country, contact, course, created_at FROM students WHERE id LIKE '%$search%' OR street LIKE '%$search%' OR city LIKE '%$search%' OR province LIKE '%$search%' OR postal LIKE '%$search%' OR country LIKE '%$search%' OR contact LIKE '%$search%' OR course LIKE '%$search%'";
 
         $result = mysqli_query($connect, $sql);
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -42,19 +42,18 @@
             <table>
                 <caption>
                     <h3>Student Primary Information Table</h3><br>
-                    <form action="students.php" method="post">
-                        <input size="40" type="text" placeholder="2020-99999" name="search" value="<?php echo htmlspecialchars($search); ?>"><input type="submit" name="submit" id="submit" value="Search" class="button">
+                    <form action="addresses.php" method="post">
+                        <input size="25" type="text" placeholder="2020-99999" name="search" value="<?php echo htmlspecialchars($search); ?>"><input type="submit" name="submit" id="submit" value="Search" class="button">
                     </form>
                 </caption>
                 <tr>
                     <th>Student ID</th>
-                    <th>E-mail</th>
-                    <th>Sex</th>                    
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Suffix</th>
-                    <th>Course</th>
+                    <th>Street</th>
+                    <th>City</th>                    
+                    <th>Province</th>
+                    <th>Postal</th>
+                    <th>Country</th>
+                    <th>Contact</th>
                     <th>Date Created</th>
                     <th>Update</th>
                 </tr>
@@ -64,13 +63,12 @@
                 ?>
                     <tr style="background-color: <?php if($index%2 != 0){ echo 'white'; }else{ echo 'inherit'; } ?>;">
                         <td><?php echo htmlspecialchars($entry['id']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['email']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['sex']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['first_name']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['middle_name']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['last_name']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['suffix']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['course']); ?></td>
+                        <td><?php echo htmlspecialchars($entry['street']); ?></td>
+                        <td><?php echo htmlspecialchars($entry['city']); ?></td>
+                        <td><?php echo htmlspecialchars($entry['province']); ?></td>
+                        <td><?php echo htmlspecialchars($entry['postal']); ?></td>
+                        <td><?php echo htmlspecialchars($entry['country']); ?></td>
+                        <td><?php echo htmlspecialchars($entry['contact']); ?></td>
                         <td><?php echo htmlspecialchars($entry['created_at']); ?></td>
                         <td><a href="#">edit</a></td>
                     </tr>
