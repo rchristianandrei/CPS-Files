@@ -2,6 +2,10 @@
     session_start();
     $student_id = $error = '';
 
+    if(isset($_SESSION['login'])){
+        header('Location: homepage.php');
+    }
+
     if(isset($_POST['submit'])){
 
         include '../config/connection.php';

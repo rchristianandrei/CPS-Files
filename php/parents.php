@@ -23,7 +23,17 @@
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
 
-        $sql = "SELECT student_id, email, relationship, sex, first_name, middle_name, last_name, suffix, contact, created_at FROM parents WHERE student_id LIKE '%$search%' OR email LIKE '%$search%' OR relationship LIKE '%$search%' OR sex LIKE '%$search%' OR first_name LIKE '%$search%' OR middle_name LIKE '%$search%' OR last_name LIKE '%$search%' OR suffix LIKE '%$search%' OR contact LIKE '%$search%'";
+        $sql = "SELECT student_id, email, relationship, sex, first_name, middle_name, last_name, suffix, contact, created_at FROM parents 
+            WHERE 
+                student_id LIKE '%$search%' OR 
+                email LIKE '%$search%' OR 
+                relationship LIKE '%$search%' OR 
+                sex LIKE '%$search%' OR 
+                first_name LIKE '%$search%' OR 
+                middle_name LIKE '%$search%' OR 
+                last_name LIKE '%$search%' OR 
+                suffix LIKE '%$search%' OR 
+                contact LIKE '%$search%'";
 
         $result = mysqli_query($connect, $sql);
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -65,30 +75,24 @@
                     <th>E-mail</th>
                     <th>Relationship</th>
                     <th>Sex</th>
-                    <th>First Name</th>                    
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Suffix</th>
+                    <th>Full Name</th>
                     <th>Contact</th>
                     <th>Date Created</th>
-                    <th>Update</th>
                 </tr>
                 <?php 
                     $index = 1;
                     foreach($data as $entry):
+                        $fullName = $entry['first_name']." <i>".$entry['middle_name'] ."</i> ".$entry['last_name']." ".$entry['suffix'];
                 ?>
                     <tr style="background-color: <?php if($index%2 != 0){ echo 'white'; }else{ echo 'inherit'; } ?>;">
                         <td><?php echo htmlspecialchars($entry['student_id']); ?></td>
                         <td><?php echo htmlspecialchars($entry['email']); ?></td>
                         <td><?php echo htmlspecialchars($entry['relationship']); ?></td>
                         <td><?php echo htmlspecialchars($entry['sex']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['first_name']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['middle_name']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['last_name']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['suffix']); ?></td>
+                        <td><?php echo $fullName; ?></td>
                         <td><?php echo htmlspecialchars($entry['contact']); ?></td>
                         <td><?php echo htmlspecialchars($entry['created_at']); ?></td>
-                        <td><a href="#">edit</a></td>
+                        <td><a href="#">...</a></td>
                     </tr>
                 <?php 
                     $index++;
