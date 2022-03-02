@@ -23,17 +23,16 @@
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
 
-        $sql = "SELECT student_id, email, relationship, sex, first_name, middle_name, last_name, suffix, contact, created_at FROM parents 
-            WHERE 
-                student_id LIKE '%$search%' OR 
-                email LIKE '%$search%' OR 
-                relationship LIKE '%$search%' OR 
-                sex LIKE '%$search%' OR 
-                first_name LIKE '%$search%' OR 
-                middle_name LIKE '%$search%' OR 
-                last_name LIKE '%$search%' OR 
-                suffix LIKE '%$search%' OR 
-                contact LIKE '%$search%'";
+        $sql = "SELECT student_id, email, relationship, sex, first_name, middle_name, last_name, suffix, contact, created_at FROM parents WHERE 
+            student_id LIKE '%$search%' OR 
+            email LIKE '%$search%' OR 
+            relationship LIKE '%$search%' OR 
+            sex LIKE '%$search%' OR 
+            first_name LIKE '%$search%' OR 
+            middle_name LIKE '%$search%' OR 
+            last_name LIKE '%$search%' OR 
+            suffix LIKE '%$search%' OR 
+            contact LIKE '%$search%'";
 
         $result = mysqli_query($connect, $sql);
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
