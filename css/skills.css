@@ -1,0 +1,44 @@
+form {
+  background-color: #e5e5e5;
+  border: solid #000;
+  border-width: 2px;
+  border-color: #e5e5e5;
+  border-radius: 20px;
+  margin: 120px 20%;
+}
+
+h2 {
+  margin: 20px 0;
+}
+
+main form div ul li {
+  list-style: none;
+  display: block;
+}
+input.button {
+  background-color: rgba(60, 100, 177, 1);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 90px;
+  border-style: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+div.id {
+  text-align: center;
+  margin: 0px 35%;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.skills {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 35%;
+}
+
+span.big {
+  font-size: large;
+}

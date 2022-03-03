@@ -1,0 +1,22 @@
+.subheader {
+  color: #ffffff;
+  background-color: rgba(60, 100, 177, 1);
+  margin: 0px 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+main div li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+main div li a {
+  text-decoration: none;
+  color: #fff;
+}
