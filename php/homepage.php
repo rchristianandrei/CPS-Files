@@ -12,9 +12,13 @@
 <head>
     <?php include '../templates/head.php' ?>
 
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/homepage.css">
     <script src="https://kit.fontawesome.com/8070704d72.js" crossorigin="anonymous"></script>
+    <style>
+        #home{
+            opacity: 50%;
+        }
+    </style>
 </head>
 <body>
     <header>

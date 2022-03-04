@@ -80,7 +80,13 @@
                 <?php 
                     $index = 1;
                     foreach($data as $entry):
-                        $fullName = $entry['first_name']." <i>".$entry['middle_name'] ."</i> ".$entry['last_name']." ".$entry['suffix'];
+
+                        if(empty($entry['middle_name'])){
+
+                            $fullName = $entry['first_name']." ".$entry['last_name']." ".$entry['suffix'];
+                        }else{
+                            $fullName = $entry['first_name']." ".substr($entry['middle_name'], 0, 1).". ".$entry['last_name']." ".$entry['suffix'];
+                        }
                 ?>
                     <tr style="background-color: <?php if($index%2 != 0){ echo 'white'; }else{ echo 'inherit'; } ?>;">
                         <td><?php echo htmlspecialchars($entry['id']); ?></td>
