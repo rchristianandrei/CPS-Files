@@ -20,6 +20,7 @@
         
         $skills = $_POST['skills'];
 
+        // Retain info on checkboxes and concatenate them
         foreach($skills as $skill){
             if($skill == "C++"){
                 $cpp = 'checked="checked"';
@@ -45,9 +46,8 @@
             $statement .= $skill . ', ';
         }
         $statement = substr($statement, 0, strlen($statement)-2);
-        echo strlen($statement);
 
-        // Check if student exist
+        // Check if student and data entry exist
         $sql = "SELECT id FROM students WHERE id = '$student_id'";
         $result = mysqli_query($connect, $sql);
 
@@ -56,23 +56,29 @@
         }else{
 
             // Check if data entry already exist
-            $sql = "SELECT student_id FROM skills WHERE student_id = '$student_id'";
+            $sql = "SELECT id, skills FROM students WHERE id = '$student_id' AND skills IS NULL";
             $result = mysqli_query($connect, $sql);
     
             if(mysqli_num_rows($result) == 1){
                 $message = 'Data entry already exist';
             }else{
-                $sql = "INSERT INTO skills VALUES('$student_id', '$statement')";
+                $sql = "UPDATE students SET skills = '$statement' WHERE id = '$student_id'";
                 if(mysqli_query($connect, $sql)){
                     $message = 'Success!';
                 }else{
-                    $message = 'Query Error';
+                    $message = 'Query: ' . mysqli_error($connect);
                 } 
             }
         }
 
         mysqli_free_result($result);
         mysqli_close($connect);
+
+    }elseif(isset($_GET['id'])){
+
+        include '../config/connection.php';
+
+        $student_id = mysqli_real_escape_string($connect, $_GET['id']);
     }
 ?>
 <!DOCTYPE html>

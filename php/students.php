@@ -14,7 +14,7 @@
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
 
-        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, created_at FROM students 
+        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, skills FROM students 
             WHERE 
                 id LIKE '%$search%' OR 
                 email LIKE '%$search%' OR 
@@ -22,14 +22,15 @@
                 first_name LIKE '%$search%' OR 
                 middle_name LIKE '%$search%' OR 
                 last_name LIKE '%$search%' OR 
-                suffix LIKE '%$search%' OR 
-                course LIKE '%$search%'";
+                suffix LIKE '%$search%' OR
+                course LIKE '%$search%' OR 
+                skills LIKE '%$search%'";
 
         $result = mysqli_query($connect, $sql);
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }else{
         //  Retrieve Query
-        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, created_at FROM students LIMIT 10";
+        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, skills FROM students LIMIT 10";
 
         //  Get Results
         $result = mysqli_query($connect, $sql);
@@ -74,7 +75,7 @@
                     <th>Sex</th>                    
                     <th>Full Name</th>
                     <th>Course</th>
-                    <th>Date Created</th>
+                    <th>Skills</th>
                 </tr>
                 <?php 
                     $index = 1;
@@ -87,7 +88,12 @@
                         <td><?php echo htmlspecialchars($entry['sex']); ?></td>
                         <td><?php echo $fullName; ?></td>
                         <td><?php echo htmlspecialchars($entry['course']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['created_at']); ?></td>
+
+                        <?php if(empty($entry['skills'])): ?>
+                            <td><a href="skills_input.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank"><?php echo 'undefined'; ?></a></td>
+                        <?php else: ?>
+                            <td><?php echo htmlspecialchars($entry['skills']); ?></td>
+                        <?php endif; ?>
                         <td><a href="#">...</a></td>
                     </tr>
                 <?php 
