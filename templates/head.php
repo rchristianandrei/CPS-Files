@@ -4,3 +4,4 @@
 <meta name="description" content="This is a website used ny CPS to update, manage, and delete data about students.">
 <title>CPS-Laguna</title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
+<script src="https://kit.fontawesome.com/8070704d72.js" crossorigin="anonymous"></script>

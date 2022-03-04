@@ -30,9 +30,9 @@
         <section class="section">
             <ul>
                 <caption>Follow Us</caption>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Twitter</a></li>
+                <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i> Linked In</a></li>
             </ul>
         </section>
     </span>
