@@ -1,21 +1,24 @@
 /* Container holding the image and the text */
 .container {
     position: relative;
-    text-align: center;
-    color: white;
+    text-align: left;
+    color: rgb(7, 7, 7);
   }
   
   /* Centered text */
   .centered {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 40%;
+    text-align: left;
     transform: translate(-50%, -50%);
     background: rgb(0, 0, 0); /* Fallback color */
-    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    background: rgb(252, 249, 249, 0.5); /* Black background with 0.5 opacity */
     color: white;
-    width: 60%;
-    padding: 20px;
+    width: 35%;
+    height: 30%;
+    padding-left: 20px;
+    padding-right: 20px;
     }
     .formlayout {
         display: flex;
@@ -26,7 +29,7 @@
       .column {
         float: left;
         width: 50%;
-        padding: 150px;
+        padding: 80px;
       }
       
       /* Clear floats after the columns */
@@ -37,13 +40,14 @@
       }
       .login_photo {
         width: 400px;
-        height: 300px;
+        height: 400px;
         max-width: 100%;
         border-radius: 20px;
         object-fit: cover;
       }
       .input {
         font: size 20px;
+        color: gray;
         padding: 5px;
         outline: 0;
         border: 5px;
@@ -62,3 +66,92 @@
     padding-left:10px;
     padding-right:10px;
   }
+
+  .recentNews .news-title {
+    text-align:left;
+    padding-top:0px;
+    padding-bottom:5px;
+    font-family: 'nimbus-sans-condensed', sans-serif;
+    font-size:55px;
+    font-weight:bold;
+    color: rgb(201, 196, 196);
+    
+}
+.recentNews .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.recentNews .ct-blog {
+    margin-bottom: 30px;
+}
+.ct-blog .inner {
+    background-color: #FFF;
+    padding: 10px;
+    transition: all 0.2s ease-in-out 0s;
+    cursor: pointer;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.ct-blog .inner:hover {
+    background-color: #e8e8e8;
+}
+.ct-blog .fauxcrop {
+    height: 180px;
+    overflow: hidden;
+}
+.ct-blog .fauxcrop img {
+    width: 100%;
+}
+.ct-blog-content {
+    display: table;
+    padding: 30px 0 28px;
+    
+}
+.ct-blog-content .ct-blog-date {
+    border-right: 1px solid #95A5A6;
+    display: table-cell;
+    font-family: "Lato", sans-serif;
+    padding: 0px 18px 0px 15px;
+    text-align: left;
+}
+.ct-blog-content .ct-blog-date span {
+    font-size: 16px;
+    color: rgb(20, 117, 175);  
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+}
+.ct-blog-content .ct-blog-date strong {
+    font-size: 25px;
+    color: rgb(20, 117, 175);  
+}
+.ct-blog-content .ct-blog-header {
+    color: #000;
+    display: table-cell;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    line-height: 1.1;
+    padding: 0 20px;
+    vertical-align: top;
+}
+.btn-news {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.btn-news.btn-contests a {
+    color: #fff;
+    font-family: 'nimbus-sans-condensed', sans-serif;
+    font-size: 24px;
+    transition: all 0.2s ease-in-out 0s;
+}
+.btn-news.btn-contests a:hover {
+    color: #000;
+}
+
