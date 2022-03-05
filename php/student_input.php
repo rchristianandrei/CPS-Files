@@ -53,7 +53,7 @@
             
         }else{
             // Insert info
-            $sql = "INSERT INTO students VALUES ('$id', '$mail', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province', '$postal', '$country', '$contact', '$course', null, null)";
+            $sql = "INSERT INTO students VALUES ('$id', '$mail', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$dob', '$street', '$city', '$province', '$postal', '$country', '$contact', '$course', null, null)";
 
             // Check result
             if(mysqli_query($connect, $sql)){

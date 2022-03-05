@@ -8,10 +8,83 @@
 
     //  Global Variables
     include '../config/connection.php';
-    $cs = $it = $cpp = $csharp = $c = $java = $py = $js = $cisco = '';
+    $cs = $it = $cpp = $csharp = $c = $java = $py = $js = $cisco = $statement = '';
 
     if(isset($_GET['id'])){
         
+        initialInfo();
+
+    }elseif(isset($_POST['submit'])){
+
+        $id = mysqli_real_escape_string($connect, $_POST['student_id']);
+        $mail = mysqli_real_escape_string($connect, $_POST['email']);
+        $firstName = mysqli_real_escape_string($connect, $_POST['first_name']);
+        $midName = mysqli_real_escape_string($connect, $_POST['middle_name']);
+        $lastName = mysqli_real_escape_string($connect, $_POST['last_name']);
+        $suffix = mysqli_real_escape_string($connect, $_POST['suffix']);
+        $street = mysqli_real_escape_string($connect, $_POST['street']);
+        $city = mysqli_real_escape_string($connect, $_POST['city']);
+        $province = mysqli_real_escape_string($connect, $_POST['province']);
+        $postal = mysqli_real_escape_string($connect, $_POST['postal_code']);
+        $country = mysqli_real_escape_string($connect, $_POST['country']);
+        $contact = mysqli_real_escape_string($connect, $_POST['contact']);
+        $course = mysqli_real_escape_string($connect, $_POST['course']);
+        $skills = $_POST['skills'];
+
+        foreach($skills as $skill){
+            if($skill == "C++"){
+                $cpp = 'checked="checked"';
+            }
+            elseif($skill == "C#"){
+                $cs = 'checked="checked"';
+            }
+            elseif($skill == "C"){
+                $c = 'checked="checked"';
+            }
+            else if($skill == "Java"){
+                $java = 'checked="checked"';
+            }
+            elseif($skill == "Python"){
+                $py = 'checked="checked"';
+            }
+            elseif($skill == "JavaScript"){
+                $js = 'checked="checked"';
+            }
+            elseif($skill == "Cisco"){
+                $cisco = 'checked="checked"';
+            }
+            $statement .= $skill . ', ';
+        }
+        $statement = substr($statement, 0, strlen($statement)-2);
+
+        $sql = "UPDATE students SET 
+            email = '$mail',
+            first_name = '$firstName',
+            middle_name = '$midName',
+            last_name = '$lastName',
+            suffix = '$suffix',
+            street = '$street',
+            city = '$city',
+            province = '$province',
+            postal = '$postal',
+            country = '$country',
+            contact = '$contact',
+            course = '$course',
+            skills = '$statement'
+            WHERE id = '$id'";
+
+        mysqli_query($connect, $sql);
+        header("Location: students.php");
+    }
+
+    mysqli_free_result($result);
+    mysqli_close($connect);
+
+    function initialInfo(){
+
+        //  Global references
+        global $result, $data, $connect, $cs, $it, $cpp, $csharp, $c, $java, $py, $js, $cisco;
+
         $id = mysqli_real_escape_string($connect, $_GET['id']);
 
         $sql = "SELECT * FROM students WHERE id = '$id'";
@@ -50,9 +123,6 @@
             }
         }
     }
-
-    mysqli_free_result($result);
-    mysqli_close($connect);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,6 +171,9 @@
                             </div>
                             <div>
                                 <label>Sex: </label><span><?php echo htmlspecialchars($data['sex']); ?></span>
+                            </div>
+                            <div>
+                                <label for="date_of_birth">Date of Birth: </label><span><?php echo htmlspecialchars($data['dob']); ?></span>
                             </div>
         
                             <hr>
@@ -168,7 +241,7 @@
                         </span>
                     </div>
                     <center>
-                        <button class="submit" id="submit">Save Changes</button>
+                        <button class="submit" id="submit" name="submit">Save Changes</button>
                     </center>
                 </div>
             </form>

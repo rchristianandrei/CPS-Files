@@ -52,7 +52,7 @@
         global $result, $data, $connect;
 
         //  Retrieve Query
-        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, skills FROM students LIMIT 10";
+        $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, skills FROM students ORDER BY created_at LIMIT 10";
 
         //  Get Results
         $result = mysqli_query($connect, $sql);

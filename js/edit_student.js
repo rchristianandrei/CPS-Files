@@ -158,12 +158,6 @@ it.addEventListener("change", () => {
     document.getElementById("csl").style.color = "red";
     document.getElementById("itl").style.color = "red";
 });
-// skills.addEventListener("change", () => {
-//     edit.disabled = true;
-//     submit.style.backgroundColor = "red";
-    // skills.style.backgroundColor = "#3c64b1";
-    // skills.style.color = "white";
-// });
 street.addEventListener("change", () => {
     edit.disabled = true;
     submit.style.backgroundColor = "red";
