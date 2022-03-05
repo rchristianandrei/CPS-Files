@@ -7,13 +7,14 @@
         header('Location: index.php');
     }
 
+    
     $message = $id = $mail = $relate = $firstName = $midName = $lastName = $suffix = $street = $city = $province = $postal = $country = $contact = $parent = $guardian = $sex = $female = $male = '';
 
     if(isset($_POST['submit'])){
         
         include '../config/connection.php';
 
-        // Get info from form
+        //  Get info from form
         $id = mysqli_real_escape_string($connect, $_POST['student_id']);
         $mail = mysqli_real_escape_string($connect, $_POST['email']);
         $relate = mysqli_real_escape_string($connect, $_POST['relationship']);
@@ -41,22 +42,16 @@
             $female = 'checked="checked"';
         }
 
-        // Check if student exist
-        $sql = "SELECT id FROM students WHERE id = '$id'";
+        //  Check if student exist
+        $sql = "SELECT student_id FROM parents WHERE id = '$id'";
         $result = mysqli_query($connect, $sql);
 
-        // Set message for user
+        //  Set message for user
         if(mysqli_num_rows($result) == 1){
             
             $sql = "INSERT INTO parents VALUES (null, '$id', '$mail', '$relate', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province', '$postal', '$country', '$contact', null)";
-
-            if(mysqli_query($connect, $sql)){
                 
-                $message = "Success!";
-                
-            }else{
-                $message = "error" . mysqli_error($connect);
-            }
+            $message = "Success!";
             
         }else{
             $message = "Student does not exist";
@@ -65,7 +60,7 @@
         //  Free up space
         mysqli_free_result($result);
 
-        // Close Connection
+        //  Close Connection
         mysqli_close($connect);
     }
 ?>

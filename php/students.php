@@ -9,7 +9,7 @@
 
     // Global Variables
     include '../config/connection.php'; 
-    $search = $result = $data = '';
+    $search = '';
 
     if(isset($_POST['submit'])){
         
@@ -109,7 +109,7 @@
                         <td><?php echo htmlspecialchars($entry['id']); ?></td>
                         <td><?php echo htmlspecialchars($entry['email']); ?></td>
                         <td><?php echo htmlspecialchars($entry['sex']); ?></td>
-                        <td><?php echo $fullName; ?></td>
+                        <td><?php echo htmlspecialchars($fullName); ?></td>
                         <td><?php echo htmlspecialchars($entry['course']); ?></td>
 
                         <?php if(empty($entry['skills'])): ?>

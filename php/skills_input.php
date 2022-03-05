@@ -14,10 +14,7 @@
         include '../config/connection.php';
 
         // Get info
-        if(!empty($_POST['student_id'])){
-            $student_id = mysqli_real_escape_string($connect, $_POST['student_id']);
-        }
-        
+        $student_id = mysqli_real_escape_string($connect, $_POST['student_id']);
         $skills = $_POST['skills'];
 
         // Retain info on checkboxes and concatenate them

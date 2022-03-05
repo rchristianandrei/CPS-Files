@@ -8,7 +8,7 @@
 
     //  Global Variables
     include '../config/connection.php';
-    $search = $result =  $data = '';
+    $search = '';
 
     if(isset($_POST['submit'])){
         
@@ -33,6 +33,10 @@
         $sql = "SELECT id, first_name, middle_name, last_name, suffix, street, city, province, postal, country, contact, course FROM students 
             WHERE 
                 id LIKE '%$search%' OR 
+                first_name LIKE '%$search%' OR
+                middle_name LIKE '%$search%' OR
+                last_name LIKE '%$search%' OR
+                suffix LIKE '%$search%' OR
                 street LIKE '%$search%' OR 
                 city LIKE '%$search%' OR 
                 province LIKE '%$search%' OR 
