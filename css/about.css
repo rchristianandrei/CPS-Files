@@ -5,7 +5,7 @@
   padding: 0;
   margin: 0;
   font-family: Montserrat, monospace;
-  font-weight: 900;
+  font-weight: 900; 
 }
 
 header {
@@ -373,18 +373,21 @@ img.teamprof {
 
 /* team */
 #team{ 
+  padding: auto;
   padding: 5vw 19vw 0 19vw;
   text-align: center;
-  margin-bottom: -4rem;
-  margin-top: 10rem;
+  margin-bottom: -1px;
+  margin-top: 10%;
   background-color: #F4F6FC;
 }
 
 #team2{
-  padding: 5vw 8vw 5vw 8vw;
+  padding: auto;
+  padding: 2vw 8vw 5vw 10vw;
   text-align: center;
   background-color: #F4F6FC;
 }
+
 
 #team h4{
   color:rgb(0, 0, 0);
@@ -395,7 +398,7 @@ img.teamprof {
 
 #team h1{
   color:rgb(0, 0, 0);
-  margin-top: 2px;
+  margin-top: 1%;
   font-size: 2rem;
   font-weight:bolder;
 }
@@ -426,28 +429,40 @@ img.teamprof {
   border-radius: 50%;
 }
 
+img.teamprofi {
+  object-fit: cover;
+  width: 70%;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 50%;
+}
+
 #team .team-box{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-  grid-gap: 2rem;
+  display: inline-grid;
+  grid-template-columns: repeat(5, minmax(50px, 1fr));
+  grid-gap: 3rem;
   margin-top: 40px;
 }
 
+
 #team2 .team-box2{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-  grid-gap: 24rem;
-  margin-top: 0px;
+  display: inline-grid;
+  grid-template-columns: repeat(3, minmax(50px, 1fr)); 
+  grid-gap: 0rem;
+  margin-top: -1% auto;
 }
+
 
 #team .team-box .profile{
   background: #FFFFFF;
   padding: 30px 10px;
+  width: 120%;
 }
 
 #team2 .team-box2 .profile2{
   background: #FFFFFF;
-  padding: 30px 10px;
+  padding: 35px 10px;
+  width: 50%;
 }
 
 .social{
