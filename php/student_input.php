@@ -53,7 +53,7 @@
             
         }else{
             // Insert info
-            $sql = "INSERT INTO students VALUES ('$id', '$mail', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province', '$postal', '$country', '$contact', '$course', null)";
+            $sql = "INSERT INTO students VALUES ('$id', '$mail', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province', '$postal', '$country', '$contact', '$course', null, null)";
 
             // Check result
             if(mysqli_query($connect, $sql)){
@@ -138,6 +138,17 @@
                         <label for="date_of_birth">Date of Birth: </label>
                         <input type="date" id="date_of_birth" name="date_of_birth" size="30" value="<?php echo htmlspecialchars($dob); ?>" required>
                     </div>
+                    <div>
+                        <label for="course">Course: </label> 
+                        <span>
+                            <center>
+                                <label for="cs">CS</label>
+                                <input style="float: none;" type="radio" id="cs" name="course" value="CS" <?php echo htmlspecialchars($cs) ?> required>
+                                <label for="it">IT</label>
+                                <input style="float: none;" type="radio" id="it" name="course" value="IT" <?php echo htmlspecialchars($it) ?> required>
+                            </center>
+                        </span>
+                    </div>
                 </span>
     
                 <span class="rightside">
@@ -165,17 +176,6 @@
                     <div>
                         <label for="contact">Contact: </label>
                         <input type="tel" id="contact" name="contact" maxlength="11" size="30" placeholder="09*********" value="<?php echo htmlspecialchars($contact); ?>" required>
-                    </div>
-                    <div>
-                        <label for="course">Course: </label> 
-                        <span>
-                            <center>
-                                <label for="cs">CS</label>
-                                <input style="float: none;" type="radio" id="cs" name="course" value="CS" <?php echo htmlspecialchars($cs) ?> required>
-                                <label for="it">IT</label>
-                                <input style="float: none;" type="radio" id="it" name="course" value="IT" <?php echo htmlspecialchars($it) ?> required>
-                            </center>
-                        </span>
                     </div>
                 </span>
             </div>
