@@ -22,22 +22,22 @@
             if($skill == "C++"){
                 $cpp = 'checked="checked"';
             }
-            if($skill == "C#"){
+            elseif($skill == "C#"){
                 $cs = 'checked="checked"';
             }
-            if($skill == "C"){
+            elseif($skill == "C"){
                 $c = 'checked="checked"';
             }
-            if($skill == "Java"){
+            else if($skill == "Java"){
                 $java = 'checked="checked"';
             }
-            if($skill == "Python"){
+            elseif($skill == "Python"){
                 $py = 'checked="checked"';
             }
-            if($skill == "JavaScript"){
+            elseif($skill == "JavaScript"){
                 $js = 'checked="checked"';
             }
-            if($skill == "Cisco"){
+            elseif($skill == "Cisco"){
                 $cisco = 'checked="checked"';
             }
             $statement .= $skill . ', ';
