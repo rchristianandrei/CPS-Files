@@ -117,7 +117,7 @@
                         <?php else: ?>
                             <td><?php echo htmlspecialchars($entry['skills']); ?></td>
                         <?php endif; ?>
-                        <td><a href="#">...</a></td>
+                        <td><a href="student-information.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank">...</a></td>
                     </tr>
                 <?php 
                     $index++;

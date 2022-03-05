@@ -1,0 +1,51 @@
+div.main {
+  border: 2px solid rgba(60, 100, 177, 1);
+  background-color: rgba(60, 100, 177, 1);
+  margin: 120px 10%;
+  border-radius: 10px;
+  padding: 20px 0;
+}
+
+h2,
+h3 {
+  text-align: center;
+  color: #ffffff;
+}
+
+h4 {
+  font-size: larger;
+}
+
+div.sub {
+  border: 2px solid #e5e5e5;
+  background-color: #e5e5e5;
+  margin: 20px 5%;
+  border-radius: inherit;
+  padding: 10px 3%;
+}
+
+div.details {
+  display: flex;
+}
+
+main div div span {
+  width: 50%;
+  /* border: 2px solid #e5e5e5; */
+}
+
+main div div span div {
+  margin: 10px 0;
+}
+
+main div div span div span {
+  float: right;
+  text-align: center;
+}
+.edit {
+  background-color: rgba(60, 100, 177, 1);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 90px;
+  border-style: none;
+  border-radius: 10px;
+}
