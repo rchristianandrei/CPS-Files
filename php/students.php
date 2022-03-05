@@ -7,11 +7,27 @@
         header('Location: index.php');
     }
 
-    include '../config/connection.php';
-
-    $search = '';
+    // Global Variables
+    include '../config/connection.php'; 
+    $search = $result = $data = '';
 
     if(isset($_POST['submit'])){
+        
+        search();
+
+    }else{
+
+        initialInfo();
+    }
+
+    mysqli_free_result($result);
+    mysqli_close($connect);
+
+    function search(){
+
+        //  Global References
+        global $result, $search, $connect, $data;
+
         $search = $_POST['search'];
 
         $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, skills FROM students 
@@ -28,19 +44,20 @@
 
         $result = mysqli_query($connect, $sql);
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    }else{
+    }
+
+    function initialInfo(){
+
+        //  Global References
+        global $result, $data, $connect;
+
         //  Retrieve Query
         $sql = "SELECT id, email, sex, first_name, middle_name, last_name, suffix, course, skills FROM students LIMIT 10";
 
         //  Get Results
         $result = mysqli_query($connect, $sql);
-
-        //  Get multiple results for showing in table
         $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
-
-    mysqli_free_result($result);
-    mysqli_close($connect);
 ?>
 <!DOCTYPE html>
 <html lang="en">
