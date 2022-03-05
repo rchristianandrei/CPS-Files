@@ -1,6 +1,3 @@
-let id, email, fname, mname, lname, suffix, sex, cs, it, skills, street, city, province, postal, country, contact, submit,
-cpp, csharp, c, java, py, js, cisco;
-
 (function(){
     id = document.getElementById('student_id');
     email = document.getElementById('email');
@@ -58,9 +55,7 @@ cpp, csharp, c, java, py, js, cisco;
 
 let edit = document.getElementById('edit');
 
-edit.addEventListener("click", enableAll);
-
-function enableAll(){
+edit.addEventListener("click", () => {
     if(id.disabled == true){
 
         id.disabled = false;
@@ -118,4 +113,120 @@ function enableAll(){
         submit.disabled = true;
         submit.style.opacity = "50%";
     }
-}
+});
+
+id.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    id.style.color = "red";
+});
+
+email.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    email.style.color = "red";
+});
+fname.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    fname.style.color = "red";
+});
+mname.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    mname.style.color = "red";
+});
+lname.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    lname.style.color = "red";
+});
+suffix.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    suffix.style.color = "red";
+});
+cs.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    document.getElementById("itl").style.color = "red";
+    document.getElementById("csl").style.color = "red";
+});
+it.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    document.getElementById("csl").style.color = "red";
+    document.getElementById("itl").style.color = "red";
+});
+// skills.addEventListener("change", () => {
+//     edit.disabled = true;
+//     submit.style.backgroundColor = "red";
+    // skills.style.backgroundColor = "#3c64b1";
+    // skills.style.color = "white";
+// });
+street.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    street.style.color = "red";
+});
+city.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    city.style.color = "red";
+});
+province.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    province.style.color = "red";
+});
+postal.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    postal.style.color = "red";
+});
+country.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    country.style.color = "red";
+});
+contact.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    contact.style.color = "red";
+});
+
+cpp.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    document.getElementById("cppl").style.color = "red";
+});
+csharp.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    document.getElementById("csharpl").style.color = "red";
+});
+c.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    document.getElementById("cl").style.color = "red";
+});
+java.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    document.getElementById("javal").style.color = "red";
+});
+py.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    document.getElementById("pyl").style.color = "red";
+});
+js.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    document.getElementById("jsl").style.color = "red";
+});
+cisco.addEventListener("change", () => {
+    edit.disabled = true;
+    submit.style.backgroundColor = "red";
+    document.getElementById('ciscol').style.color = "red";
+});
