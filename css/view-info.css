@@ -20,7 +20,7 @@ div.sub {
   border: 2px solid #e5e5e5;
   background-color: #e5e5e5;
   margin: 20px 5%;
-  border-radius: inherit;
+  border-radius: 10px;
   padding: 10px 3%;
 }
 
@@ -30,22 +30,42 @@ div.details {
 
 main div div span {
   width: 50%;
-  /* border: 2px solid #e5e5e5; */
+  padding: 0px 1%;
 }
 
 main div div span div {
   margin: 10px 0;
 }
 
+main div div span div.skills li,
+main div div span div.skills input {
+  list-style: none;
+  float: none;
+  padding: 0px 0px 0px 70%;
+}
+
 main div div span div span {
   float: right;
   text-align: center;
 }
-.edit {
+
+input {
+  float: right;
+}
+
+button.submit {
   background-color: rgba(60, 100, 177, 1);
   color: #ffffff;
   cursor: pointer;
-  padding: 10px 90px;
+  padding: 10px 40px;
   border-style: none;
+  border-radius: 10px;
+}
+
+button.edit {
+  text-align: center;
+  background-color: #e5e5e5;
+  margin: 10px 0px 0px 0px;
+  color: black;
   border-radius: 10px;
 }
