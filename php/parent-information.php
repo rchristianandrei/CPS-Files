@@ -18,7 +18,9 @@
     }elseif(isset($_POST['submit'])){
 
         submit();
-        // header("Location: parents.php");
+    }elseif(isset($_POST['delete'])){
+
+        delete();
     }
 
     function initialInfo(){
@@ -77,6 +79,28 @@
         }
 
         $sql = "SELECT * FROM parents WHERE id = '$primaryKey'";
+        $result = mysqli_query($connect, $sql);
+        $data = mysqli_fetch_assoc($result);
+
+        mysqli_free_result($result);
+        mysqli_close($connect);
+    }
+
+    function delete(){
+        global $result, $data, $connect, $message;
+
+        $id = mysqli_real_escape_string($connect, $_POST['id']);
+
+        $sql = "DELETE FROM parents WHERE id='$id'";
+
+        try{
+            mysqli_query($connect, $sql);
+            echo "<script type=\"text/javascript\">window.close();</script>";
+        }catch(Exception $e){
+            $message = 'Message: ' .$e->getMessage();
+        }
+
+        $sql = "SELECT * FROM parents WHERE id = '$id'";
         $result = mysqli_query($connect, $sql);
         $data = mysqli_fetch_assoc($result);
 
@@ -179,8 +203,11 @@
                     </div>
                     <center>
                         <div style="color: <?php if($message == "Update success"){ echo "green"; }else{ echo "red"; } ?>"><?php echo $message; ?></div>
-                        <button class="submit" id="submit" name="submit">Save Changes</button>
                     </center>
+                    <div style="display: flex; justify-content: space-between;">
+                        <button class="submit" id="submit" name="submit">Save Changes</button>
+                        <button style="background-color: black; padding: 10px 40px; border-style: none; border-radius: 10px;" id="delete" name="delete">DELETE</button>
+                    </div>
                 </div>
             </form>
             <script src = "../js/edit_parent.js"></script>

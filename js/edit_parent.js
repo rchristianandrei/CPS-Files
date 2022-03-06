@@ -5,7 +5,6 @@
     mname = document.getElementById('middle_name');
     lname = document.getElementById('last_name');
     suffix = document.getElementById('suffix');
-    // sex = document.getElementById('email');
     street = document.getElementById('street');
     city = document.getElementById('city');
     province = document.getElementById('province');
@@ -13,6 +12,7 @@
     country = document.getElementById('country');
     contact = document.getElementById('contact');
     submit = document.getElementById('submit');
+    del = document.getElementById('delete');
 
     id.disabled = true;
     email.disabled = true;
@@ -29,6 +29,8 @@
     contact.disabled = true;
     submit.disabled = true;
     submit.style.opacity = "50%";
+    del.disabled = true;
+    del.style.opacity = "50%";
 })();
 
 let edit = document.getElementById('edit');
@@ -51,6 +53,8 @@ edit.addEventListener("click", () => {
         contact.disabled = false;
         submit.disabled = false;
         submit.style.opacity = "100%";
+        del.disabled = false;
+        del.style.opacity = "100%";
     }else{
 
         id.disabled = true;
@@ -68,6 +72,8 @@ edit.addEventListener("click", () => {
         contact.disabled = true;
         submit.disabled = true;
         submit.style.opacity = "50%";
+        del.disabled = true;
+        del.style.opacity = "50%";
     }
 });
 
