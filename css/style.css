@@ -39,7 +39,7 @@ header li a:hover {
   color: #3c64b1;
 }
 
-button {
+button.login {
   background-color: rgba(60, 100, 177, 1);
   color: #ffffff;
   cursor: pointer;
@@ -48,7 +48,7 @@ button {
   transition: all 2s ease 0s;
 }
 
-button:hover {
+button.login:hover {
   background-color: rgba(60, 100, 177, 0.5);
 }
 

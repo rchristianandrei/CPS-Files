@@ -14,7 +14,7 @@
     </ul>
 </nav>
 <?php if(isset($login)): ?>
-    <button id = "login"><a href="../php/logout.php"><?php echo $login; ?></a></button>
+    <button id = "login" class="login"><a href="../php/logout.php"><?php echo $login; ?></a></button>
 <?php else:?>
-    <button id = "login"><a href="../php/index.php">Login</a></button>
+    <button id = "login" class="login"><a href="../php/index.php">Login</a></button>
 <?php endif;?>

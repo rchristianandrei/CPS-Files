@@ -54,18 +54,10 @@ input {
 }
 
 button.submit {
-  background-color: rgba(60, 100, 177, 1);
+  background-color: black;
   color: #ffffff;
   cursor: pointer;
   padding: 10px 40px;
   border-style: none;
-  border-radius: 10px;
-}
-
-button.edit {
-  text-align: center;
-  background-color: #e5e5e5;
-  margin: 10px 0px 0px 0px;
-  color: black;
   border-radius: 10px;
 }

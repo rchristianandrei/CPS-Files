@@ -8,7 +8,7 @@
 
     //  Global Variables
     include '../config/connection.php';
-    $cs = $it = $cpp = $csharp = $c = $java = $py = $js = $cisco = $statement = '';
+    $cs = $it = $cpp = $csharp = $c = $java = $py = $js = $cisco = $statement = $message = '';
 
     if(isset($_GET['id'])){
         
@@ -16,69 +16,8 @@
 
     }elseif(isset($_POST['submit'])){
 
-        $id = mysqli_real_escape_string($connect, $_POST['student_id']);
-        $mail = mysqli_real_escape_string($connect, $_POST['email']);
-        $firstName = mysqli_real_escape_string($connect, $_POST['first_name']);
-        $midName = mysqli_real_escape_string($connect, $_POST['middle_name']);
-        $lastName = mysqli_real_escape_string($connect, $_POST['last_name']);
-        $suffix = mysqli_real_escape_string($connect, $_POST['suffix']);
-        $street = mysqli_real_escape_string($connect, $_POST['street']);
-        $city = mysqli_real_escape_string($connect, $_POST['city']);
-        $province = mysqli_real_escape_string($connect, $_POST['province']);
-        $postal = mysqli_real_escape_string($connect, $_POST['postal_code']);
-        $country = mysqli_real_escape_string($connect, $_POST['country']);
-        $contact = mysqli_real_escape_string($connect, $_POST['contact']);
-        $course = mysqli_real_escape_string($connect, $_POST['course']);
-        $skills = $_POST['skills'];
-
-        foreach($skills as $skill){
-            if($skill == "C++"){
-                $cpp = 'checked="checked"';
-            }
-            elseif($skill == "C#"){
-                $cs = 'checked="checked"';
-            }
-            elseif($skill == "C"){
-                $c = 'checked="checked"';
-            }
-            else if($skill == "Java"){
-                $java = 'checked="checked"';
-            }
-            elseif($skill == "Python"){
-                $py = 'checked="checked"';
-            }
-            elseif($skill == "JavaScript"){
-                $js = 'checked="checked"';
-            }
-            elseif($skill == "Cisco"){
-                $cisco = 'checked="checked"';
-            }
-            $statement .= $skill . ', ';
-        }
-        $statement = substr($statement, 0, strlen($statement)-2);
-
-        $sql = "UPDATE students SET 
-            email = '$mail',
-            first_name = '$firstName',
-            middle_name = '$midName',
-            last_name = '$lastName',
-            suffix = '$suffix',
-            street = '$street',
-            city = '$city',
-            province = '$province',
-            postal = '$postal',
-            country = '$country',
-            contact = '$contact',
-            course = '$course',
-            skills = '$statement'
-            WHERE id = '$id'";
-
-        mysqli_query($connect, $sql);
-        header("Location: students.php");
+        submit();
     }
-
-    mysqli_free_result($result);
-    mysqli_close($connect);
 
     function initialInfo(){
 
@@ -122,6 +61,91 @@
                 $cisco = 'checked="checked"';
             }
         }
+
+        mysqli_free_result($result);
+        mysqli_close($connect);
+    }
+
+    function submit(){
+        global $result, $data, $connect, $cs, $it, $cpp, $csharp, $c, $java, $py, $js, $cisco;
+
+        $statement = '';
+
+        $id = mysqli_real_escape_string($connect, $_POST['student_id']);
+        $mail = mysqli_real_escape_string($connect, $_POST['email']);
+        $firstName = mysqli_real_escape_string($connect, $_POST['first_name']);
+        $midName = mysqli_real_escape_string($connect, $_POST['middle_name']);
+        $lastName = mysqli_real_escape_string($connect, $_POST['last_name']);
+        $suffix = mysqli_real_escape_string($connect, $_POST['suffix']);
+        $street = mysqli_real_escape_string($connect, $_POST['street']);
+        $city = mysqli_real_escape_string($connect, $_POST['city']);
+        $province = mysqli_real_escape_string($connect, $_POST['province']);
+        $postal = mysqli_real_escape_string($connect, $_POST['postal_code']);
+        $country = mysqli_real_escape_string($connect, $_POST['country']);
+        $contact = mysqli_real_escape_string($connect, $_POST['contact']);
+        $course = mysqli_real_escape_string($connect, $_POST['course']);
+        $skills = $_POST['skills'];
+
+        foreach($skills as $skill){
+            if($skill == "C++"){
+                $cpp = 'checked="checked"';
+            }
+            elseif($skill == "C#"){
+                $csharp = 'checked="checked"';
+            }
+            elseif($skill == "C"){
+                $c = 'checked="checked"';
+            }
+            else if($skill == "Java"){
+                $java = 'checked="checked"';
+            }
+            elseif($skill == "Python"){
+                $py = 'checked="checked"';
+            }
+            elseif($skill == "JavaScript"){
+                $js = 'checked="checked"';
+            }
+            elseif($skill == "Cisco"){
+                $cisco = 'checked="checked"';
+            }
+            $statement .= $skill . ', ';
+        }
+        $statement = substr($statement, 0, strlen($statement)-2);
+
+        $sql = "UPDATE students SET 
+            email = '$mail',
+            first_name = '$firstName',
+            middle_name = '$midName',
+            last_name = '$lastName',
+            suffix = '$suffix',
+            street = '$street',
+            city = '$city',
+            province = '$province',
+            postal = '$postal',
+            country = '$country',
+            contact = '$contact',
+            course = '$course',
+            skills = '$statement'
+            WHERE id = '$id'";
+
+        if(mysqli_query($connect, $sql)){
+            $message = "Update success";
+        }else{
+            $message = "Error " . mysqli_error($connect);
+        }
+
+        $sql = "SELECT * FROM students WHERE id = '$id'";
+        $result = mysqli_query($connect, $sql);
+        $data = mysqli_fetch_assoc($result);
+
+        if($data['course'] === "CS"){
+            $cs = 'checked="checked"';
+        }elseif($data['course'] === "IT"){
+            $it = 'checked="checked"';
+        }
+
+        mysqli_free_result($result);
+        mysqli_close($connect);
     }
 ?>
 <!DOCTYPE html>
@@ -241,8 +265,12 @@
                         </span>
                     </div>
                     <center>
-                        <button class="submit" id="submit" name="submit">Save Changes</button>
+                        <div style="color: <?php if($message == "Update success"){ echo "green"; }else{ echo "red"; } ?>"><?php echo $message; ?></div>
                     </center>
+                    <div style="display: flex; justify-content: space-between;">
+                        <button class="submit" id="submit" name="submit">Save Changes</button>
+                        <button style="background-color: black; padding: 10px 40px; border-style: none; border-radius: 10px;" id="delete" name="delete">DELETE</button>
+                    </div>
                 </div>
             </form>
             <script src = "../js/edit_student.js"></script>
