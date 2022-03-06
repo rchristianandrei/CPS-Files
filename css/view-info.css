@@ -54,7 +54,7 @@ input {
 }
 
 button.submit {
-  background-color: black;
+  background-color: rgba(60, 100, 177, 0.5);
   color: #ffffff;
   cursor: pointer;
   padding: 10px 40px;

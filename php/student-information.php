@@ -17,6 +17,9 @@
     }elseif(isset($_POST['submit'])){
 
         submit();
+    }elseif(isset($_POST['delete'])){
+        
+        delete();
     }
 
     function initialInfo(){
@@ -142,6 +145,60 @@
             $cs = 'checked="checked"';
         }elseif($data['course'] === "IT"){
             $it = 'checked="checked"';
+        }
+
+        mysqli_free_result($result);
+        mysqli_close($connect);
+    }
+
+    function delete(){
+        global $result, $data, $connect, $cs, $it, $cpp, $csharp, $c, $java, $py, $js, $cisco, $message;
+
+        $id = mysqli_real_escape_string($connect, $_POST['student_id']);
+
+        $sql = "DELETE FROM students WHERE id='$id'";
+
+        try{
+            mysqli_query($connect, $sql);
+            echo "<script type=\"text/javascript\">window.close();</script>";
+        }catch(Exception $e){
+            $message = 'Message: ' .$e->getMessage();
+        }
+
+        $sql = "SELECT * FROM students WHERE id = '$id'";
+        $result = mysqli_query($connect, $sql);
+        $data = mysqli_fetch_assoc($result);
+
+        if($data['course'] === "CS"){
+            $cs = 'checked="checked"';
+        }elseif($data['course'] === "IT"){
+            $it = 'checked="checked"';
+        }
+
+        $skills = explode(', ', $data['skills']);
+
+        foreach($skills as $skill){
+            if($skill == "C++"){
+                $cpp = 'checked="checked"';
+            }
+            elseif($skill == "C#"){
+                $csharp = 'checked="checked"';
+            }
+            elseif($skill == "C"){
+                $c = 'checked="checked"';
+            }
+            else if($skill == "Java"){
+                $java = 'checked="checked"';
+            }
+            elseif($skill == "Python"){
+                $py = 'checked="checked"';
+            }
+            elseif($skill == "JavaScript"){
+                $js = 'checked="checked"';
+            }
+            elseif($skill == "Cisco"){
+                $cisco = 'checked="checked"';
+            }
         }
 
         mysqli_free_result($result);

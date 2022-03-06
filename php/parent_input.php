@@ -43,14 +43,15 @@
         }
 
         //  Check if student exist
-        $sql = "SELECT student_id FROM parents WHERE id = '$id'";
+        $sql = "SELECT id FROM students WHERE id = '$id'";
         $result = mysqli_query($connect, $sql);
 
         //  Set message for user
         if(mysqli_num_rows($result) == 1){
             
             $sql = "INSERT INTO parents VALUES (null, '$id', '$mail', '$relate', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province', '$postal', '$country', '$contact', null)";
-                
+            
+            mysqli_query($connect, $sql);
             $message = "Success!";
             
         }else{
