@@ -31,37 +31,40 @@
 
         $sql = "SELECT * FROM students WHERE id = '$id'";
         $result = mysqli_query($connect, $sql);
-        $data = mysqli_fetch_assoc($result);
 
-        if($data['course'] === "CS"){
-            $cs = 'checked="checked"';
-        }elseif($data['course'] === "IT"){
-            $it = 'checked="checked"';
-        }
+        if(mysqli_num_rows($result) == 1){
 
-        $skills = explode(', ', $data['skills']);
-
-        foreach($skills as $skill){
-            if($skill == "C++"){
-                $cpp = 'checked="checked"';
+            $data = mysqli_fetch_assoc($result);
+            if($data['course'] === "CS"){
+                $cs = 'checked="checked"';
+            }elseif($data['course'] === "IT"){
+                $it = 'checked="checked"';
             }
-            elseif($skill == "C#"){
-                $csharp = 'checked="checked"';
-            }
-            elseif($skill == "C"){
-                $c = 'checked="checked"';
-            }
-            else if($skill == "Java"){
-                $java = 'checked="checked"';
-            }
-            elseif($skill == "Python"){
-                $py = 'checked="checked"';
-            }
-            elseif($skill == "JavaScript"){
-                $js = 'checked="checked"';
-            }
-            elseif($skill == "Cisco"){
-                $cisco = 'checked="checked"';
+    
+            $skills = explode(', ', $data['skills']);
+    
+            foreach($skills as $skill){
+                if($skill == "C++"){
+                    $cpp = 'checked="checked"';
+                }
+                elseif($skill == "C#"){
+                    $csharp = 'checked="checked"';
+                }
+                elseif($skill == "C"){
+                    $c = 'checked="checked"';
+                }
+                else if($skill == "Java"){
+                    $java = 'checked="checked"';
+                }
+                elseif($skill == "Python"){
+                    $py = 'checked="checked"';
+                }
+                elseif($skill == "JavaScript"){
+                    $js = 'checked="checked"';
+                }
+                elseif($skill == "Cisco"){
+                    $cisco = 'checked="checked"';
+                }
             }
         }
 
@@ -228,7 +231,7 @@
                             <caption><h4>Primary</h4></caption>
                             <div>
                                 <label for="student_id">Student ID: </label>
-                                <input type="text" id="student_id" name="student_id" size="30" value="<?php echo htmlspecialchars($data['id']); ?>" maxlength="10" pattern="[1-9]{1}[0-9]{3}-[0-9]{5}" required>
+                                <input type="text" id="student_id" name="student_id" size="30" value="<?php if(mysqli_num_rows($result) == 1){echo htmlspecialchars($data['id']);} ?>" maxlength="10" pattern="[1-9]{1}[0-9]{3}-[0-9]{5}" required>
                             </div>
                             <div>
                                 <label for="email">E-mail: </label>
@@ -251,10 +254,12 @@
                                 <input type="text" id="suffix" name="suffix" size="30" maxlength="4" value="<?php echo htmlspecialchars($data['suffix']); ?>">
                             </div>
                             <div>
-                                <label>Sex: </label><span><?php echo htmlspecialchars($data['sex']); ?></span>
+                                <label>Sex: </label>
+                                <span class="output"><?php echo htmlspecialchars($data['sex']); ?></span>
                             </div>
                             <div>
-                                <label for="date_of_birth">Date of Birth: </label><span><?php echo htmlspecialchars($data['dob']); ?></span>
+                                <label for="date_of_birth">Date of Birth: </label>
+                                <span class="output"><?php echo htmlspecialchars($data['dob']); ?></span>
                             </div>
         
                             <hr>

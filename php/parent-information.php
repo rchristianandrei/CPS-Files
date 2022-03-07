@@ -32,7 +32,9 @@
 
         $sql = "SELECT * FROM parents WHERE id = '$id'";
         $result = mysqli_query($connect, $sql);
-        $data = mysqli_fetch_assoc($result);
+
+        if(mysqli_num_rows($result) == 1)
+            $data = mysqli_fetch_assoc($result);
 
         mysqli_free_result($result);
         mysqli_close($connect);
@@ -131,7 +133,7 @@
                             <caption><h4>Primary</h4></caption>
                             <div>
                                 <label for="student_id">Student ID: </label>
-                                <input type="text" id="student_id" name="student_id" size="30" value="<?php echo htmlspecialchars($data['student_id']); ?>" maxlength="10" pattern="[1-9]{1}[0-9]{3}-[0-9]{5}" required>
+                                <input type="text" id="student_id" name="student_id" size="30" value="<?php if(mysqli_num_rows($result) == 1){echo htmlspecialchars($data['student_id']);} ?>" maxlength="10" pattern="[1-9]{1}[0-9]{3}-[0-9]{5}" required>
                             </div>
                             <div>
                                 <label for="email">E-mail: </label>

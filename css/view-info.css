@@ -44,7 +44,7 @@ main div div span div.skills input {
   padding: 0px 0px 0px 70%;
 }
 
-main div div span div span {
+.output {
   float: right;
   text-align: center;
 }
