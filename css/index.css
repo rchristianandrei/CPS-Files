@@ -1,0 +1,80 @@
+.main {
+  border: 2px solid rgba(60, 100, 177, 1);
+  background-color: rgba(60, 100, 177, 1);
+  margin: 120px 10%;
+  border-radius: 10px;
+  padding: 20px 0;
+}
+h2,
+h3 {
+  text-align: center;
+  color: #ffffff;
+  font-size: x-large;
+}
+h4 {
+  text-align: center;
+  color: #000;
+  font-size: x-large;
+}
+hr {
+  margin: 20px;
+}
+.sub {
+  border: 2px solid #e5e5e5;
+  background-color: #e5e5e5;
+  margin: 20px 5%;
+  border-radius: 10px;
+  padding: 10px 3%;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  gap: 0 2%;
+}
+.padding {
+  padding: 10px 0px;
+}
+.padding div {
+  padding: 10px 0px 0px 0px;
+}
+.details {
+  float: right;
+  width: 50%;
+}
+.center {
+  text-align: center;
+  width: 50%;
+}
+.right {
+  float: right;
+}
+.select {
+  border: none;
+  border-bottom: 2px solid #000;
+  background: inherit;
+  outline: none;
+}
+.message {
+  text-align: center;
+  margin: 20px 20%;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.submit {
+  background-color: rgb(60, 100, 177);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 40px;
+  border-style: none;
+  border-radius: 10px;
+}
+.delete {
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 40px;
+  border-style: none;
+  border-radius: 10px;
+}
