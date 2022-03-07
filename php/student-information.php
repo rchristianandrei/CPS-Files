@@ -70,7 +70,7 @@
     }
 
     function submit(){
-        global $result, $data, $connect, $cs, $it, $cpp, $csharp, $c, $java, $py, $js, $cisco;
+        global $result, $data, $connect, $cs, $it, $cpp, $csharp, $c, $java, $py, $js, $cisco, $message;
 
         $statement = '';
 
@@ -162,7 +162,7 @@
             mysqli_query($connect, $sql);
             echo "<script type=\"text/javascript\">window.close();</script>";
         }catch(Exception $e){
-            $message = 'Message: ' .$e->getMessage();
+            $message = 'Message: Attempt to delete failed, id is being used as foreign key';
         }
 
         $sql = "SELECT * FROM students WHERE id = '$id'";
@@ -326,7 +326,7 @@
                     </center>
                     <div style="display: flex; justify-content: space-between;">
                         <button class="submit" id="submit" name="submit">Save Changes</button>
-                        <button style="background-color: black; padding: 10px 40px; border-style: none; border-radius: 10px;" id="delete" name="delete">DELETE</button>
+                        <button style="background-color: black; padding: 10px 40px; border-style: none; border-radius: 10px; color: white;" id="delete" name="delete">DELETE</button>
                     </div>
                 </div>
             </form>

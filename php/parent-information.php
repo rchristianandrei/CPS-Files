@@ -206,7 +206,7 @@
                     </center>
                     <div style="display: flex; justify-content: space-between;">
                         <button class="submit" id="submit" name="submit">Save Changes</button>
-                        <button style="background-color: black; padding: 10px 40px; border-style: none; border-radius: 10px;" id="delete" name="delete">DELETE</button>
+                        <button style="background-color: black; padding: 10px 40px; border-style: none; border-radius: 10px; color: white;" id="delete" name="delete">DELETE</button>
                     </div>
                 </div>
             </form>

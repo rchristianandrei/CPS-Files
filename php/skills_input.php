@@ -53,10 +53,10 @@
         }else{
 
             // Check if data entry already exist
-            $sql = "SELECT id, skills FROM students WHERE id = '$student_id' AND skills IS NULL OR skills =''";
+            $sql = "SELECT id FROM students WHERE id = '$student_id' AND skills IS NULL OR skills =''";
             $result = mysqli_query($connect, $sql);
     
-            if(mysqli_num_rows($result) == 1){
+            if(mysqli_num_rows($result) == 0){
                 $message = 'Data entry already exist';
             }else{
                 $sql = "UPDATE students SET skills = '$statement' WHERE id = '$student_id'";
