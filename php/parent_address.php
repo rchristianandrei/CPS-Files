@@ -118,7 +118,7 @@
                         <td><?php echo htmlspecialchars($entry['contact']); ?></td>
                         <td><?php echo htmlspecialchars($address); ?></td>
                         <td><?php echo htmlspecialchars($entry['country']); ?></td>
-                        <td><a href="parent-information.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank">...</a></td>
+                        <td><a href="parent-information2.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank">...</a></td>
                     </tr>
                 <?php 
                     $index++;

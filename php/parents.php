@@ -113,7 +113,7 @@
                         <td><?php echo htmlspecialchars($entry['relationship']); ?></td>
                         <td><?php echo htmlspecialchars($entry['sex']); ?></td>
                         <td><?php echo htmlspecialchars($entry['contact']); ?></td>
-                        <td><a href="parent-information.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank">...</a></td>
+                        <td><a href="parent-information2.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank">...</a></td>
                     </tr>
                 <?php 
                     $index++;

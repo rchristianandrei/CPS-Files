@@ -172,12 +172,12 @@
                         <input type="text" id="city" name="city" maxlength="20" size="30" placeholder="Luna City" value="<?php echo htmlspecialchars($city); ?>" required>
                     </div>
                     <div>
-                        <label for="province">Province: </label>
-                        <input type="text" id="province" name="province" maxlength="20" size="30" placeholder="Laguna" value="<?php echo htmlspecialchars($province); ?>" required>
-                    </div>
-                    <div>
                         <label for="postal_code">Postal Code: </label>
                         <input type="number" id="postal_code" name="postal_code" size="30" max="9999" placeholder="4027" value="<?php echo htmlspecialchars($postal); ?>" required>
+                    </div>
+                    <div>
+                        <label for="province">Province: </label>
+                        <input type="text" id="province" name="province" maxlength="20" size="30" placeholder="Laguna" value="<?php echo htmlspecialchars($province); ?>" required>
                     </div>
                     <div>
                         <label for="country">Country: </label>

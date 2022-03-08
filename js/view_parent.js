@@ -8,16 +8,6 @@ let mName = document.getElementById("mname");
 let lName = document.getElementById("lname");
 let suffix = document.getElementById("suffix");
 
-let course = document.getElementById("course");
-let year = document.getElementById("yr");
-let cpp = document.getElementById("cpp");
-let csharp = document.getElementById("csharp");
-let c = document.getElementById("c");
-let java = document.getElementById("java");
-let py = document.getElementById("py");
-let js = document.getElementById("js");
-let cisco = document.getElementById("cisco");
-
 let street = document.getElementById("street");
 let city = document.getElementById("city");
 let postal = document.getElementById("postal");
@@ -35,16 +25,6 @@ fName.disabled = true;
 mName.disabled = true;
 lName.disabled = true;
 suffix.disabled = true;
-
-course.disabled = true;
-year.disabled = true;
-cpp.disabled = true;
-csharp.disabled = true;
-c.disabled = true;
-java.disabled = true;
-py.disabled = true;
-js.disabled = true;
-cisco.disabled = true;
 
 street.disabled = true;
 city.disabled = true;
@@ -66,16 +46,6 @@ edit.addEventListener("click", function(){
         lName.disabled = false;
         suffix.disabled = false;
 
-        course.disabled = false;
-        year.disabled = false;
-        cpp.disabled = false;
-        csharp.disabled = false;
-        c.disabled = false;
-        java.disabled = false;
-        py.disabled = false;
-        js.disabled = false;
-        cisco.disabled = false;
-
         street.disabled = false;
         city.disabled = false;
         postal.disabled = false;
@@ -93,16 +63,6 @@ edit.addEventListener("click", function(){
         mName.disabled = true;
         lName.disabled = true;
         suffix.disabled = true;
-
-        course.disabled = true;
-        year.disabled = true;
-        cpp.disabled = true;
-        csharp.disabled = true;
-        c.disabled = true;
-        java.disabled = true;
-        py.disabled = true;
-        js.disabled = true;
-        cisco.disabled = true;
 
         street.disabled = true;
         city.disabled = true;
