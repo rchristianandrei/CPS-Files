@@ -187,7 +187,7 @@
                         echo 'red';
                     } ?>"><?php echo htmlspecialchars($message); ?></div>
                     <div class="buttons">
-                        <button class="submit" name="submit" id="submit">Submit</button>
+                        <button class="submit" name="submit" id="submit">Update</button>
                         <button class="delete" name="delete" id="delete">Delete</button>
                     </div>
                     <script src="../js/view_student.js"></script>
