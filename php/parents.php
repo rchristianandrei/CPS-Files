@@ -31,7 +31,7 @@
 
         $search = $_POST['search'];
 
-        $sql = "SELECT student_id, email, relationship, sex, first_name, middle_name, last_name, suffix, contact FROM parents WHERE 
+        $sql = "SELECT id, student_id, email, relationship, sex, first_name, middle_name, last_name, suffix, contact FROM parents WHERE 
             student_id LIKE '%$search%' OR 
             email LIKE '%$search%' OR 
             relationship LIKE '%$search%' OR 
@@ -52,7 +52,7 @@
         global $result, $connect, $data;
 
         //  Retrieve Query
-        $sql = "SELECT student_id, email, relationship, sex, first_name, middle_name, last_name, suffix, contact FROM parents LIMIT 10";
+        $sql = "SELECT id, student_id, email, relationship, sex, first_name, middle_name, last_name, suffix, contact FROM parents LIMIT 10";
 
         //  Get Results
         $result = mysqli_query($connect, $sql);
@@ -113,7 +113,7 @@
                         <td><?php echo htmlspecialchars($entry['relationship']); ?></td>
                         <td><?php echo htmlspecialchars($entry['sex']); ?></td>
                         <td><?php echo htmlspecialchars($entry['contact']); ?></td>
-                        <td><a href="#">...</a></td>
+                        <td><a href="parent-information.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank">...</a></td>
                     </tr>
                 <?php 
                     $index++;

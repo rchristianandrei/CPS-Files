@@ -29,6 +29,7 @@
         $country = mysqli_real_escape_string($connect, $_POST['country']);
         $contact = mysqli_real_escape_string($connect, $_POST['contact']);
         $course = mysqli_real_escape_string($connect, $_POST['course']);
+        $year = mysqli_real_escape_string($connect, $_POST['year']);
 
         //  Retain radio info
         if($sex === "M"){
@@ -53,7 +54,7 @@
             
         }else{
             // Insert info
-            $sql = "INSERT INTO students VALUES ('$id', '$mail', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province', '$postal', '$country', '$contact', '$course', null, null)";
+            $sql = "INSERT INTO students VALUES ('$id', '$mail', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$dob', '$street', '$city', '$province', '$postal', '$country', '$contact', '$course', '$year', null, null)";
 
             // Check result
             if(mysqli_query($connect, $sql)){
@@ -148,6 +149,15 @@
                                 <input style="float: none;" type="radio" id="it" name="course" value="IT" <?php echo htmlspecialchars($it) ?> required>
                             </center>
                         </span>
+                    </div>
+                    <div>
+                        <label for="year">Year: </label> 
+                        <select name="year" id="year" style="border: none; text-align: center; border-bottom: 2px solid #000; background: inherit; outline: none; float:right;">
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
                     </div>
                 </span>
     
