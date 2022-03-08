@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    $_SESSION['page'] = "Home";
 
     if(!isset($_SESSION['login'])){
         session_abort();

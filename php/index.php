@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION['page'] = "Login";
     $student_id = $error = '';
 
     if(isset($_SESSION['login'])){
