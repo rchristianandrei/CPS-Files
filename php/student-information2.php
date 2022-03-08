@@ -153,7 +153,7 @@
                             </div>
                             <div>
                                 <label for="postal">Postal Code: </label>
-                                <input class="details"  type="text" name="postal" id="postal" max="9999" value="<?php echo htmlspecialchars($data['postal']); ?>">
+                                <input class="details"  type="text" name="postal" id="postal" max="9999" value="<?php echo htmlspecialchars($data['postal']); ?>" pattern="[1-9]{1}[0-9]{3}">
                             </div>
                             <div>
                                 <label for="province">Province: </label>

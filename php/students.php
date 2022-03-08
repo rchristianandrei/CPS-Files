@@ -117,7 +117,7 @@
                         <td><?php echo htmlspecialchars($entry['year']); ?></td>
 
                         <?php if(empty($entry['skills'])): ?>
-                            <td><a href="skills_input.php?id=<?php echo htmlspecialchars($entry['id']); ?>"><?php echo 'undefined'; ?></a></td>
+                            <td><a href="student-information2.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank"><?php echo 'undefined'; ?></a></td>
                         <?php else: ?>
                             <td><?php echo htmlspecialchars($entry['skills']); ?></td>
                         <?php endif; ?>
