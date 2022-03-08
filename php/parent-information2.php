@@ -48,23 +48,23 @@
                             </div>
                             <div>
                                 <label for="mail">E-mail: </label>
-                                <input class="details"  type="text" name="mail" id="mail" value="<?php echo htmlspecialchars($data['email']); ?>">
+                                <input class="details"  type="text" name="mail" id="mail" maxlength="30" value="<?php echo htmlspecialchars($data['email']); ?>">
                             </div>
                             <div>
                                 <label for="fname">First Name: </label>
-                                <input class="details"  type="text" name="fname" id="fname" value="<?php echo htmlspecialchars($data['first_name']); ?>">
+                                <input class="details"  type="text" name="fname" id="fname" maxlength="30" value="<?php echo htmlspecialchars($data['first_name']); ?>">
                             </div>
                             <div>
                                 <label for="mname">Middle Name: </label>
-                                <input class="details"  type="text" name="mname" id="mname" value="<?php echo htmlspecialchars($data['middle_name']); ?>">
+                                <input class="details"  type="text" name="mname" id="mname" maxlength="15" value="<?php echo htmlspecialchars($data['middle_name']); ?>">
                             </div>
                             <div>
                                 <label for="lname">Last Name: </label>
-                                <input class="details"  type="text" name="lname" id="lname" value="<?php echo htmlspecialchars($data['last_name']); ?>">
+                                <input class="details"  type="text" name="lname" id="lname" maxlength="20" value="<?php echo htmlspecialchars($data['last_name']); ?>">
                             </div>
                             <div>
                                 <label for="suffix">Suffix: </label>
-                                <input class="details"  type="text" name="suffix" id="suffix" value="<?php echo htmlspecialchars($data['suffix']); ?>">
+                                <input class="details"  type="text" name="suffix" id="suffix" maxlength="20" maxlength="4" value="<?php echo htmlspecialchars($data['suffix']); ?>">
                             </div>
                             <div>
                                 <label for="">Sex: </label>
@@ -79,27 +79,27 @@
                             <caption><h4>Address</h4></caption>
                             <div>
                                 <label for="street">Street: </label>
-                                <input class="details"  type="text" name="street" id="street" value="<?php echo htmlspecialchars($data['street']); ?>">
+                                <input class="details"  type="text" name="street" id="street" maxlength="40" value="<?php echo htmlspecialchars($data['street']); ?>">
                             </div>
                             <div>
                                 <label for="city">City: </label>
-                                <input class="details"  type="text" name="city" id="city" value="<?php echo htmlspecialchars($data['city']); ?>">
+                                <input class="details"  type="text" name="city" id="city" maxlength="20" value="<?php echo htmlspecialchars($data['city']); ?>">
                             </div>
                             <div>
                                 <label for="postal">Postal Code: </label>
-                                <input class="details"  type="text" name="postal" id="postal" value="<?php echo htmlspecialchars($data['postal']); ?>">
+                                <input class="details"  type="text" name="postal" id="postal" max="9999" value="<?php echo htmlspecialchars($data['postal']); ?>">
                             </div>
                             <div>
                                 <label for="province">Province: </label>
-                                <input class="details"  type="text" name="province" id="province" value="<?php echo htmlspecialchars($data['province']); ?>">
+                                <input class="details"  type="text" name="province" id="province" maxlength="20" value="<?php echo htmlspecialchars($data['province']); ?>">
                             </div>
                             <div>
                                 <label for="country">Country: </label>
-                                <input class="details"  type="text" name="country" id="country" value="<?php echo htmlspecialchars($data['country']); ?>">
+                                <input class="details"  type="text" name="country" id="country" maxlength="15" value="<?php echo htmlspecialchars($data['country']); ?>">
                             </div>
                             <div>
                                 <label for="contact">Contact: </label>
-                                <input class="details"  type="text" name="contact" id="contact" value="<?php echo htmlspecialchars($data['contact']); ?>">
+                                <input class="details"  type="text" name="contact" id="contact" maxlength="11" value="<?php echo htmlspecialchars($data['contact']); ?>">
                             </div>
 
                             <hr>

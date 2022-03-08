@@ -48,23 +48,23 @@
                             </div>
                             <div>
                                 <label for="mail">E-mail: </label>
-                                <input class="details"  type="text" name="mail" id="mail" value="<?php echo htmlspecialchars($data['email']); ?>">
+                                <input class="details"  type="text" name="mail" id="mail" maxlength="30" value="<?php echo htmlspecialchars($data['email']); ?>">
                             </div>
                             <div>
                                 <label for="fname">First Name: </label>
-                                <input class="details"  type="text" name="fname" id="fname" value="<?php echo htmlspecialchars($data['first_name']); ?>">
+                                <input class="details"  type="text" name="fname" id="fname" maxlength="30" value="<?php echo htmlspecialchars($data['first_name']); ?>">
                             </div>
                             <div>
                                 <label for="mname">Middle Name: </label>
-                                <input class="details"  type="text" name="mname" id="mname" value="<?php echo htmlspecialchars($data['middle_name']); ?>">
+                                <input class="details"  type="text" name="mname" id="mname" maxlength="15" value="<?php echo htmlspecialchars($data['middle_name']); ?>">
                             </div>
                             <div>
                                 <label for="lname">Last Name: </label>
-                                <input class="details"  type="text" name="lname" id="lname" value="<?php echo htmlspecialchars($data['last_name']); ?>">
+                                <input class="details"  type="text" name="lname" id="lname" maxlength="20" value="<?php echo htmlspecialchars($data['last_name']); ?>">
                             </div>
                             <div>
                                 <label for="suffix">Suffix: </label>
-                                <input class="details"  type="text" name="suffix" id="suffix" value="<?php echo htmlspecialchars($data['suffix']); ?>">
+                                <input class="details"  type="text" name="suffix" id="suffix" maxlength="4" value="<?php echo htmlspecialchars($data['suffix']); ?>">
                             </div>
                             <div>
                                 <label for="">Sex: </label>
@@ -82,7 +82,7 @@
                                 <label for="course">Course: </label>
                                 <select class="details center select" name="course" id="course">
                                     <option value="CS" <?php echo htmlspecialchars($cs); ?>>CS</option>
-                                    <option value="IT" <?php echo $it; ?>>IT</option>
+                                    <option value="IT" <?php echo htmlspecialchars($it); ?>>IT</option>
                                 </select>
                             </div>
                             <div>
@@ -145,27 +145,27 @@
                             <caption><h4>Address</h4></caption>
                             <div>
                                 <label for="street">Street: </label>
-                                <input class="details"  type="text" name="street" id="street" value="<?php echo htmlspecialchars($data['street']); ?>">
+                                <input class="details"  type="text" name="street" id="street" maxlength="40" value="<?php echo htmlspecialchars($data['street']); ?>">
                             </div>
                             <div>
                                 <label for="city">City: </label>
-                                <input class="details"  type="text" name="city" id="city" value="<?php echo htmlspecialchars($data['city']); ?>">
+                                <input class="details"  type="text" name="city" id="city" maxlength="20" value="<?php echo htmlspecialchars($data['city']); ?>">
                             </div>
                             <div>
                                 <label for="postal">Postal Code: </label>
-                                <input class="details"  type="text" name="postal" id="postal" value="<?php echo htmlspecialchars($data['postal']); ?>">
+                                <input class="details"  type="text" name="postal" id="postal" max="9999" value="<?php echo htmlspecialchars($data['postal']); ?>">
                             </div>
                             <div>
                                 <label for="province">Province: </label>
-                                <input class="details"  type="text" name="province" id="province" value="<?php echo htmlspecialchars($data['province']); ?>">
+                                <input class="details"  type="text" name="province" id="province" maxlength="20" value="<?php echo htmlspecialchars($data['province']); ?>">
                             </div>
                             <div>
                                 <label for="country">Country: </label>
-                                <input class="details"  type="text" name="country" id="country" value="<?php echo htmlspecialchars($data['country']); ?>">
+                                <input class="details"  type="text" name="country" id="country" maxlength="15" value="<?php echo htmlspecialchars($data['country']); ?>">
                             </div>
                             <div>
                                 <label for="contact">Contact: </label>
-                                <input class="details"  type="text" name="contact" id="contact" value="<?php echo htmlspecialchars($data['contact']); ?>">
+                                <input class="details"  type="text" name="contact" id="contact" maxlength="11" value="<?php echo htmlspecialchars($data['contact']); ?>">
                             </div>
 
                             <hr>
@@ -268,34 +268,40 @@
         $contact = mysqli_real_escape_string($connect, $_POST['contact']);
         $course = mysqli_real_escape_string($connect, $_POST['course']);
         $yr = mysqli_real_escape_string($connect, $_POST['yr']);
-        $skills = $_POST['skills'];
 
-        foreach($skills as $skill){
-            if($skill == "C++"){
-                $cpp = 'checked="checked"';
+        if(!empty($_POST['skills'])){
+
+            $skills = $_POST['skills'];
+    
+            foreach($skills as $skill){
+                if($skill == "C++"){
+                    $cpp = 'checked="checked"';
+                }
+                elseif($skill == "C#"){
+                    $csharp = 'checked="checked"';
+                }
+                elseif($skill == "C"){
+                    $c = 'checked="checked"';
+                }
+                else if($skill == "Java"){
+                    $java = 'checked="checked"';
+                }
+                elseif($skill == "Python"){
+                    $py = 'checked="checked"';
+                }
+                elseif($skill == "JavaScript"){
+                    $js = 'checked="checked"';
+                }
+                elseif($skill == "Cisco"){
+                    $cisco = 'checked="checked"';
+                }
+                $statement .= $skill . ', ';
             }
-            elseif($skill == "C#"){
-                $csharp = 'checked="checked"';
-            }
-            elseif($skill == "C"){
-                $c = 'checked="checked"';
-            }
-            else if($skill == "Java"){
-                $java = 'checked="checked"';
-            }
-            elseif($skill == "Python"){
-                $py = 'checked="checked"';
-            }
-            elseif($skill == "JavaScript"){
-                $js = 'checked="checked"';
-            }
-            elseif($skill == "Cisco"){
-                $cisco = 'checked="checked"';
-            }
-            $statement .= $skill . ', ';
+            $statement = substr($statement, 0, strlen($statement)-2);
+        }else{
+            $statement = '';
         }
-        $statement = substr($statement, 0, strlen($statement)-2);
-
+        
         $sql = "UPDATE students SET 
             email = '$mail',
             first_name = '$firstName',
@@ -322,6 +328,12 @@
         $sql = "SELECT * FROM students WHERE id = '$id'";
         $result = mysqli_query($connect, $sql);
         $data = mysqli_fetch_assoc($result);
+        
+        if($data['course'] == "CS"){
+            $cs = 'selected="selected"';
+        }else{
+            $it = 'selected="selected"';
+        }
     }
     function delete(){
         global $result, $data, $connect, $cs, $it, $cpp, $csharp, $c, $java, $py, $js, $cisco, $message;
@@ -343,7 +355,7 @@
 
         if($data['course'] == "CS"){
             $cs = 'selected="selected"';
-        }else{
+        }elseif($data['course'] == "IT"){
             $it = 'selected="selected"';
         }
 
