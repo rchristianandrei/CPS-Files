@@ -68,7 +68,7 @@
                             </div>
                             <div>
                                 <label for="">Sex: </label>
-                                <span class="center right">M</span>
+                                <span class="center right"><?php echo htmlspecialchars($data['sex']); ?></span>
                             </div>
                             <div>
                                 <label for="">Date of Birth: </label>
@@ -183,7 +183,9 @@
                             </div>
                         </span>
                     </div>
-                    <div class="message"><?php echo htmlspecialchars($message); ?></div>
+                    <div class="message" style="color: <?php if($message == "Update success"){echo 'green';}else{
+                        echo 'red';
+                    } ?>"><?php echo htmlspecialchars($message); ?></div>
                     <div class="buttons">
                         <button class="submit" name="submit" id="submit">Submit</button>
                         <button class="delete" name="delete" id="delete">Delete</button>
@@ -332,7 +334,7 @@
             mysqli_query($connect, $sql);
             echo "<script type=\"text/javascript\">window.close();</script>";
         }catch(Exception $e){
-            $message = 'Message: Attempt to delete failed, id is being used as foreign key';
+            $message = 'Message: ' . $e->getMessage();
         }
 
         $sql = "SELECT * FROM students WHERE id = '$id'";
