@@ -7,10 +7,9 @@
     }
 
     include '../config/connection.php';
-    $id = $mail = $firstName = $midName = $lastName = $suffix = $m = $f = $dob = '';
-    $cs = $it = $first = $second = $third = $fourth =  $cpp = $csharp = $c = $java = $py = $js = $cisco = $data = '';
+    $id = $mail = $firstName = $midName = $lastName = $suffix = $m = $f = $relate = $parent = $guardian = '';
     $street = $city = $postal = $province = $country = $contact = '';
-    $dateCreated = $message = '';
+    $message = '';
 
     if(isset($_POST['submit'])){
         $statement = '';
@@ -22,10 +21,7 @@
         $lastName = mysqli_real_escape_string($connect, $_POST['lname']);
         $suffix = mysqli_real_escape_string($connect, $_POST['suffix']);
         $sex = mysqli_real_escape_string($connect, $_POST['sex']);
-        $dob = mysqli_real_escape_string($connect, $_POST['dob']);
-
-        $course = mysqli_real_escape_string($connect, $_POST['course']);
-        $yr = mysqli_real_escape_string($connect, $_POST['yr']);
+        $relate = mysqli_real_escape_string($connect, $_POST['relate']);
 
         $street = mysqli_real_escape_string($connect, $_POST['street']);
         $city = mysqli_real_escape_string($connect, $_POST['city']);
@@ -34,46 +30,13 @@
         $country = mysqli_real_escape_string($connect, $_POST['country']);
         $contact = mysqli_real_escape_string($connect, $_POST['contact']);
 
-        if(!empty($_POST['skills'])){
-
-            $skills = $_POST['skills'];
-    
-            foreach($skills as $skill){
-                if($skill == "C++"){
-                    $cpp = 'checked="checked"';
-                }
-                elseif($skill == "C#"){
-                    $csharp = 'checked="checked"';
-                }
-                elseif($skill == "C"){
-                    $c = 'checked="checked"';
-                }
-                else if($skill == "Java"){
-                    $java = 'checked="checked"';
-                }
-                elseif($skill == "Python"){
-                    $py = 'checked="checked"';
-                }
-                elseif($skill == "JavaScript"){
-                    $js = 'checked="checked"';
-                }
-                elseif($skill == "Cisco"){
-                    $cisco = 'checked="checked"';
-                }
-                $statement .= $skill . ', ';
-            }
-            $statement = substr($statement, 0, strlen($statement)-2);
-        }else{
-            $statement = '';
-        }
-
-        $sql = "INSERT INTO students VALUES('$id', '$mail', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$dob', '$street', '$city', '$province' , '$postal', '$country', '$contact', '$course', '$yr', '$statement', null)"; 
+        $sql = "INSERT INTO parents VALUES(null, '$id', '$mail', '$relate', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province' , '$postal', '$country', '$contact', null)"; 
 
         try{
             mysqli_query($connect, $sql);
             $message = "Submit success";
         }catch(Exception $e){
-            $message = 'Message: ' . $e->getMessage();
+            $message = 'Message: ' . $e->getMessage() . " or student does not exist";
         }
         
         if($sex == "M"){
@@ -82,20 +45,10 @@
             $f = 'selected="selected"';
         }
 
-        if($course == "CS"){
-            $cs = 'selected="selected"';
+        if($relate == "Parent"){
+            $parent = 'selected="selected"';
         }else{
-            $it = 'selected="selected"';
-        }
-
-        if($yr == "2"){
-            $second = 'selected="selected"';
-        }elseif($yr == "3"){
-            $third = 'selected="selected"';
-        }elseif($yr == "4"){
-            $fourth = 'selected="selected"';
-        }else{
-            $first = 'selected="selected"';
+            $guardian = 'selected="selected"';
         }
 
         mysqli_close($connect);
@@ -109,21 +62,21 @@
 
     <link rel="stylesheet" href="../css/index.css">
     <style>
-        #add, #student{
-                opacity: 50%;
-            }
+        #add, #parent{
+            opacity: 50%;
+        }
     </style>
 </head>
 <body>
-    <header>
+    <header class="header">
         <?php include "../templates/header.php"; ?>
     </header>
     <main>
         <?php include '../templates/subheader_input.php'; ?>
         <div class="main">
             <h2>Input</h2>
-            <h3>Student Info</h3>
-            <form action="student_input2.php" method="post">
+            <h3>Parent / Guardian Info</h3>
+            <form action="parent_input2.php" method="post">
                 <div class="sub">
                     <div class="grid">
                         <span class="padding">
@@ -160,80 +113,12 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="dob">Date of Birth: </label>
-                                <input class="details"  type="date" name="dob" id="dob" value="<?php echo htmlspecialchars($dob); ?>" required>
-                            </div>
-
-                            <hr>
-
-                            <caption><h4>Carreer</h4></caption>
-                            <div>
-                                <label for="course">Course: </label>
-                                <select class="details center select" name="course" id="course" required>
-                                    <option value="CS" <?php echo htmlspecialchars($cs); ?>>CS</option>
-                                    <option value="IT" <?php echo htmlspecialchars($it); ?>>IT</option>
+                                <label for="relate">Relationship: </label>
+                                <select class="details center select" name="relate" id="relate" required>
+                                    <option value="Parent" <?php echo htmlspecialchars($parent); ?>>Parent</option>
+                                    <option value="Guardian" <?php echo htmlspecialchars($guardian); ?>>Guardian</option>
                                 </select>
                             </div>
-                            <div>
-                                <label for="yr">Year level: </label>
-                                <select class="details center select" name="yr" id="yr" required>
-                                    <option value="1" <?php echo htmlspecialchars($first); ?>>1st Year</option>
-                                    <option value="2" <?php echo htmlspecialchars($second); ?>>2nd Year</option>
-                                    <option value="3" <?php echo htmlspecialchars($third); ?>>3rd Year</option>
-                                    <option value="4" <?php echo htmlspecialchars($fourth); ?>>4th Year</option>
-                                </select>
-                            </div>
-                            <!-- Skills Checkbos -->
-                            <div>
-                                <label>Skills: </label>
-                                <span class="center right">
-                                    <input type="checkbox" name="skills[]" id="cpp" value="C++" <?php echo $cpp; ?>>
-                                    <label for="cpp">C++</label>
-                                </span>
-                            </div>
-                            <div>
-                                <span>-</span>
-                                <span class="center right">
-                                    <input type="checkbox" name="skills[]" id="csharp" value="C#" <?php echo $csharp; ?>>
-                                    <label for="csharp">C#</label>
-                                </span>
-                            </div>
-                            <div>
-                                <span>-</span>
-                                <span class="center right">
-                                    <input type="checkbox" name="skills[]" id="c" value="C" <?php echo $c; ?>>
-                                    <label for="c">C</label>
-                                </span>
-                            </div>
-                            <div>
-                                <span>-</span>
-                                <span class="center right">
-                                    <input type="checkbox" name="skills[]" id="java" value="Java" <?php echo $java; ?>>
-                                    <label for="java">Java</label>
-                                </span>
-                            </div>
-                            <div>
-                                <span>-</span>
-                                <span class="center right">
-                                    <input type="checkbox" name="skills[]" id="py" value="Python" <?php echo $py; ?>>
-                                    <label for="py">Python</label>
-                                </span>
-                            </div>
-                            <div>
-                                <span>-</span>
-                                <span class="center right">
-                                    <input type="checkbox" name="skills[]" id="js" value="JavaScript" <?php echo $js; ?>>
-                                    <label for="js">JavaScript</label>
-                                </span>
-                            </div>
-                            <div>
-                                <span>-</span>
-                                <span class="center right">
-                                    <input type="checkbox" name="skills[]" id="cisco" value="Cisco" <?php echo $cisco; ?>>
-                                    <label for="cisco">Cisco</label>
-                                </span>
-                            </div>
-                            <!-- End of checkbox -->
                         </span>
                         <span class="padding">
                             <caption><h4>Address</h4></caption>
