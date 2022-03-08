@@ -8,6 +8,11 @@
         <title>CPS-Laguna</title>
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" type="text/css" href="../css/contact.css">
+        <script>
+            function showAlert() {
+              alert("Thanks for contacting us, we will get back in touch with you soon.");
+            }
+            </script>
     </head>
 <body>
     <header>
@@ -36,7 +41,7 @@
                     <div><label for="message">Message</label></div>
                     <div><textarea id="message" name="message" class="messagebox" rows="4" cols="50" placeholder="Write your question here"></textarea></div>
                     <div style="display: flex; justify-content: space-between;"></div>
-                    <div><input type="submit" class="messagebutton" value="Send a message"></div>
+                    <div><input type="submit" class="messagebutton" onclick="showAlert()" value="Send a message"></div>
                 </form>
             </span>
         </div>
