@@ -97,3 +97,11 @@ hr {
   margin: 20px 0;
   text-align: center;
 }
+.add {
+  background-color: rgb(60, 100, 177);
+  color: #ffffff;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 10px;
+  text-align: center;
+}

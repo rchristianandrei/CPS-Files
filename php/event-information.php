@@ -9,10 +9,10 @@
 
     include '../config/connection.php';
     $event = $status = $upcoming = $ongoing = $done = $tba = $details = $date = $time = $location = '';
-    $students[0] = '';
-    $message = $participantMessage = '';
+    $student = '';
+    $message = '';
 
-    if(isset($_POST['submit'])){
+    if(isset($_POST['update'])){
 
         $event = mysqli_real_escape_string($connect, $_POST['event']);
         $status = mysqli_real_escape_string($connect, $_POST['status']);
@@ -43,29 +43,6 @@
         
         $sql = "INSERT INTO events VALUES(null, '$date', '$status', '$event', '$details', '$time', '$location')";
 
-        try{
-            mysqli_query($connect, $sql);
-            $message = "Submit success";
-        }catch(Exception $e){
-            $message = 'Message: ' . $e->getMessage() . " or student does not exist";
-        }
-
-        // if(!empty($_POST['student'])){
-        //     $students = mysqli_real_escape_string($connect, $_POST['student']);
-        //     foreach($students as $student){
-
-        //         $sql = "SELECT id FROM students WHERE id = '$student'";
-        //         $result = mysqli_query($connect, $sql);
-
-        //         if(mysqli_num_rows($result) == 1){
-
-        //             $sql = "SELECT "
-        //             // $sqli = "INSERT INTO participants"
-        //         }
-                
-        //     }
-        // }
-
         mysqli_close($connect);
     }elseif(isset($_GET['id'])){
         $id = $_GET['id'];
@@ -89,8 +66,59 @@
         $date = $data['date'];
         $time = $data['time'];
         $location = $data['location'];
+
+        $sql = "SELECT student_id FROM participants WHERE event_id = '$id'";
+        $result = mysqli_query($connect, $sql);
+        $data2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }elseif(isset($_POST['add'])){
+        $id = $_POST['id'];
+        $student = $_POST['student'];
+
+        //  check for duplicates
+        $sql = "SELECT * FROM participants WHERE student_id='$student' AND event_id='$id'";
+        $result = mysqli_query($connect, $sql);
+        if(mysqli_num_rows($result) <= 0){
+
+            $sql = "INSERT INTO participants VALUES (null, '$student', '$id')";
+    
+            try{
+                mysqli_query($connect, $sql);
+                $message = "Submit success";
+            }catch(Exception $e){
+                $message = 'Message: ' . $e->getMessage() . " or student does not exist";
+            }
+        }else{
+            $message = "Student already participating";
+        }
+
+        $sql = "SELECT * FROM events WHERE id = '$id'";
+        $result = mysqli_query($connect, $sql);
+        $data = mysqli_fetch_assoc($result);
+
+        $event = $data['event'];
+
+        if($data['status'] == "UPCOMING"){
+            $upcoming = 'selected="selected"';
+        }elseif($data['status'] == "ONGOING"){
+            $ongoing = 'selected="selected"';
+        }elseif($data['status'] == "DONE"){
+            $done = 'selected="selected"';
+        }else{
+            $tba = 'selected="selected"';
+        }
+
+        $details = $data['details'];
+        $date = $data['date'];
+        $time = $data['time'];
+        $location = $data['location'];
+
+        $sql = "SELECT student_id FROM participants WHERE event_id = '$id'";
+        $result = mysqli_query($connect, $sql);
+        $data2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
+    mysqli_free_result($result);
+    mysqli_close($connect);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,9 +130,10 @@
 <body>
     <main>
         <div class="main">
+            <h3 id="x"><i class="fa-solid fa-x xBtn"></i></h3>
             <h2>Input</h2>
             <h3>Parent / Guardian Info</h3>
-            <form action="event_input.php" method="post">
+            <form action="event-information.php" method="post">
                 <div class="sub">
                     <div class="grid">
                         <span class="padding">
@@ -135,43 +164,42 @@
                                 <input class="details"  type="time" name="time" id="time" value="<?php echo htmlspecialchars($time); ?>">
                             </div>
                             <div>
-                                <label for="location">Location: </label>
-                                <textarea class="details textarea" name="location" id="location" placeholder="TBA" rows="1"><?php echo htmlspecialchars($location); ?></textarea>
+                                <label for="place">Location: </label>
+                                <textarea class="details textarea" name="location" id="place" placeholder="TBA" rows="1"><?php echo htmlspecialchars($location); ?></textarea>
                             </div>
                         </span>
                         <span class="padding">
-                            <caption><h4>Participant</h4></caption>
+                            <caption><h4>Participants</h4></caption>
                             <div>
                                 <label for="student">Student ID: </label>
-                                <input class="details"  type="text" name="student[]" maxlength="10" value="<?php echo htmlspecialchars($students[0]); ?>" placeholder="2020-12345">
+                                <input class="details"  type="text" name="student" id="student" maxlength="10" value="<?php echo htmlspecialchars($student); ?>" placeholder="2020-12345">
+                            </div>
+                            <div style="text-align: center;">
+                                <button class="submit" name="add" id="add">ADD</button>
+                            </div>
+                            <!-- Start of foreach -->
+                            <div style="text-align: center;"><i class="fa-solid fa-user"></i></div>
+                            <?php foreach($data2 as $entry2): ?> 
+                                <div style="text-align: center;"><?php echo htmlspecialchars($entry2['student_id']); ?></div>
+                            <?php endforeach; ?>
+                            <!-- endforeach -->
+                            <div class="right">
+                                <input type="checkbox" name="edit" id="edit">
+                                <label for="edit">EDIT</label>
                             </div>
                             <div>
-                                <span class="center">-</span>                     
-                                <input class="details" type="text" name="student[]" value="" placeholder="2020-12345">
+                                <input class="details"  type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($data['id']); ?>">
                             </div>
-                            <div>
-                                <span>-</span>                     
-                                <input class="details" type="text" name="student[]" value="" placeholder="2020-12345">
-                            </div>
-                            <div>
-                                <span>-</span>                     
-                                <input class="details" type="text" name="student[]" value="" placeholder="2020-12345">
-                            </div>
-                            <div>
-                                <span>-</span>                     
-                                <input class="details" type="text" name="student[]" value="" placeholder="2020-12345">
-                            </div>
-                            <div class="message" style="color: <?php if($message == "Submit success"){echo 'green';}else{
-                                echo 'red';
-                            } ?>"><?php echo htmlspecialchars($message); ?></div>
                         </span>
                     </div>
                     <div class="message" style="color: <?php if($message == "Submit success"){echo 'green';}else{
                         echo 'red';
                     } ?>"><?php echo htmlspecialchars($message); ?></div>
-                    <div style="text-align: center;">
-                        <button class="submit" name="submit" id="submit">Submit</button>
+                    <div class="buttons">
+                        <button class="submit" name="update" id="update">Update</button>
+                        <button class="delete" name="delete" id="delete">Delete</button>
                     </div>
+                    <script src="../js/view_event.js"></script>
                 </div>
             </form>
         </div>

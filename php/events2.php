@@ -8,7 +8,6 @@
     }
 
     include '../config/connection.php';
-
     $sql = "SELECT * FROM events ORDER BY date, time LIMIT 10";
     $result = mysqli_query($connect, $sql);
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);

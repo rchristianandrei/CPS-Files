@@ -50,22 +50,6 @@
             $message = 'Message: ' . $e->getMessage() . " or student does not exist";
         }
 
-        // if(!empty($_POST['student'])){
-        //     $students = mysqli_real_escape_string($connect, $_POST['student']);
-        //     foreach($students as $student){
-
-        //         $sql = "SELECT id FROM students WHERE id = '$student'";
-        //         $result = mysqli_query($connect, $sql);
-
-        //         if(mysqli_num_rows($result) == 1){
-
-        //             $sql = "SELECT "
-        //             // $sqli = "INSERT INTO participants"
-        //         }
-                
-        //     }
-        // }
-
         mysqli_close($connect);
     }
 
