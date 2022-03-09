@@ -33,6 +33,7 @@
 <body>
     <main>
         <div class="main">
+            <h3 id="x"><i class="fa-solid fa-x xBtn"></i></h3>
             <h2>Profile</h2>
             <h3>Parent / Guardian Info</h3>
             <form action="parent-information2.php" method="post">

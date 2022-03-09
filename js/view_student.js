@@ -1,3 +1,5 @@
+let xBtn = document.getElementById("x");
+
 let edit = document.getElementById("edit");
 let submit = document.getElementById("submit");
 let del = document.getElementById("delete");
@@ -111,4 +113,7 @@ edit.addEventListener("click", function(){
         country.disabled = true;
         contact.disabled = true;
     }
+});
+xBtn.addEventListener("click", function(){
+    window.close();
 });
