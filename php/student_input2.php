@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION['page'] = "Input";
 
     if(!isset($_SESSION['login'])){
         session_abort();

@@ -77,7 +77,7 @@
             <?php include '../templates/subheader_output.php'; ?>
             <table>
                 <caption>
-                    <h3>Student Address Information Table</h3><br>
+                    <h3>Event Information Table</h3><br>
                     <form action="search_event.php" method="post">
                         <input size="25" type="text" placeholder="2020-99999" name="search" value="<?php echo htmlspecialchars($search); ?>"><input type="submit" name="submit" id="submit" value="Search" class="button">
                     </form>
@@ -99,7 +99,7 @@
                         <td><?php echo htmlspecialchars($entry['time']); ?></td>
                         <td><?php echo htmlspecialchars($entry['location']); ?></td>
                         
-                        <td><a href="student-information2.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank"><i class="fa-solid fa-ellipsis"></i></a></td>
+                        <td><a href="event-information.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank"><i class="fa-solid fa-ellipsis"></i></a></td>
                     </tr>
                 <?php 
                     $index++;

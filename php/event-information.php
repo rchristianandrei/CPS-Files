@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['page'] = "Input";
+    $_SESSION['page'] = "Edit";
 
     if(!isset($_SESSION['login'])){
         session_abort();
@@ -67,6 +67,28 @@
         // }
 
         mysqli_close($connect);
+    }elseif(isset($_GET['id'])){
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM events WHERE id = '$id'";
+        $result = mysqli_query($connect, $sql);
+        $data = mysqli_fetch_assoc($result);
+
+        $event = $data['event'];
+
+        if($data['status'] == "UPCOMING"){
+            $upcoming = 'selected="selected"';
+        }elseif($data['status'] == "ONGOING"){
+            $ongoing = 'selected="selected"';
+        }elseif($data['status'] == "DONE"){
+            $done = 'selected="selected"';
+        }else{
+            $tba = 'selected="selected"';
+        }
+
+        $details = $data['details'];
+        $date = $data['date'];
+        $time = $data['time'];
+        $location = $data['location'];
     }
 
 ?>
@@ -76,24 +98,15 @@
     <?php include "../templates/head.php"; ?>
 
     <link rel="stylesheet" href="../css/index.css">
-    <style>
-        #add, #event-in{
-            opacity: 50%;
-        }
-    </style>
 </head>
 <body>
-    <header class="header">
-        <?php include "../templates/header.php"; ?>
-    </header>
     <main>
-        <?php include '../templates/subheader_input.php'; ?>
         <div class="main">
             <h2>Input</h2>
-            <h3>Event Info</h3>
+            <h3>Parent / Guardian Info</h3>
             <form action="event_input.php" method="post">
                 <div class="sub">
-                    <div>
+                    <div class="grid">
                         <span class="padding">
                             <caption><h4>Primary</h4></caption>
                             <div>
@@ -126,7 +139,7 @@
                                 <textarea class="details textarea" name="location" id="location" placeholder="TBA" rows="1"><?php echo htmlspecialchars($location); ?></textarea>
                             </div>
                         </span>
-                        <!-- <span class="padding">
+                        <span class="padding">
                             <caption><h4>Participant</h4></caption>
                             <div>
                                 <label for="student">Student ID: </label>
@@ -151,7 +164,7 @@
                             <div class="message" style="color: <?php if($message == "Submit success"){echo 'green';}else{
                                 echo 'red';
                             } ?>"><?php echo htmlspecialchars($message); ?></div>
-                        </span> -->
+                        </span>
                     </div>
                     <div class="message" style="color: <?php if($message == "Submit success"){echo 'green';}else{
                         echo 'red';
@@ -163,8 +176,5 @@
             </form>
         </div>
     </main>
-    <footer>
-        <?php include "../templates/footer.php"; ?>
-    </footer>
 </body>
 </html>

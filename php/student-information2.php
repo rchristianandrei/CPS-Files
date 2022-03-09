@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION['page'] = "Edit";
 
     if(!isset($_SESSION['login'])){
         session_abort();
@@ -30,9 +31,6 @@
         
 </head>
 <body>
-    <header>
-        <?php include "../templates/header.php"; ?>
-    </header>
     <main>
         <div class="main">
             <h2>Profile</h2>
@@ -195,9 +193,6 @@
             </form>
         </div>
     </main>
-    <footer>
-        <?php include "../templates/footer.php"; ?>
-    </footer>
 </body>
 </html>
 <?php
