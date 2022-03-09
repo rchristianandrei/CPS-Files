@@ -9,5 +9,3 @@ Files for CPS website
     Galang, Justin
     Ignacio, Inigo
     Reyes, Christian
-
-#Test

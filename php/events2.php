@@ -40,9 +40,7 @@
             <h3>Schedule</h3>
             <div class="grid">
                 <!-- Start foreach -->
-                <?php foreach($data as $entry): 
-                    $participants = explode('|', $entry['participants']);
-                ?>
+                <?php foreach($data as $entry): ?>
                 <div class="row">
                     <div class="grid-items"><?php echo htmlspecialchars($entry['date']) ?></div>
                     <div class="grid-items red-text"><?php echo htmlspecialchars($entry['status']) ?></div>
@@ -59,9 +57,9 @@
                     <div class="grid-items">
                         <i class="fa-solid fa-user"></i>
                         <!-- Iterate through participants -->
-                        <?php foreach($participants as $participant): ?>
-                        <div><?php echo htmlspecialchars($participant); ?></div>
-                        <?php endforeach; ?>
+                        
+                        <div></div>
+                        
                         <!-- endforeach -->
                     </div>
                 </div>

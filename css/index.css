@@ -78,3 +78,12 @@ hr {
   border-style: none;
   border-radius: 10px;
 }
+.textarea {
+  resize: none;
+  border: none;
+  text-align: center;
+  border-bottom: 2px solid #000;
+  background: inherit;
+  outline: none;
+  align-items: center;
+}
