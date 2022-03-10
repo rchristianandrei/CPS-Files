@@ -6,6 +6,9 @@
         session_abort();
         header('Location: index.php');
     }
+    if(!isset($_GET['id'])){
+        echo "<script type=\"text/javascript\">window.close();</script>";
+    }
 
     include '../config/connection.php';
     $message = "";
