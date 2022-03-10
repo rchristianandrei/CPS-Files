@@ -69,7 +69,7 @@
     <link rel="stylesheet" type="text/css" href="../css/smaller_subheader.css">
     <link rel="stylesheet" type="text/css" href="../css/students_output.css">
     <style>
-        #retrieve, #parent, #primary{
+        #retrieve, #parent{
             opacity: 50%;
         }
     </style>
@@ -80,7 +80,6 @@
         </header>
         <main>
             <?php include '../templates/subheader_output.php'; ?>
-            <?php include '../templates/parentsubheader_output.php'; ?>
             <table>
                 <caption>
                     <h3>Parent Primary Information Table</h3><br>

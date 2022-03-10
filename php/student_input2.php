@@ -151,7 +151,7 @@
                             </div>
                             <div>
                                 <label for="suffix">Suffix: </label>
-                                <input class="details"  type="text" name="suffix" id="suffix" maxlength="4" value="<?php echo htmlspecialchars($suffix); ?>" placeholder="IV" required>
+                                <input class="details"  type="text" name="suffix" id="suffix" maxlength="4" value="<?php echo htmlspecialchars($suffix); ?>" placeholder="IV">
                             </div>
                             <div>
                                 <label for="sex">Sex: </label>

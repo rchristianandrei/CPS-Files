@@ -53,14 +53,6 @@
                         <i class="fa-solid fa-location-pin"></i>
                         <div><?php echo htmlspecialchars($entry['location']) ?></div>
                     </div>
-                    <div class="grid-items">
-                        <i class="fa-solid fa-user"></i>
-                        <!-- Iterate through participants -->
-                        
-                        <div></div>
-                        
-                        <!-- endforeach -->
-                    </div>
                 </div>
                 <?php endforeach; ?>
                 <!-- endforech -->

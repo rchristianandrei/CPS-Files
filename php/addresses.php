@@ -55,7 +55,7 @@
         global $result, $connect, $data;
 
         //  Retrieve Query
-        $sql = "SELECT id, first_name, middle_name, last_name, suffix, street, city, province, postal, country, contact, course FROM students LIMIT 10";
+        $sql = "SELECT id, first_name, middle_name, last_name, suffix, city, province, postal, country, contact, course FROM students LIMIT 10";
 
         //  Get Results
         $result = mysqli_query($connect, $sql);
@@ -106,7 +106,7 @@
                             $fullName = $entry['first_name']." ".substr($entry['middle_name'], 0, 1).". ".$entry['last_name']." ".$entry['suffix'];
                         }
 
-                        $address = $entry['street'].", ".$entry['city'].", ".$entry['province'].", ".$entry['province']." ".$entry['postal'];
+                        $address = $entry['city'].", ".$entry['province'].", ".$entry['postal'];
                 ?>
                     <tr style="background-color: <?php if($index%2 != 0){ echo 'white'; }else{ echo 'inherit'; } ?>;">
                         <td><?php echo htmlspecialchars($entry['id']); ?></td>

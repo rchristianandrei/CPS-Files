@@ -69,55 +69,6 @@
         $date = $data['date'];
         $time = $data['time'];
         $location = $data['location'];
-
-        $sql = "SELECT student_id FROM participants WHERE event_id = '$id'";
-        $result = mysqli_query($connect, $sql);
-        $data2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    }elseif(isset($_POST['add'])){
-        $id = $_POST['id'];
-        $student = $_POST['student'];
-
-        //  check for duplicates
-        $sql = "SELECT * FROM participants WHERE student_id='$student' AND event_id='$id'";
-        $result = mysqli_query($connect, $sql);
-        if(mysqli_num_rows($result) <= 0){
-
-            $sql = "INSERT INTO participants VALUES (null, '$student', '$id')";
-    
-            try{
-                mysqli_query($connect, $sql);
-                $message = "Submit success";
-            }catch(Exception $e){
-                $message = 'Message: ' . $e->getMessage() . " or student does not exist";
-            }
-        }else{
-            $message = "Student already participating";
-        }
-
-        $sql = "SELECT * FROM events WHERE id = '$id'";
-        $result = mysqli_query($connect, $sql);
-        $data = mysqli_fetch_assoc($result);
-
-        $event = $data['event'];
-
-        if($data['status'] == "UPCOMING"){
-            $upcoming = 'selected="selected"';
-        }elseif($data['status'] == "ONGOING"){
-            $ongoing = 'selected="selected"';
-        }elseif($data['status'] == "DONE"){
-            $done = 'selected="selected"';
-        }else{
-            $tba = 'selected="selected"';
-        }
-
-        $details = $data['details'];
-        $date = $data['date'];
-        $time = $data['time'];
-        $location = $data['location'];
-
-        $sql = "SELECT student_id FROM participants WHERE event_id = '$id'";
-        $result = mysqli_query($connect, $sql);
-        $data2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
     mysqli_free_result($result);
@@ -138,7 +89,7 @@
             <h3>Parent / Guardian Info</h3>
             <form action="event-information.php" method="post">
                 <div class="sub">
-                    <div class="grid">
+                    <div>
                         <span class="padding">
                             <caption><h4>Primary</h4></caption>
                             <div>
@@ -169,29 +120,6 @@
                             <div>
                                 <label for="place">Location: </label>
                                 <textarea class="details textarea" name="location" id="place" placeholder="TBA" rows="1"><?php echo htmlspecialchars($location); ?></textarea>
-                            </div>
-                        </span>
-                        <span class="padding">
-                            <caption><h4>Participants</h4></caption>
-                            <div>
-                                <label for="student">Student ID: </label>
-                                <input class="details"  type="text" name="student" id="student" maxlength="10" value="<?php echo htmlspecialchars($student); ?>" placeholder="2020-12345">
-                            </div>
-                            <div style="text-align: center;">
-                                <button class="submit" name="add" id="add">ADD</button>
-                            </div>
-                            <!-- Start of foreach -->
-                            <div style="text-align: center;"><i class="fa-solid fa-user"></i></div>
-                            <?php foreach($data2 as $entry2): ?> 
-                                <div style="text-align: center;"><?php echo htmlspecialchars($entry2['student_id']); ?></div>
-                            <?php endforeach; ?>
-                            <!-- endforeach -->
-                            <div class="right">
-                                <input type="checkbox" name="edit" id="edit">
-                                <label for="edit">EDIT</label>
-                            </div>
-                            <div>
-                                <input class="details"  type="hidden" name="id" id="id" value="<?php echo htmlspecialchars($data['id']); ?>">
                             </div>
                         </span>
                     </div>

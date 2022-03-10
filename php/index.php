@@ -43,9 +43,6 @@
         </style>
     </head>
     <body>
-        <header>
-            <?php include '../templates/header.php' ?>
-        </header>
         <main>
             <div class="formlayout">
                 <img src="../images/homepage.png" alt="login photo" class="login_photo">
@@ -67,8 +64,5 @@
                 </span>
             </div>
         </main>
-        <footer>
-            <?php include '../templates/footer.php' ?>
-        </footer>
     </body>
 </html>
