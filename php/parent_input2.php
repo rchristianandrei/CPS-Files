@@ -9,7 +9,7 @@
 
     include '../config/connection.php';
     $id = $mail = $firstName = $midName = $lastName = $suffix = $m = $f = $relate = $parent = $guardian = '';
-    $street = $city = $postal = $province = $country = $contact = '';
+    $city = $postal = $province = $country = $contact = '';
     $message = '';
 
     if(isset($_POST['submit'])){
@@ -24,14 +24,13 @@
         $sex = mysqli_real_escape_string($connect, $_POST['sex']);
         $relate = mysqli_real_escape_string($connect, $_POST['relate']);
 
-        $street = mysqli_real_escape_string($connect, $_POST['street']);
         $city = mysqli_real_escape_string($connect, $_POST['city']);
         $province = mysqli_real_escape_string($connect, $_POST['province']);
         $postal = mysqli_real_escape_string($connect, $_POST['postal']);
         $country = mysqli_real_escape_string($connect, $_POST['country']);
         $contact = mysqli_real_escape_string($connect, $_POST['contact']);
 
-        $sql = "INSERT INTO parents VALUES(null, '$id', '$mail', '$relate', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$street', '$city', '$province' , '$postal', '$country', '$contact', null)"; 
+        $sql = "INSERT INTO parents VALUES(null, '$id', '$mail', '$relate', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$city', '$province' , '$postal', '$country', '$contact', null)"; 
 
         try{
             mysqli_query($connect, $sql);
@@ -104,7 +103,7 @@
                             </div>
                             <div>
                                 <label for="suffix">Suffix: </label>
-                                <input class="details"  type="text" name="suffix" id="suffix" maxlength="4" value="<?php echo htmlspecialchars($suffix); ?>" placeholder="IV" required>
+                                <input class="details"  type="text" name="suffix" id="suffix" maxlength="4" value="<?php echo htmlspecialchars($suffix); ?>" placeholder="IV">
                             </div>
                             <div>
                                 <label for="sex">Sex: </label>
@@ -124,16 +123,12 @@
                         <span class="padding">
                             <caption><h4>Address</h4></caption>
                             <div>
-                                <label for="street">Street: </label>
-                                <input class="details"  type="text" name="street" id="street" maxlength="40" value="<?php echo htmlspecialchars($street); ?>" placeholder="Texas St." required>
-                            </div>
-                            <div>
                                 <label for="city">City: </label>
                                 <input class="details"  type="text" name="city" id="city" maxlength="20" value="<?php echo htmlspecialchars($city); ?>" placeholder="Luna City" required>
                             </div>
                             <div>
                                 <label for="postal">Postal Code: </label>
-                                <input class="details"  type="text" name="postal" id="postal" value="<?php echo htmlspecialchars($postal); ?>" placeholder="4027" pattern="[1-9]{1}[0-9]{3}" required>
+                                <input class="details"  type="text" name="postal" id="postal" maxlength="4" value="<?php echo htmlspecialchars($postal); ?>" placeholder="4027" pattern="[1-9]{1}[0-9]{3}" required>
                             </div>
                             <div>
                                 <label for="province">Province: </label>

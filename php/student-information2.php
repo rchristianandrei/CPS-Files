@@ -6,9 +6,6 @@
         session_abort();
         header('Location: index.php');
     }
-    if(!isset($_GET['id'])){
-        echo "<script type=\"text/javascript\">window.close();</script>";
-    }
     include '../config/connection.php';
     $message = $cs = $it = $cs = $it = $cpp = $csharp = $c = $java = $py = $js = $cisco = "";
 
@@ -49,11 +46,11 @@
                             </div>
                             <div>
                                 <label for="mail">E-mail: </label>
-                                <input class="details"  type="text" name="mail" id="mail" maxlength="30" value="<?php echo htmlspecialchars($data['email']); ?>">
+                                <input class="details"  type="text" name="mail" id="mail" maxlength="30" value="<?php echo htmlspecialchars($data['email']); ?>" required>
                             </div>
                             <div>
                                 <label for="fname">First Name: </label>
-                                <input class="details"  type="text" name="fname" id="fname" maxlength="30" value="<?php echo htmlspecialchars($data['first_name']); ?>">
+                                <input class="details"  type="text" name="fname" id="fname" maxlength="30" value="<?php echo htmlspecialchars($data['first_name']); ?>" required>
                             </div>
                             <div>
                                 <label for="mname">Middle Name: </label>
@@ -61,7 +58,7 @@
                             </div>
                             <div>
                                 <label for="lname">Last Name: </label>
-                                <input class="details"  type="text" name="lname" id="lname" maxlength="20" value="<?php echo htmlspecialchars($data['last_name']); ?>">
+                                <input class="details"  type="text" name="lname" id="lname" maxlength="20" value="<?php echo htmlspecialchars($data['last_name']); ?>" required>
                             </div>
                             <div>
                                 <label for="suffix">Suffix: </label>
@@ -81,14 +78,14 @@
                             <caption><h4>Carreer</h4></caption>
                             <div>
                                 <label for="course">Course: </label>
-                                <select class="details center select" name="course" id="course">
+                                <select class="details center select" name="course" id="course" required>
                                     <option value="CS" <?php echo htmlspecialchars($cs); ?>>CS</option>
                                     <option value="IT" <?php echo htmlspecialchars($it); ?>>IT</option>
                                 </select>
                             </div>
                             <div>
                                 <label for="yr">Year level: </label>
-                                <input class="details"  type="text" name="yr" id="yr" value="<?php echo htmlspecialchars($data['year']); ?>">
+                                <input class="details"  type="text" name="yr" id="yr" value="<?php echo htmlspecialchars($data['year']); ?>" required>
                             </div>
                             <!-- Skills Checkbos -->
                             <div>
@@ -145,28 +142,24 @@
                         <span class="padding">
                             <caption><h4>Address</h4></caption>
                             <div>
-                                <label for="street">Street: </label>
-                                <input class="details"  type="text" name="street" id="street" maxlength="40" value="<?php echo htmlspecialchars($data['street']); ?>">
-                            </div>
-                            <div>
                                 <label for="city">City: </label>
-                                <input class="details"  type="text" name="city" id="city" maxlength="20" value="<?php echo htmlspecialchars($data['city']); ?>">
+                                <input class="details"  type="text" name="city" id="city" maxlength="20" value="<?php echo htmlspecialchars($data['city']); ?>" required>
                             </div>
                             <div>
                                 <label for="postal">Postal Code: </label>
-                                <input class="details"  type="text" name="postal" id="postal" max="9999" value="<?php echo htmlspecialchars($data['postal']); ?>" pattern="[1-9]{1}[0-9]{3}">
+                                <input class="details"  type="text" name="postal" id="postal" max="9999" value="<?php echo htmlspecialchars($data['postal']); ?>" pattern="[1-9]{1}[0-9]{3}" required>
                             </div>
                             <div>
                                 <label for="province">Province: </label>
-                                <input class="details"  type="text" name="province" id="province" maxlength="20" value="<?php echo htmlspecialchars($data['province']); ?>">
+                                <input class="details"  type="text" name="province" id="province" maxlength="20" value="<?php echo htmlspecialchars($data['province']); ?>" required>
                             </div>
                             <div>
                                 <label for="country">Country: </label>
-                                <input class="details"  type="text" name="country" id="country" maxlength="15" value="<?php echo htmlspecialchars($data['country']); ?>">
+                                <input class="details"  type="text" name="country" id="country" maxlength="15" value="<?php echo htmlspecialchars($data['country']); ?>" required>
                             </div>
                             <div>
                                 <label for="contact">Contact: </label>
-                                <input class="details"  type="text" name="contact" id="contact" maxlength="11" value="<?php echo htmlspecialchars($data['contact']); ?>">
+                                <input class="details"  type="text" name="contact" id="contact" maxlength="11" value="<?php echo htmlspecialchars($data['contact']); ?>" required>
                             </div>
 
                             <hr>
@@ -258,7 +251,6 @@
         $midName = mysqli_real_escape_string($connect, $_POST['mname']);
         $lastName = mysqli_real_escape_string($connect, $_POST['lname']);
         $suffix = mysqli_real_escape_string($connect, $_POST['suffix']);
-        $street = mysqli_real_escape_string($connect, $_POST['street']);
         $city = mysqli_real_escape_string($connect, $_POST['city']);
         $province = mysqli_real_escape_string($connect, $_POST['province']);
         $postal = mysqli_real_escape_string($connect, $_POST['postal']);
@@ -306,7 +298,6 @@
             middle_name = '$midName',
             last_name = '$lastName',
             suffix = '$suffix',
-            street = '$street',
             city = '$city',
             province = '$province',
             postal = '$postal',

@@ -10,7 +10,7 @@
     include '../config/connection.php';
     $id = $mail = $firstName = $midName = $lastName = $suffix = $m = $f = $dob = '';
     $cs = $it = $first = $second = $third = $fourth =  $cpp = $csharp = $c = $java = $py = $js = $cisco = $data = '';
-    $street = $city = $postal = $province = $country = $contact = '';
+    $city = $postal = $province = $country = $contact = '';
     $dateCreated = $message = '';
 
     if(isset($_POST['submit'])){
@@ -28,7 +28,6 @@
         $course = mysqli_real_escape_string($connect, $_POST['course']);
         $yr = mysqli_real_escape_string($connect, $_POST['yr']);
 
-        $street = mysqli_real_escape_string($connect, $_POST['street']);
         $city = mysqli_real_escape_string($connect, $_POST['city']);
         $province = mysqli_real_escape_string($connect, $_POST['province']);
         $postal = mysqli_real_escape_string($connect, $_POST['postal']);
@@ -68,7 +67,7 @@
             $statement = '';
         }
 
-        $sql = "INSERT INTO students VALUES('$id', '$mail', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$dob', '$street', '$city', '$province' , '$postal', '$country', '$contact', '$course', '$yr', '$statement', null)"; 
+        $sql = "INSERT INTO students VALUES('$id', '$mail', '$sex', '$firstName', '$midName', '$lastName', '$suffix', '$dob', '$city', '$province' , '$postal', '$country', '$contact', '$course', '$yr', '$statement', null)"; 
 
         try{
             mysqli_query($connect, $sql);
@@ -238,10 +237,6 @@
                         </span>
                         <span class="padding">
                             <caption><h4>Address</h4></caption>
-                            <div>
-                                <label for="street">Street: </label>
-                                <input class="details"  type="text" name="street" id="street" maxlength="40" value="<?php echo htmlspecialchars($street); ?>" placeholder="Texas St." required>
-                            </div>
                             <div>
                                 <label for="city">City: </label>
                                 <input class="details"  type="text" name="city" id="city" maxlength="20" value="<?php echo htmlspecialchars($city); ?>" placeholder="Luna City" required>
