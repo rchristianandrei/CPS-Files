@@ -2,10 +2,8 @@
     session_start();
     $_SESSION['page'] = "Edit";
 
-    if(!isset($_SESSION['login'])){
-        session_abort();
-        header('Location: index.php');
-    }
+    //  Check if logged in
+    include '../templates/logged.php';
 
     include '../config/connection.php';
     $event = $status = $upcoming = $ongoing = $done = $tba = $details = $date = $time = $location = '';
@@ -84,7 +82,7 @@
             <h3 id="x"><i class="fa-solid fa-x xBtn"></i></h3>
             <h2>Input</h2>
             <h3>Parent / Guardian Info</h3>
-            <form action="event-information.php" method="post">
+            <form action="event.php" method="post">
                 <div class="sub">
                     <div>
                         <span class="padding">

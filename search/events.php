@@ -2,10 +2,8 @@
     session_start();
     $_SESSION['page'] = "Search";
 
-    if(!isset($_SESSION['login'])){
-        session_abort();
-        header('Location: index.php');
-    }
+    //  Check if logged in
+    include '../templates/logged.php';
 
     //  Global Variables
     include '../config/connection.php';
@@ -78,7 +76,7 @@
             <table>
                 <caption>
                     <h3>Event Information Table</h3><br>
-                    <form action="search_event.php" method="post">
+                    <form action="events.php" method="post">
                         <input size="25" type="text" placeholder="2020-99999" name="search" value="<?php echo htmlspecialchars($search); ?>"><input type="submit" name="submit" id="submit" value="Search" class="button">
                     </form>
                 </caption>
@@ -99,7 +97,7 @@
                         <td><?php echo htmlspecialchars($entry['time']); ?></td>
                         <td><?php echo htmlspecialchars($entry['location']); ?></td>
                         
-                        <td><a href="event-information.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank"><i class="fa-solid fa-ellipsis"></i></a></td>
+                        <td><a href="../view/event.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank"><i class="fa-solid fa-ellipsis"></i></a></td>
                     </tr>
                 <?php 
                     $index++;

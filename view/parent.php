@@ -2,10 +2,8 @@
     session_start();
     $_SESSION['page'] = "Edit";
 
-    if(!isset($_SESSION['login'])){
-        session_abort();
-        header('Location: index.php');
-    }
+    //  Check if logged in
+    include '../templates/logged.php';
 
     if(!$_SESSION['login']['authorization'] === "admin"){
         header('Location: homepage.php');
@@ -40,7 +38,7 @@
             <h3 id="x"><i class="fa-solid fa-x xBtn"></i></h3>
             <h2>Profile</h2>
             <h3>Parent / Guardian Info</h3>
-            <form action="parent-information2.php" method="post">
+            <form action="parent.php" method="post">
                 <div class="sub">
                     <div class="grid">
                         <span class="padding">

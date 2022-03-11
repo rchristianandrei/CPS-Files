@@ -2,10 +2,7 @@
     session_start();
 
     //  Check if logged in
-    if(!isset($_SESSION['login'])){
-        session_abort();
-        header('Location: index.php');
-    }
+    include '../templates/logged.php';
 
     //  Check if allowed on this page
     if($_SESSION['login']['authorization'] === "guest"){
@@ -84,7 +81,7 @@
         <div class="main">
             <h2>Input</h2>
             <h3>Event Info</h3>
-            <form action="event_input.php" method="post">
+            <form action="event.php" method="post">
                 <div class="sub">
                     <div>
                         <span class="padding">
