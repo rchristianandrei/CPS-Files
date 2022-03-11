@@ -1,10 +1,8 @@
 <?php
     session_start();
 
-    if(!isset($_SESSION['login'])){
-        session_abort();
-        header('Location: index.php');
-    }
+    //  Check if logged in
+    include '../templates/logged.php';
 
     //  Check if allowed on this page
     if($_SESSION['login']['authorization'] === "guest"){
@@ -131,7 +129,7 @@
         <div class="main">
             <h2>Input</h2>
             <h3>Student Info</h3>
-            <form action="student_input2.php" method="post">
+            <form action="student.php" method="post">
                 <div class="sub">
                     <div class="grid">
                         <span class="padding">

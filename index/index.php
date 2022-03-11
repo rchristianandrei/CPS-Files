@@ -30,7 +30,7 @@
         //  Check result
         if(mysqli_num_rows($result) == 1)
         {   
-            header('Location: students.php');
+            header('Location: ../php/homepage.php');
         }else{
             $error = "Invalid ID or password";
         }
@@ -55,7 +55,7 @@
             <div class="formlayout">
                 <img src="../images/homepage.png" alt="login photo" class="login_photo">
                 <span class="form">
-                    <form action="../php/index.php" method="post">
+                    <form action="index.php" method="post">
                         <div><h2>Login</h2></div>
                         <div><label for="student_id">Student ID</label></div>
                         <div><input type="text" name="student_id" id="student_id" value="<?php echo htmlspecialchars($student_id); ?>" size="50" maxlength="30"  required></div>

@@ -3,10 +3,8 @@
     session_start();
     $_SESSION['page'] = "Search";
 
-    if(!isset($_SESSION['login'])){
-        session_abort();
-        header('Location: index.php');
-    }
+    //  Check if logged in
+    include '../templates/logged.php';
 
     //  Check if allowed on this page
     if($_SESSION['login']['authorization'] === "guest"){
@@ -120,7 +118,7 @@
                         <td><?php echo htmlspecialchars($entry['relationship']); ?></td>
                         <td><?php echo htmlspecialchars($entry['sex']); ?></td>
                         <td><?php echo htmlspecialchars($entry['contact']); ?></td>
-                        <td><a href="parent-information2.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank"><i class="fa-solid fa-ellipsis"></i></a></td>
+                        <td><a href="../view/parent.php?id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank"><i class="fa-solid fa-ellipsis"></i></a></td>
                     </tr>
                 <?php 
                     $index++;
