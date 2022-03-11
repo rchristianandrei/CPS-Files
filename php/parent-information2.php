@@ -7,6 +7,10 @@
         header('Location: index.php');
     }
 
+    if(!$_SESSION['login']['authorization'] === "admin"){
+        header('Location: homepage.php');
+    }
+
     include '../config/connection.php';
     $message = "";
 

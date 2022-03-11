@@ -1,17 +1,24 @@
 <?php
 
     session_start();
-    $_SESSION['page'] = "Search";
-
+    
+    //  Check if logged in
     if(!isset($_SESSION['login'])){
         session_abort();
         header('Location: index.php');
     }
 
+    //  Check if allowed on this page
+    if(!$_SESSION['login']['authorization'] === "admin"){
+        header('Location: homepage.php');
+    }
+
     // Global Variables
-    include '../config/connection.php'; 
+    $_SESSION['page'] = "Search";
+    $connect = $_SESSION['conn'];
     $search = '';
 
+    //  Check if form is submitted
     if(isset($_POST['submit'])){
         
         search();
@@ -21,6 +28,7 @@
         initialInfo();
     }
 
+    //  Close connection and free memory
     mysqli_free_result($result);
     mysqli_close($connect);
 

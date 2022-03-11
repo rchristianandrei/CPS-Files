@@ -8,6 +8,10 @@
         header('Location: index.php');
     }
 
+    if(!$_SESSION['login']['authorization'] === "admin"){
+        header('Location: homepage.php');
+    }
+
     //  Global Variables
     include '../config/connection.php';
     $search = '';

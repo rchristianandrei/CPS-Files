@@ -1,15 +1,21 @@
 <?php
     session_start();
-    $_SESSION['page'] = "Login";
-    $student_id = $error = '';
 
+    //  Check if logged in
     if(isset($_SESSION['login'])){
         header('Location: homepage.php');
     }
 
+    //  Global Variables
+    $_SESSION['page'] = "Login";
+    $student_id = $error = '';
+
+    //  Check if form was submitted
     if(isset($_POST['submit'])){
 
-        include '../config/connection.php';
+        //  Connections
+        include '../config/guest.php';
+        include '../config/admin.php';
 
         //  Query
         $student_id = $_POST['student_id'];
@@ -17,18 +23,31 @@
 
         $sql = "SELECT * FROM accounts WHERE student_id = '$student_id' AND password = '$password'";
 
-        $result = mysqli_query($connect, $sql);
+        //  Get result
+        $result = mysqli_query($guest, $sql);
+        $_SESSION['login'] = mysqli_fetch_assoc($result);
 
+        //  Check result
         if(mysqli_num_rows($result) == 1)
         {
-            $_SESSION['login'] = mysqli_fetch_assoc($result);
+            //  Decide which connection to use
+            if($_SESSION['login']['authorization'] === "admin"){
+
+                $_SESSION['conn'] = $admin;
+
+            }else{
+
+                $_SESSION['conn'] = $guest;
+
+            }
+            
             header('Location: students.php');
         }else{
             $error = "Invalid ID or password";
         }
 
         mysqli_free_result($result);
-        mysqli_close($connect);
+        mysqli_close($guest);
     }
 ?>
 <!DOCTYPE html>

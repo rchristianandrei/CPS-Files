@@ -7,6 +7,10 @@
         header('Location: index.php');
     }
 
+    if(!$_SESSION['login']['authorization'] === "admin"){
+        header('Location: homepage.php');
+    }
+
     include '../config/connection.php';
     $id = $mail = $firstName = $midName = $lastName = $suffix = $m = $f = $dob = '';
     $cs = $it = $first = $second = $third = $fourth =  $cpp = $csharp = $c = $java = $py = $js = $cisco = $data = '';

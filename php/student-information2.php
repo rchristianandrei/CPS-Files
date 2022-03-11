@@ -6,6 +6,11 @@
         session_abort();
         header('Location: index.php');
     }
+
+    if(!$_SESSION['login']['authorization'] === "admin"){
+        header('Location: homepage.php');
+    }
+    
     include '../config/connection.php';
     $message = $cs = $it = $cs = $it = $cpp = $csharp = $c = $java = $py = $js = $cisco = "";
 
