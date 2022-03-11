@@ -9,13 +9,15 @@
     }
 
     //  Check if allowed on this page
-    if(!$_SESSION['login']['authorization'] === "admin"){
+    if($_SESSION['login']['authorization'] === "guest"){
         header('Location: homepage.php');
+    }else{
+        include '../config/admin.php';
+        $connect = $admin;
     }
 
     // Global Variables
     $_SESSION['page'] = "Search";
-    $connect = $_SESSION['conn'];
     $search = '';
 
     //  Check if form is submitted

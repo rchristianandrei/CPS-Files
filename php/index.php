@@ -29,18 +29,7 @@
 
         //  Check result
         if(mysqli_num_rows($result) == 1)
-        {
-            //  Decide which connection to use
-            if($_SESSION['login']['authorization'] === "admin"){
-
-                $_SESSION['conn'] = $admin;
-
-            }else{
-
-                $_SESSION['conn'] = $guest;
-
-            }
-            
+        {   
             header('Location: students.php');
         }else{
             $error = "Invalid ID or password";

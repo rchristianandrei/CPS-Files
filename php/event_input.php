@@ -1,13 +1,22 @@
 <?php
     session_start();
-    $_SESSION['page'] = "Input";
 
+    //  Check if logged in
     if(!isset($_SESSION['login'])){
         session_abort();
         header('Location: index.php');
     }
 
-    include '../config/connection.php';
+    //  Check if allowed on this page
+    if($_SESSION['login']['authorization'] === "guest"){
+        header('Location: homepage.php');
+    }else{
+        include '../config/admin.php';
+        $connect = $admin;
+    }
+
+    //  Global Variables
+    $_SESSION['page'] = "Input";
     $event = $status = $upcoming = $ongoing = $done = $tba = $details = $date = $time = $location = '';
     $students[0] = '';
     $message = $participantMessage = '';
@@ -110,32 +119,6 @@
                                 <textarea class="details textarea" name="location" id="location" placeholder="TBA" rows="1"><?php echo htmlspecialchars($location); ?></textarea>
                             </div>
                         </span>
-                        <!-- <span class="padding">
-                            <caption><h4>Participant</h4></caption>
-                            <div>
-                                <label for="student">Student ID: </label>
-                                <input class="details"  type="text" name="student[]" maxlength="10" value="<?php echo htmlspecialchars($students[0]); ?>" placeholder="2020-12345">
-                            </div>
-                            <div>
-                                <span class="center">-</span>                     
-                                <input class="details" type="text" name="student[]" value="" placeholder="2020-12345">
-                            </div>
-                            <div>
-                                <span>-</span>                     
-                                <input class="details" type="text" name="student[]" value="" placeholder="2020-12345">
-                            </div>
-                            <div>
-                                <span>-</span>                     
-                                <input class="details" type="text" name="student[]" value="" placeholder="2020-12345">
-                            </div>
-                            <div>
-                                <span>-</span>                     
-                                <input class="details" type="text" name="student[]" value="" placeholder="2020-12345">
-                            </div>
-                            <div class="message" style="color: <?php if($message == "Submit success"){echo 'green';}else{
-                                echo 'red';
-                            } ?>"><?php echo htmlspecialchars($message); ?></div>
-                        </span> -->
                     </div>
                     <div class="message" style="color: <?php if($message == "Submit success"){echo 'green';}else{
                         echo 'red';

@@ -1,17 +1,21 @@
 <?php
     session_start();
-    $_SESSION['page'] = "Input";
 
     if(!isset($_SESSION['login'])){
         session_abort();
         header('Location: index.php');
     }
 
-    if(!$_SESSION['login']['authorization'] === "admin"){
+    //  Check if allowed on this page
+    if($_SESSION['login']['authorization'] === "guest"){
         header('Location: homepage.php');
+    }else{
+        include '../config/admin.php';
+        $connect = $admin;
     }
 
-    include '../config/connection.php';
+    //  Global variables
+    $_SESSION['page'] = "Input";
     $id = $mail = $firstName = $midName = $lastName = $suffix = $m = $f = $dob = '';
     $cs = $it = $first = $second = $third = $fourth =  $cpp = $csharp = $c = $java = $py = $js = $cisco = $data = '';
     $city = $postal = $province = $country = $contact = '';

@@ -8,12 +8,15 @@
         header('Location: index.php');
     }
 
-    if(!$_SESSION['login']['authorization'] === "admin"){
+    //  Check if allowed on this page
+    if($_SESSION['login']['authorization'] === "guest"){
         header('Location: homepage.php');
+    }else{
+        include '../config/admin.php';
+        $connect = $admin;
     }
 
     //  Global Variables
-    include '../config/connection.php';
     $search = '';
 
     if(isset($_POST['submit'])){

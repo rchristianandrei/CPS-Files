@@ -1,18 +1,28 @@
 <?php
     session_start();
-    $_SESSION['page'] = "Input";
 
+    //  Check if logged in
     if(!isset($_SESSION['login'])){
         session_abort();
         header('Location: index.php');
     }
 
-    include '../config/connection.php';
+    //  Check if allowed on this page
+    if($_SESSION['login']['authorization'] === "guest"){
+        header('Location: homepage.php');
+    }else{
+        include '../config/admin.php';
+        $connect = $admin;
+    }
+
+    //  Global Variables
+    $_SESSION['page'] = "Input";
     $id = $mail = $firstName = $midName = $lastName = $suffix = $m = $f = $relate = $parent = $guardian = '';
     $city = $postal = $province = $country = $contact = '';
     $message = '';
 
     if(isset($_POST['submit'])){
+        
         $statement = '';
 
         $id = mysqli_real_escape_string($connect, $_POST['id']);
