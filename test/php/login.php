@@ -25,7 +25,7 @@
         $data = mysqli_fetch_assoc($result);
 
         if(mysqli_num_rows($result) == 1)
-        {   
+        {
             $id = $data['student_id'];
             $_SESSION['authorization'] = $data['authorization'];
 
@@ -55,18 +55,17 @@
                 <img src="../images/title.png" alt="login photo" class="login_photo">
                 <span class="form">
                     <form action="<?php echo $page; ?>" method="post" autocomplete="off">
-                        <div><h2>Login</h2></div>
+                        <div><h2>Log In</h2></div>
                         <div><label for="student_id">Student ID</label></div>
-                        <div><input type="text" name="student_id" id="student_id" value="<?php echo htmlspecialchars($student_id); ?>" size="50" maxlength="30"  required></div>
+                        <div><input type="text" name="student_id" id="student_id" value="<?php echo htmlspecialchars($student_id); ?>" size="50" maxlength="30" placeholder="Username" required></div>
                         <div><label for="password">Password</label></div>
-                        <div><input type="password" name="password" id="password" size="50" maxlength="30" required></div>
+                        <div><input type="password" name="password" id="password" size="50" maxlength="30" placeholder="Password" required></div>
                         <div>
                             <a href="contact.php?subject=forgotpassword">Forgot Password?</a>
                         </div>
                         <div style="color: red;"><?php echo $error; ?></div>
-                        <center>
-                            <div><input type="submit" name="submit" class="loginbutton" value="Login"></div>
-                        </center>
+
+                        <button style="margin-bottom: 20%" type="submit" name="submit" class="loginbutton" value="Log In">Log In</button>
                     </form>
                 </span>
             </div>
