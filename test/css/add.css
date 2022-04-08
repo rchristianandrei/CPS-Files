@@ -28,6 +28,9 @@
   grid-template-columns: 49% 49%;
   gap: 0 2%;
 }
+.hide{
+  border-bottom: 2px solid rgb(229, 229, 229);
+}
 @media (max-width: 909px) {
   .grid {
     display: block;

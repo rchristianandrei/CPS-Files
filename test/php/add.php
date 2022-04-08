@@ -3,12 +3,17 @@
 
     include '../config/admin.php';
 
+    if(isset($_SESSION['authorization']) || $_SESSION['authorization'] != "Admin"){
+        if($_GET['form'] != "parent"){
+            header("Location: home.php");
+        }
+    }
+
     $form = $_GET['form'] ?? "student";
     $page = $_SERVER['PHP_SELF'] . "?form=" . $form;
     $time = time() + 600;
     $message = $student = $parent = $event = $account = '';
 
-    // Get cookies :P
     if($form == "student"){
         StudentData();
         $student = 'background: rgb(74, 116, 223);';
@@ -114,7 +119,7 @@
             $sql = "INSERT INTO parents VALUES(null, '$id', '$email', '$rel', '$sex', '$fname', '$mname', '$lname', '$suffix', '$city', '$province', '$postal', '$country', '$contact', null)";
         }
         elseif($form == "account"){
-            $sql = "INSERT INTO accounts VALUES('$aid', '$pass', '$authorization', '0', 'RUNNING')";
+            $sql = "INSERT INTO accounts VALUES('$aid', '$pass', '$authorization', '0', 'RUNNING', null)";
         }
 
         try{
@@ -228,13 +233,16 @@
 <html lang="en">
 <head>
     <?php include '../templates/head.php'; ?>
-
     <link rel="stylesheet" type="text/css" href="../css/add.css">
+    <script src="../js/add.js"></script>
 </head>
 <body>
     <header>
-        <?php include '../templates/header.php'; ?>
-        <script src="../js/add.js"></script>
+        <?php
+            if($_SESSION['authorization'] == "Admin"){
+                include '../templates/header.php'; 
+            }
+        ?>
     </header>
     <main>
         <section class="title">
@@ -243,11 +251,17 @@
         <section class="outer">
             <nav>
                 <ul class="sub-nav">
+                    <?php if($_SESSION['authorization'] == "Admin"): ?>
                     <li style="<?php echo $account; ?>"><a href="?form=account" id="account">Accounts</a></li>
                     <li style="<?php echo $student; ?>"><a href="?form=student" id="students">Students</a></li>
                     <li style="<?php echo $parent; ?>"><a href="?form=parent" id="parents">Parents</a></li>
                     <li style="<?php echo $event; ?>"><a href="?form=event" id="events">Events</a></li>
                     <!-- <li><a href="?form=achievement" id="achievements">Achievements</a></li> -->
+                    <?php else: ?>
+                    <section class="buttons">
+                    <i class="fa-solid fa-xmark" id="close"></i>
+                    </section>
+                    <?php endif; ?>
                 </ul>
             </nav>
             <h3 id="title">
@@ -368,8 +382,13 @@
                         <section id="primary">
                                 <h4>Primary</h4>
                                 <div class="entry">
-                                    <label for="">Student ID:</label>
+                                 <label for="">Student ID:</label>
+                                    <?php if($_SESSION['authorization'] != "Admin"): ?>
+                                    <span class="width"><?php echo $_SESSION['id']; ?></span>
+                                    <input class="width" type="text" name="id" id="id" value="<?php echo $_SESSION['id']; ?>" hidden>
+                                    <?php else: ?>
                                     <input class="width" type="text" name="id" id="id" value="<?php echo htmlspecialchars($id); ?>" required>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="entry">
                                     <label for="">E-mail:</label>
@@ -474,7 +493,11 @@
         </section>
     </main>
     <footer>
-        <?php include '../templates/footer.php'; ?>
+    <?php
+            if($_SESSION['authorization'] == "Admin"){
+                include '../templates/footer.php'; 
+            }
+        ?>
     </footer>
 </body>
 </html>

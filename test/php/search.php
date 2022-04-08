@@ -1,6 +1,10 @@
 <?php
     session_start();
 
+    if(!isset($_SESSION['id']) || $_SESSION['authorization'] != "Admin"){
+        header("Location: home.php");
+    }
+
     include '../config/admin.php';
 
     $page = $_SERVER['PHP_SELF'];
@@ -186,7 +190,7 @@
                             <td><?php echo htmlspecialchars($location); ?></td>
                             <td class="dcount"><?php echo htmlspecialchars($entry['country']); ?></td>
                             <td><?php echo htmlspecialchars($entry['contact']); ?></td>
-                            <td><i class="fa-solid fa-ellipsis"></i></td>
+                            <td><a href="view.php?form=student&id=<?php echo htmlspecialchars($entry['id']); ?>" target="_blank"><i class="fa-solid fa-ellipsis"></i></a></td>
                         </tr>
                     <?php
                             endforeach;

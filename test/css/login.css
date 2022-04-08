@@ -4,33 +4,23 @@
   border: solid #e5e5e5;
   border-width: 2px;
   border-radius: 20px;
-  box-shadow: 0 6px 8px rgba(0,0,0,.1);
-  margin: 150px 20%;
+  margin: 120px 20%;
   padding: 0px;
 }
 
 .login_photo {
   width: 45%;
-  height: 600px;
+  height: 500px;
   max-width: 100%;
   border-radius: 20px;
   object-fit: cover;
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .form {
   width: 55%;
   height: 100%;
   padding: auto 0;
-  letter-spacing: 1.5px;
 }
-
-.form h2 {
-  margin-top: 10%;
-}
-
 main div span form div,
 main div span div div {
   padding: 20px 10%;
@@ -40,47 +30,11 @@ main div span div div {
 #password {
 } */
 
-.form input{
-    width: calc(100% - 20px);
-    padding: 1px 10px;
-    margin-bottom: 1px;
-    background-color: transparent;
-    border-bottom: 2px solid #e0e0e0;
-    font-size: 16px;
-    transition: .4s;
-    text-align: left;
-    letter-spacing: 1.5px;
-}
-.formlayout form input:focus{
-    /*border-bottom: 2px solid #c3b798;*/
-	border-bottom:2px solid #1a1a1a;
-}
-.form input::placeholder {
-  color: #e2e2e2;
-  text-align: left;
-}
-
-.formlayout form button {
-  width: 77%;
-  padding: 10px 0;
-  border: none;
+.loginbutton {
   background-color: rgba(60, 100, 177, 1);
-  font-size: 18px;
-  color: #fafafa;
-  border-radius: 50px;
+  color: #ffffff;
   cursor: pointer;
-  position: relative;
-  top: 60%;
-  left: 10%;
-  transform: translateY(-40%);
-}
-
-.formlayout form a{
-  color: #3c64b1;
-}
-.formlayout form a:hover{
-  color: #d6334c;
-}
-.formlayout form button:hover {
-  background-color: #d6334c;
+  padding: 10px 90px;
+  border-style: none;
+  border-radius: 10px;
 }

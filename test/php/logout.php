@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_SESSION['id'])){
+        header("Location: home.php");
+    }   
     session_start();
     session_unset();
     foreach ( $_COOKIE as $key => $value )
