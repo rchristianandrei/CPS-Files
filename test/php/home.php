@@ -11,8 +11,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="This is a website used ny CPS to update, manage, and delete data about students.">
     <title>CPS-Laguna</title>
-    <link rel="stylesheet" type="text/css" href="../css/about.css">
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
     <link rel="stylesheet" type="text/css" href="../css/homepage.css">
     <script>
         function showAlert() {
@@ -39,14 +37,14 @@ session_start();
                 <h2 style="color: black; font-weight: 700;">Computer Programming Society</h2><br>
                 <p style="color: black; font-weight: 700;">Computer Programming Society is a non-profit organization in LPU-Laguna that endeavors its members to be highly competent IT/CS students. Computer Programming Society of LPU-Laguna aims to be an excellent organization in the field of computing to all the students of the College of Engineering and Computer Studies.
                 </p><br>
-                <div><button style="float: left;"><a href="contact_us.html">Contact Us</a></button></div>
+                <div><button class="contactbutton"><a href="contact.php">Contact Us</a></button></div>
             </div>
         </div>
 
         <!-- CPS -->
         <section id="CPSociety">
-            <h1 style="text-align: center;">Our Exclusive Events</h1>
-            <p>Information on past and upcoming events of CPS organization and School wide events will be placed here. Schedules
+            <h1 style="text-align: center; padding-top: 30px">Our Exclusive Events</h1>
+            <p style="text-align: center; padding-left:80px; padding-right:80px; padding-top: 10px">Information on past and upcoming events of CPS organization and School wide events will be placed here. Schedules
                 of the upcoming Events will also be here for the CPS members, Officers and Admins to see.</p>
         </section>
 
@@ -93,9 +91,9 @@ session_start();
                         <h1 style="text-align: left;">Our Blog</h1><br>
                         <h4>Computer Programming Society - Laguna warmly welcomes IT/CS Freshmen students for the SY 2020-2021. We, the officers of CPS, are hoping that you will participate and learn from us in the upcoming and exciting events of this organization. With the theme of Innovating Leaders Through Technology 2.0, we strive to work hard and give contribution to the institution and to the society. </h4><br>
                         <article>
-                            <h4><a href="#">Need More Information?</a></h4>
+                            <h4><a href="about.php">Need More Information?</a></h4>
                             <h6 class="lead">To know more about our organization, you may click the read more.</h6><br>
-                            <a href="#" title="Title here">Read more...</a>
+                            <a href="about.php" title="Title here">Read more...</a>
                         </article>
                     </div>
                     <div class="column"><img src="../images/blog.png" alt="login photo" class="login_photo leftside"></div>
@@ -110,7 +108,7 @@ session_start();
                                 Enroll Now and be part of LPU-Laguna and CPS family!
                                 Learn Different. Live Different.
                                 ENROLL NOW!</p><br>
-                            <div><input type="text" class="textbox" name="contact_email" id="contact_email" placeholder="email@address.com"><button onclick="showAlert()">Send</button>
+                            <div><input type="text" class="textbox" name="contact_email" id="contact_email" placeholder="email@address.com"><button onclick="showAlert()" class="contactbutton">Send</button>
                             </div>
                             <br>
                             <p>
