@@ -154,4 +154,12 @@
 .btn-news.btn-contests a:hover {
     color: #000;
 }
+.contactbutton {
+  background-color: rgba(60, 100, 177, 1);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px 40px;
+  border-style: none;
+  border-radius: 10px;
+}
 
