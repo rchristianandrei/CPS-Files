@@ -37,7 +37,7 @@
                 suffix LIKE '%$search%' OR
                 course LIKE '%$search%' OR
                 year LIKE '%$search%' OR 
-                skills LIKE '%$search%'";  
+                skills LIKE '%$search%' LIMIT 10";  
 
             $students = 'selected="selected"';
         }
@@ -53,7 +53,7 @@
                 province LIKE '%$search%' OR 
                 postal LIKE '%$search%' OR 
                 country LIKE '%$search%' OR 
-                contact LIKE '%$search%'";
+                contact LIKE '%$search%' LIMIT 10";
                 
             $address = 'selected="selected"';
         }
@@ -68,7 +68,7 @@
                 middle_name LIKE '%$search%' OR 
                 last_name LIKE '%$search%' OR 
                 suffix LIKE '%$search%' OR 
-                contact LIKE '%$search%'";
+                contact LIKE '%$search%' LIMIT 10";
 
             $parents = 'selected="selected"';
         }
@@ -76,7 +76,7 @@
             $sql = "SELECT student_id, authorization, status FROM accounts WHERE
                 student_id LIKE '%$search%' OR 
                 authorization LIKE '%$search%' OR 
-                status LIKE '%$search%'";
+                status LIKE '%$search%' LIMIT 10";
 
             $accounts = 'selected="selected"';
         }
