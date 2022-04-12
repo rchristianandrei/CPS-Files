@@ -112,7 +112,6 @@
             <section class="center"><h2 id="heading"><?php echo $table; ?></h2></section>
             <section class="search center">
                 <form action="<?php echo $page; ?>" method="post" autocomplete="off">
-                    <i class="fa-solid fa-filter submit"></i>
                     <input class="search-box" type="text" name="keyword" id="search" placeholder="Search.." value="<?php echo htmlspecialchars($search); ?>">
                     <select name="tables" id="tables" class="tables">
                         <option value="Students" <?php echo $students; ?>>Students</option>
