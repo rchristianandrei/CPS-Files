@@ -25,9 +25,9 @@
         <section>
             <ul class="spacing">
                 <center><caption>Follow Us</caption></center>
-                <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i> Instagram</a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i> Linked In</a></li>
+                <li><a href="https://www.facebook.com/cps.lpulaguna/" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://www.linkedin.com/login" target="_blank"><i class="fa fa-linkedin"></i> Linked In</a></li>
             </ul>
         </section>
     </section>
