@@ -117,7 +117,6 @@
                         <option value="Students" <?php echo $students; ?>>Students</option>
                         <option value="Address" <?php echo $address; ?>>Address</option>
                         <option value="Parents" <?php echo $parents; ?>>Parents</option>
-                        <option value="Events">Events</option>
                         <option value="Accounts" <?php echo $accounts; ?>>Accounts</option>
                     </select>
                     <button name="search" class="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
