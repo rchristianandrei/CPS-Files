@@ -12,8 +12,6 @@
                 <li><a href="../php/search.php" id="search">Search</a></li>
                 <li><a href="../php/add.php">Add</a></li>
             <?php endif; ?>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Achievements</a></li>
             <li><a href="../php/contact.php">Contact Us</a></li>
             <li><a href="../php/about.php">About</a></li>
             <li><a href="../php/logout.php">Logout</a></li>

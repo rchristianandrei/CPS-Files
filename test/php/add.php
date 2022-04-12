@@ -3,7 +3,7 @@
 
     include '../config/admin.php';
 
-    if(isset($_SESSION['authorization']) || $_SESSION['authorization'] != "Admin"){
+    if(!isset($_SESSION['authorization']) || $_SESSION['authorization'] != "Admin"){
         if($_GET['form'] != "parent"){
             header("Location: home.php");
         }
@@ -21,10 +21,6 @@
     elseif($form == "parent"){
         ParentData();
         $parent = 'background: rgb(74, 116, 223);';
-    }
-    elseif($form == "event"){
-        EventData();
-        $event = 'background: rgb(74, 116, 223);';
     }
     elseif($form == "account"){
         AccountData();
@@ -93,9 +89,6 @@
             setcookie('country', $_POST['country'], $time);
             setcookie('contact', $_POST['contact'], $time);
         } 
-        elseif($form == "event"){
-
-        }
         elseif($form == "account"){
 
             setcookie('aid', $_POST['aid'], $time);
@@ -255,8 +248,6 @@
                     <li style="<?php echo $account; ?>"><a href="?form=account" id="account">Accounts</a></li>
                     <li style="<?php echo $student; ?>"><a href="?form=student" id="students">Students</a></li>
                     <li style="<?php echo $parent; ?>"><a href="?form=parent" id="parents">Parents</a></li>
-                    <li style="<?php echo $event; ?>"><a href="?form=event" id="events">Events</a></li>
-                    <!-- <li><a href="?form=achievement" id="achievements">Achievements</a></li> -->
                     <?php else: ?>
                     <section class="buttons">
                     <i class="fa-solid fa-xmark" id="close"></i>
@@ -285,27 +276,27 @@
                                 <h4>Primary</h4>
                                 <div class="entry">
                                     <label for="">Student ID:</label>
-                                    <input class="width" type="text" name="id" id="id" value="<?php echo htmlspecialchars($id); ?>" required>
+                                    <input class="width" type="text" name="id" id="id" maxlength="10" value="<?php echo htmlspecialchars($id); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">E-mail:</label>
-                                    <input class="width" type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" required>
+                                    <input class="width" type="email" name="email" id="email" maxlength="30" value="<?php echo htmlspecialchars($email); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">First Name:</label>
-                                    <input class="width" type="text" name="fname" id="fname" value="<?php echo htmlspecialchars($fname); ?>" required>
+                                    <input class="width" type="text" name="fname" id="fname" maxlength="30" value="<?php echo htmlspecialchars($fname); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Midlle Name:</label>
-                                    <input class="width" type="text" name="mname" id="mname" value="<?php echo htmlspecialchars($mname); ?>" required>
+                                    <input class="width" type="text" name="mname" id="mname" maxlength="15" value="<?php echo htmlspecialchars($mname); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Last Name:</label>
-                                    <input class="width" type="text" name="lname" id="lname" value="<?php echo htmlspecialchars($lname); ?>" required>
+                                    <input class="width" type="text" name="lname" id="lname" maxlength="20" value="<?php echo htmlspecialchars($lname); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Suffix:</label>
-                                    <input class="width" type="text" name="suffix" id="suffix" value="<?php echo htmlspecialchars($suffix); ?>">
+                                    <input class="width" type="text" name="suffix" id="suffix" maxlength="4" value="<?php echo htmlspecialchars($suffix); ?>">
                                 </div>
                                 <div class="entry">
                                     <label for="sex">Sex:</label>
@@ -359,23 +350,23 @@
                                 <h4>Address</h4>
                                 <div class="entry">
                                     <label for="">City:</label>
-                                    <input class="width" type="text" name="city" id="city" value="<?php echo htmlspecialchars($city); ?>" required>
+                                    <input class="width" type="text" name="city" id="city" maxlength="20" value="<?php echo htmlspecialchars($city); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Province:</label>
-                                    <input class="width" type="text" name="province" id="province" value="<?php echo htmlspecialchars($province); ?>" required>
+                                    <input class="width" type="text" name="province" id="province" maxlength="20" value="<?php echo htmlspecialchars($province); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Postal Code:</label>
-                                    <input class="width" type="text" name="postal" id="postal" value="<?php echo htmlspecialchars($postal); ?>" required>
+                                    <input class="width" type="text" name="postal" id="postal" maxlength="4" value="<?php echo htmlspecialchars($postal); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Country:</label>
-                                    <input class="width" type="text" name="country" id="country" value="<?php echo htmlspecialchars($country); ?>" required>
+                                    <input class="width" type="text" name="country" id="country" maxlength="15" value="<?php echo htmlspecialchars($country); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Contact No:</label>
-                                    <input class="width" type="text" name="contact" id="contact" value="<?php echo htmlspecialchars($contact); ?>" required>
+                                    <input class="width" type="text" name="contact" id="contact" maxlength="11" value="<?php echo htmlspecialchars($contact); ?>" required>
                                 </div>
                             </section>
                         <?php elseif($form == "parent"): ?>
@@ -387,28 +378,28 @@
                                     <span class="width"><?php echo $_SESSION['id']; ?></span>
                                     <input class="width" type="text" name="id" id="id" value="<?php echo $_SESSION['id']; ?>" hidden>
                                     <?php else: ?>
-                                    <input class="width" type="text" name="id" id="id" value="<?php echo htmlspecialchars($id); ?>" required>
+                                    <input class="width" type="text" name="id" id="id" maxlength="10" value="<?php echo htmlspecialchars($id); ?>" required>
                                     <?php endif; ?>
                                 </div>
                                 <div class="entry">
                                     <label for="">E-mail:</label>
-                                    <input class="width" type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" required>
+                                    <input class="width" type="email" name="email" id="email" maxlength="30" value="<?php echo htmlspecialchars($email); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">First Name:</label>
-                                    <input class="width" type="text" name="fname" id="fname" value="<?php echo htmlspecialchars($fname); ?>" required>
+                                    <input class="width" type="text" name="fname" id="fname" maxlength="30" value="<?php echo htmlspecialchars($fname); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Midlle Name:</label>
-                                    <input class="width" type="text" name="mname" id="mname" value="<?php echo htmlspecialchars($mname); ?>" required>
+                                    <input class="width" type="text" name="mname" id="mname" maxlength="15" value="<?php echo htmlspecialchars($mname); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Last Name:</label>
-                                    <input class="width" type="text" name="lname" id="lname" value="<?php echo htmlspecialchars($lname); ?>" required>
+                                    <input class="width" type="text" name="lname" id="lname" maxlength="20" value="<?php echo htmlspecialchars($lname); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Suffix:</label>
-                                    <input class="width" type="text" name="suffix" id="suffix" value="<?php echo htmlspecialchars($suffix); ?>">
+                                    <input class="width" type="text" name="suffix" id="suffix" maxlength="4" value="<?php echo htmlspecialchars($suffix); ?>">
                                 </div>
                                 <div class="entry">
                                     <label for="sex">Sex:</label>
@@ -431,43 +422,25 @@
                                 <h4>Address</h4>
                                 <div class="entry">
                                     <label for="">City:</label>
-                                    <input class="width" type="text" name="city" id="city" value="<?php echo htmlspecialchars($city); ?>" required>
+                                    <input class="width" type="text" name="city" id="city" maxlength="20" value="<?php echo htmlspecialchars($city); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Province:</label>
-                                    <input class="width" type="text" name="province" id="province" value="<?php echo htmlspecialchars($province); ?>" required>
+                                    <input class="width" type="text" name="province" id="province" maxlength="20" value="<?php echo htmlspecialchars($province); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Postal Code:</label>
-                                    <input class="width" type="text" name="postal" id="postal" value="<?php echo htmlspecialchars($postal); ?>" required>
+                                    <input class="width" type="text" name="postal" id="postal" maxlength="4" value="<?php echo htmlspecialchars($postal); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Country:</label>
-                                    <input class="width" type="text" name="country" id="country" value="<?php echo htmlspecialchars($country); ?>" required>
+                                    <input class="width" type="text" name="country" id="country" maxlength="15" value="<?php echo htmlspecialchars($country); ?>" required>
                                 </div>
                                 <div class="entry">
                                     <label for="">Contact No:</label>
-                                    <input class="width" type="text" name="contact" id="contact" value="<?php echo htmlspecialchars($contact); ?>" required>
+                                    <input class="width" type="text" name="contact" id="contact" maxlength="11" value="<?php echo htmlspecialchars($contact); ?>" required>
                                 </div>
                             </section>
-                        <?php elseif($form == "event"): ?>
-                            <div class="entry single">
-                                <label for="">Event Name:</label>
-                                <input class="width" type="text" name="name" id="name" required>
-                            </div>
-                            <div class="entry single">
-                                <label for="">Date:</label>
-                                <input class="width" type="date" name="date" id="date" required>
-                            </div>
-                            <div class="entry single">
-                                <label for="">Time:</label>
-                                <input class="width" type="time" name="date" id="date" required>
-                            </div>
-                            <div class="file">
-                                <label for="img">Add Image <i class="fa-solid fa-image"></i></label>
-                                <div id="filename"></div>
-                                <input class="width" type="file" name="img" id="img" accept="image/*">
-                            </div>
                         <?php elseif($form == "account"): ?>
                             <div class="entry single">
                                 <label for="aid">Student ID:</label>
