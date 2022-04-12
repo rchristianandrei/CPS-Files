@@ -269,7 +269,7 @@
                     <div class="social">
                         <a href="https://www.facebook.com/Christian.Reyes29" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
                         <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login"  target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
             <!--  
