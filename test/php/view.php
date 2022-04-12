@@ -446,13 +446,13 @@
                                         <label>Skills</label>
                                     </div>
                                     <div class="skills">
-                                        <div><input type="checkbox" name="skills[]" class="p" value="C" <?php echo htmlspecialchars($c); ?>><label for="c"> C</label></div>
-                                        <div><input type="checkbox" name="skills[]" class="p" value="C++" <?php echo htmlspecialchars($cpp); ?>><label for="cpp"> C++</label></div>
-                                        <div><input type="checkbox" name="skills[]" class="p" value="C#" <?php echo htmlspecialchars($csharp); ?>><label for="cs"> C#</label></div>
-                                        <div><input type="checkbox" name="skills[]" class="p" value="Java" <?php echo htmlspecialchars($java); ?>><label for="java"> Java</label></div>
-                                        <div><input type="checkbox" name="skills[]" class="p" value="Python" <?php echo htmlspecialchars($py); ?>><label for="py"> Python</label></div>
-                                        <div><input type="checkbox" name="skills[]" class="p" value="JavaScript" <?php echo htmlspecialchars($js); ?>><label for="js"> JavaScript</label></div>
-                                        <div><input type="checkbox" name="skills[]" class="p" value="Cisco" <?php echo htmlspecialchars($cisco); ?>><label for="cisco"> Cisco</label></div>
+                                        <div><input type="checkbox" name="skills[]" class="p" value="C" id="c" <?php echo htmlspecialchars($c); ?>><label for="c"> C</label></div>
+                                        <div><input type="checkbox" name="skills[]" class="p" value="C++" id="cpp" <?php echo htmlspecialchars($cpp); ?>><label for="cpp"> C++</label></div>
+                                        <div><input type="checkbox" name="skills[]" class="p" value="C#" id="cs" <?php echo htmlspecialchars($csharp); ?>><label for="cs"> C#</label></div>
+                                        <div><input type="checkbox" name="skills[]" class="p" value="Java" id="java" <?php echo htmlspecialchars($java); ?>><label for="java"> Java</label></div>
+                                        <div><input type="checkbox" name="skills[]" class="p" value="Python" id="py" <?php echo htmlspecialchars($py); ?>><label for="py"> Python</label></div>
+                                        <div><input type="checkbox" name="skills[]" class="p" value="JavaScript" id="js" <?php echo htmlspecialchars($js); ?>><label for="js"> JavaScript</label></div>
+                                        <div><input type="checkbox" name="skills[]" class="p" value="Cisco" id="cisco" <?php echo htmlspecialchars($cisco); ?>><label for="cisco"> Cisco</label></div>
                                     </div>
                                 </div>
                             </section>
