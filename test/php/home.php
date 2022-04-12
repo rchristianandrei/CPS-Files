@@ -30,16 +30,7 @@ session_start();
             <h2>Home</h2>
         </section>
 
-        <div class="container">
-            <img src="../images/homepage.png" alt="Snow" style="width:100%;">
-            <div class="centered">
-                <br>
-                <h2 style="color: black; font-weight: 700;">Computer Programming Society</h2><br>
-                <p style="color: black; font-weight: 700;">Computer Programming Society is a non-profit organization in LPU-Laguna that endeavors its members to be highly competent IT/CS students. Computer Programming Society of LPU-Laguna aims to be an excellent organization in the field of computing to all the students of the College of Engineering and Computer Studies.
-                </p><br>
-                <div><button class="contactbutton"><a href="contact.php">Contact Us</a></button></div>
-            </div>
-        </div>
+       
 
         <!-- CPS -->
         <section id="CPSociety">
@@ -48,7 +39,7 @@ session_start();
                 of the upcoming Events will also be here for the CPS members, Officers and Admins to see.</p>
         </section>
 
-        <div class="container">
+        <div class="CPSociety">
             <h2 class="news-title"></h2>
             <div class="row">
                 <div class="column">
