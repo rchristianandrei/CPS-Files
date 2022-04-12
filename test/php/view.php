@@ -382,10 +382,10 @@
                                 <h4>Primary</h4>
                                 <div class="entry">
                                     <label for="">Student ID:</label>
-                                    <?php if($_SESSION['authorization'] != 'admin'): ?>
+                                    <?php if($_SESSION['authorization'] != 'Admin'): ?>
                                     <span class="width"><?php echo htmlspecialchars($data['id']); ?></span>
                                     <?php endif; ?>
-                                    <input class="p width hide" type="text" name="id" id="id" value="<?php echo htmlspecialchars($data['id']); ?>" <?php if($_SESSION['authorization'] != 'admin'){echo 'hidden';} ?>>
+                                    <input class="p width hide" type="text" name="id" id="id" value="<?php echo htmlspecialchars($data['id']); ?>" <?php if($_SESSION['authorization'] != 'Admin'){echo 'hidden';} ?>>
                                     
                                 </div>
                                 <div class="entry">
