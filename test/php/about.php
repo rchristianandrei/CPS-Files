@@ -51,9 +51,9 @@
                     <h4>Isaac Morallo</h4>
                     <p>CPS Adviser</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/izek.blueyes" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
@@ -62,14 +62,9 @@
                     <h4>Mirafe Prospero</h4>
                     <p>CS & IT Program Chair</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
-                        <!--
-                        <a href=""><i class="fa-brands fa-facebook-square fa-2x"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram-square fa-2x"></i></a>
-                        <a href=""><i class = "fa-brands fa-linkedin fa-2x"></i></a>
-                        -->
+                        <a href="https://www.facebook.com/akosifep" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
             </div>
@@ -85,9 +80,9 @@
                     <h4>Bryan Zeos Basco</h4>
                     <p>President</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
@@ -96,9 +91,9 @@
                     <h4>Cloey Angel Chavez</h4>
                     <p>Vice President</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
             </div>
@@ -112,9 +107,9 @@
                     <h4>Diana Marie Orate</h4>
                     <p>Secretary</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
@@ -123,9 +118,9 @@
                     <h4>Christine Angeline Fule</h4>
                     <p>Treasurer</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/Angeline0013" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
                 
@@ -134,9 +129,9 @@
                     <h4>Jan Dale Austria</h4>
                     <p>Auditor</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>      
             </div>
@@ -150,9 +145,9 @@
                     <h4>Daniel Joshua Edres</h4>
                     <p>P.R.O</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
@@ -161,9 +156,9 @@
                     <h4>Denver Reyes</h4>
                     <p>1st Year Representative</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
@@ -172,9 +167,9 @@
                     <h4>Raychal Andriel Luis Yap</h4>
                     <p>2nd Year Representative</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/yapraychal" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
             </div>
@@ -188,9 +183,9 @@
                     <h4>John Loyd Ramos</h4>
                     <p>3rd Year Representative</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
@@ -199,9 +194,9 @@
                     <h4>Denzel Joseph Tolosa</h4>
                     <p>4th Year Representative</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
@@ -210,9 +205,9 @@
                     <h4>Dave Pagkaliwagan</h4>
                     <p>ISR Representative</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
             </div>
@@ -226,55 +221,55 @@
                 <div class="profile"> 
                     <img src="../images/about/teams/Daquioag2.jpg" alt="" class="teamprofi">
                     <h4>Paolo Daquioag</h4>
-                    <p>Member</p>
+                    <p>Developer</p>
                     <div class="social">
                         <a href="https://www.facebook.com/paolo.daquioag.3" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
                 <div class="profile"> 
                     <img src="../images/about/teams/Galang2.jpg" alt="cps logo" class="teamprofi">
                     <h4>Justin Ron Galang</h4>
-                    <p>Member</p>
+                    <p>Developer</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/ronronnnnnnnn" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
                 <div class="profile"> 
                     <img src="../images/about/teams/Arcilllas.jpg" alt="cps logo" class="teamprofi">
                     <h4>Jeah Raizza Arcillas</h4>
-                    <p>Member</p>
+                    <p>Developer</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/jeyaarcillas" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div> 
 
                 <div class="profile"> 
                     <img src="../images/about/teams/Ignacio2.jpg" alt="cps logo" class="teamprofi">
                     <h4>Francis Iñigo Ignacio</h4>
-                    <p>Member</p>
+                    <p>Developer</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/F.Inigo.I01" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
 
                 <div class="profile"> 
                     <img src="../images/about/teams/Reyes2.jpg" alt="cps logo" class="teamprofi">
                     <h4>Christian Andrei Reyes</h4>
-                    <p>Member</p>
+                    <p>Developer</p>
                     <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-f fa-lg"></i></a>
-                        <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                        <a href="https://www.facebook.com/Christian.Reyes29" target="_blank"><i class="fa-brands fa-facebook-f fa-lg"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
+                        <a href="https://www.linkedin.com/login" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     </div>
                 </div>
             <!--  
