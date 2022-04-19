@@ -1,0 +1,105 @@
+.formlayout {
+  display: flex;
+  align-items: center;
+  border: solid #e5e5e5;
+  border-width: 2px;
+  /*border-radius: 20px;*/
+  border-radius: 20px;
+  box-shadow: 0 6px 8px rgba(0,0,0,.1);
+  margin: 100px 20%;
+  padding: 2px;
+}
+
+.contact_photo { /* Photo */
+  width: 45%;
+  height: 775px;
+  max-width: 100%;
+  /*border-radius: 20px;*/
+  border-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  object-fit: cover;
+  margin-left: -1px;
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+.form h2 {
+  margin-top: -5%;
+  text-align: center;
+}
+
+.form input{ /* Input Line */
+  width: calc(100% - 20px);
+  padding: 10px 10px;
+  margin-bottom: -20px;
+  background-color: #f1f1f1;
+  /*background-color: transparent;*/
+  border-bottom: 2px solid #c5c5c5;
+  font-size: 16px;
+  transition: .4s;
+  text-align: left;
+  letter-spacing: 1.5px;
+}
+
+textarea{ /* Message Box */
+  width: 97%;
+  background: inherit;
+  padding: 1px 10px;
+  margin-bottom: -20px;
+  /*background-color: transparent;*/
+  background-color: #f1f1f1;
+  border-width: 2px;
+  border: 2px solid #c5c5c5;
+  font-size: 16px;
+  transition: .4s;
+  letter-spacing: 1px;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+  padding: 1px 0;
+  margin-top: 4%;
+  margin-bottom: -8%;
+}
+
+main div span form div {
+  padding: 20px 10%;
+}
+
+.formlayout form input:focus{
+  border-bottom:2px solid #1a1a1a;
+}
+
+.form input::placeholder { /* Input Text */
+  /*color: #e2e2e2;*/
+  color: #a3a3a3;
+  text-align: left;
+}
+
+.form textarea::placeholder {  /* Message Text Area */
+  /*color: #e2e2e2;*/
+  padding: 5px 0px;
+  color: #a3a3a3;
+  text-align: left;
+}
+
+.formlayout form button { /* Button */
+  width: 97%;
+  padding: 10px 0;
+  border: none;
+  background-color: rgba(60, 100, 177, 1);
+  font-size: 18px;
+  color: #fafafa;
+  border-radius: 0px;
+  cursor: pointer;
+  position: relative;
+  top: 60%;
+  left: 0%;
+  transform: translateY(-40%);
+}
+
+.formlayout form button:hover {
+  background-color: #d6334c;
+}

@@ -1,0 +1,78 @@
+.profile{
+    margin: 120px 5%;
+    border: 3px solid #e5e5e5;
+    border-radius: 25px;
+    padding: 60px;
+    display: grid;
+    gap: 10%;
+    grid-auto-flow: auto;
+    grid-template-columns: 15% 75%;
+    grid-auto-columns: 20%;
+}
+.profilepic{
+    width: 100%;
+    border-radius: 50%;
+    border: 10px solid rgb(60, 100, 177);
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.edit{
+    background-color: rgba(60, 100, 177, 1);
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px;
+    border-style: none;
+    border-radius: 25px;
+}
+.information{
+    margin-top: 25px;
+}
+.flex{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+input{
+    font-size: 20px;
+    text-align: left;
+    width: 100%;
+    border: none;
+}
+.half{
+    font-size: 20px;
+    width: 50%;
+}
+.right{
+    display: flex;
+    justify-content: right;
+}
+.pointer{
+    color: #000;
+    cursor: pointer;
+    padding: 10px;
+    border-style: none;
+    border-radius: 25px;
+    font-size: 15px;
+}
+.hide input{
+    background-color: white;
+    cursor: default;
+}
+.account{
+    margin: 120px 5%;
+    border: 3px solid #e5e5e5;
+    border-radius: 25px;
+    padding: 60px;
+}
+th{
+    border: 1px solid inherit;
+    padding: 15px;
+}
+td{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid inherit;
+    padding: 15px;
+}

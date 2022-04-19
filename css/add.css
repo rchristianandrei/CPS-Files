@@ -1,0 +1,90 @@
+.outer {
+  text-align: center;
+  background: rgb(229, 229, 229);
+  margin: 70px 10%;
+  padding: 20px 0;
+  border-radius: 25px;
+}
+.sub-nav {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+}
+.sub-nav li {
+  display: inline-block;
+  margin: 0px 1%;
+  border: 1px solid transparent;
+  padding: 5px;
+  background: grey;
+  border-radius: 25px;
+}
+.sub-nav a {
+  color: rgb(255, 255, 255);
+}
+.sub-nav li:hover {
+  border: 1px solid rgb(255, 255, 255);
+}
+.grid {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  gap: 0 2%;
+}
+.hide{
+  border-bottom: 2px solid rgb(229, 229, 229);
+}
+@media (max-width: 909px) {
+  .grid {
+    display: block;
+  }
+  .sub-nav,
+  form,
+  input,
+  select,
+  .submit {
+    font-size: 10px;
+  }
+  #title {
+    font-size: 12px;
+  }
+}
+.entry {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 2%;
+}
+.width {
+  width: 50%;
+}
+.select {
+  border: none;
+  width: 50%;
+  text-align: center;
+  background: rgb(229, 229, 229);
+  outline: none;
+}
+.skills,
+.skills div {
+  margin: 10px 0;
+}
+.submit {
+  border: none;
+  background: rgb(74, 116, 223);
+  color: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.buttons{
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10%;
+  height: 25px;
+}
+.buttons i:hover{
+  cursor: pointer;
+  font-size: 25px;
+}
+.single{
+  margin: 10px 20%;
+}
